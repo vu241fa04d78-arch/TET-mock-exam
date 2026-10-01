@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDP Practice Papers</title>
+    <!-- Tailwind CDN kept as optional enhancement; embedded fallback CSS works offline. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #c7c7cc; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+
+        /* Custom Radio Button Styles */
+        input[type="radio"] {
+            accent-color: #4f46e5;
+            width: 1.2rem;
+            height: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Prevent 300ms tap delay on mobile */
+        label, button, input { touch-action: manipulation; }
+
+        /* Modal Animation */
+        .modal-enter { animation: modalFadeIn 0.2s ease-out forwards; }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    \n/* Self-contained Tailwind-compatible fallback. The page works even if the Tailwind CDN is unavailable. */
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#f3f4f6;color:#1e293b}.hidden{display:none!important}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.flex-col{flex-direction:column}.flex-grow{flex-grow:1}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.items-center{align-items:center}.items-start{align-items:flex-start}.justify-between{justify-content:space-between}.justify-center{justify-content:center}.relative{position:relative}.absolute{position:absolute}.fixed{position:fixed}.sticky{position:sticky}.top-0{top:0}.left-0{left:0}.inset-0{inset:0}.min-h-screen{min-height:100vh}.min-w-0{min-width:0}.w-full{width:100%}.w-4{width:1rem}.w-8{width:2rem}.w-10{width:2.5rem}.w-12{width:3rem}.h-1\.5{height:.375rem}.h-2{height:.5rem}.h-4{height:1rem}.h-8{height:2rem}.h-10{height:2.5rem}.h-12{height:3rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-md{max-width:28rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:.25rem}.ml-auto{margin-left:auto}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.pb-4{padding-bottom:1rem}.pb-8{padding-bottom:2rem}.pt-0\.5{padding-top:.125rem}.pt-6{padding-top:1.5rem}.pt-8{padding-top:2rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.rounded{border-radius:.25rem}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.border{border:1px solid #e2e8f0}.border-2{border:2px solid #e2e8f0}.border-b{border-bottom:1px solid #e2e8f0}.border-slate-100{border-color:#f1f5f9}.border-slate-200{border-color:#e2e8f0}.border-indigo-100{border-color:#e0e7ff}.border-emerald-100{border-color:#d1fae5}.border-rose-100{border-color:#ffe4e6}.bg-white{background:#fff}.bg-slate-50{background:#f8fafc}.bg-slate-100{background:#f1f5f9}.bg-slate-200{background:#e2e8f0}.bg-slate-800{background:#1e293b}.bg-slate-900\/60{background:rgba(15,23,42,.6)}.bg-indigo-50{background:#eef2ff}.bg-indigo-100{background:#e0e7ff}.bg-indigo-600{background:#4f46e5}.bg-amber-100{background:#fef3c7}.bg-emerald-50{background:#ecfdf5}.bg-emerald-500{background:#10b981}.bg-rose-50{background:#fff1f2}.bg-rose-100{background:#ffe4e6}.bg-rose-200{background:#fecdd3}.text-white{color:#fff}.text-slate-400{color:#94a3b8}.text-slate-500{color:#64748b}.text-slate-600{color:#475569}.text-slate-700{color:#334155}.text-slate-800{color:#1e293b}.text-slate-900{color:#0f172a}.text-indigo-400{color:#818cf8}.text-indigo-500{color:#6366f1}.text-indigo-600{color:#4f46e5}.text-indigo-700{color:#4338ca}.text-amber-600{color:#d97706}.text-emerald-500{color:#10b981}.text-emerald-700{color:#047857}.text-rose-500{color:#f43f5e}.text-rose-700{color:#be123c}.text-rose-800{color:#9f1239}.text-xs{font-size:.75rem;line-height:1rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-2xl{font-size:1.5rem;line-height:2rem}.font-normal{font-weight:400}.font-medium{font-weight:500}.font-semibold{font-weight:600}.font-bold{font-weight:700}.font-mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.text-center{text-align:center}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.whitespace-nowrap{white-space:nowrap}.uppercase{text-transform:uppercase}.cursor-pointer{cursor:pointer}.overflow-hidden{overflow:hidden}.shadow-sm{box-shadow:0 1px 2px rgba(0,0,0,.05)}.shadow-md{box-shadow:0 4px 6px rgba(0,0,0,.1)}.shadow-xl{box-shadow:0 20px 25px rgba(0,0,0,.1)}.z-50{z-index:50}.z-\[100\]{z-index:100}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.space-y-2>*+*{margin-top:.5rem}.space-y-3>*+*{margin-top:.75rem}.space-y-4>*+*{margin-top:1rem}.space-y-6>*+*{margin-top:1.5rem}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.question-block{transition:box-shadow .2s,border-color .2s}.transition,.transition-all{transition:all .2s ease}.duration-300{transition-duration:.3s}.modal-enter{animation:modalFadeIn .2s ease-out forwards}.backdrop-blur-sm{backdrop-filter:blur(4px)}.order-1{order:1}.order-2{order:2}.no-underline{text-decoration:none}.group:hover .group-hover\:text-indigo-500{color:#6366f1}.hover\:bg-indigo-50:hover{background:#eef2ff}.hover\:bg-indigo-700:hover{background:#4338ca}.hover\:bg-rose-200:hover{background:#fecdd3}.hover\:bg-slate-200:hover{background:#e2e8f0}.hover\:bg-slate-50:hover{background:#f8fafc}.hover\:bg-slate-900:hover{background:#0f172a}.hover\:border-indigo-300:hover{border-color:#a5b4fc}.hover\:text-indigo-600:hover{color:#4f46e5}.border-emerald-500{border-color:#10b981}.ring-1{box-shadow:0 0 0 1px #a7f3d0}.ring-2{box-shadow:0 0 0 2px #a7f3d0}.ring-emerald-200{--tw-ring-color:#a7f3d0}.opacity-70{opacity:.7}.line-through{text-decoration:line-through}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}@keyframes pulse{50%{opacity:.5}}@keyframes modalFadeIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+input[type=radio]{accent-color:#4f46e5;width:1.2rem;height:1.2rem;cursor:pointer}button,label,input{touch-action:manipulation}button{cursor:pointer;border:0}button:disabled{cursor:not-allowed;opacity:.6}
+@media(min-width:640px){.sm\:flex-row{flex-direction:row}.sm\:hidden{display:none!important}.sm\:inline{display:inline}.sm\:auto{width:auto}.sm\:w-auto{width:auto}.sm\:w-5{width:1.25rem}.sm\:w-12{width:3rem}.sm\:w-16{width:4rem}.sm\:h-5{height:1.25rem}.sm\:h-12{height:3rem}.sm\:h-16{height:4rem}.sm\:h-auto{height:auto}.sm\:gap-2{gap:.5rem}.sm\:gap-3{gap:.75rem}.sm\:gap-4{gap:1rem}.sm\:mb-3{margin-bottom:.75rem}.sm\:mb-4{margin-bottom:1rem}.sm\:mb-6{margin-bottom:1.5rem}.sm\:mb-8{margin-bottom:2rem}.sm\:mb-10{margin-bottom:2.5rem}.sm\:ml-2{margin-left:.5rem}.sm\:mt-1{margin-top:.25rem}.sm\:order-1{order:1}.sm\:order-2{order:2}.sm\:p-4{padding:1rem}.sm\:p-6{padding:1.5rem}.sm\:p-8{padding:2rem}.sm\:px-3{padding-left:.75rem;padding-right:.75rem}.sm\:px-4{padding-left:1rem;padding-right:1rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:py-2{padding-top:.5rem;padding-bottom:.5rem}.sm\:py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.sm\:py-3{padding-top:.75rem;padding-bottom:.75rem}.sm\:py-5{padding-top:1.25rem;padding-bottom:1.25rem}.sm\:py-8{padding-top:2rem;padding-bottom:2rem}.sm\:pt-8{padding-top:2rem}.sm\:pt-16{padding-top:4rem}.sm\:space-y-3>*+*{margin-top:.75rem}.sm\:space-y-4>*+*{margin-top:1rem}.sm\:space-y-6>*+*{margin-top:1.5rem}.sm\:text-xs{font-size:.75rem}.sm\:text-sm{font-size:.875rem}.sm\:text-base{font-size:1rem}.sm\:text-lg{font-size:1.125rem}.sm\:text-xl{font-size:1.25rem}.sm\:text-2xl{font-size:1.5rem}.sm\:text-3xl{font-size:1.875rem}.sm\:text-4xl{font-size:2.25rem}}
+@media(min-width:768px){.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+
+/* Mobile-first responsive fixes */
+*,*::before,*::after{box-sizing:border-box}
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+body{margin:0;min-width:0}
+img,video,canvas,svg{max-width:100%;height:auto}
+button,input,textarea,select{max-width:100%;font:inherit}
+.question-block,.question-block *{min-width:0}
+.question-block{width:100%}
+@media (max-width:640px){
+  body{font-size:14px}
+  #menu-view,#exam-view,#results-dashboard{width:100%;max-width:100%;padding-left:10px;padding-right:10px}
+  #menu-view{padding-top:24px}
+  h1{line-height:1.2}
+  .question-block{border-radius:12px}
+  .question-block .px-4,.question-block .sm\:px-6{padding-left:12px!important;padding-right:12px!important}
+  .question-block label{width:100%;display:flex;align-items:flex-start;gap:8px;overflow-wrap:anywhere;word-break:break-word}
+  .question-block label span{min-width:0;overflow-wrap:anywhere}
+  #paper-title{font-size:1.25rem;line-height:1.3}
+  #timer{font-size:.9rem!important;padding-left:8px!important;padding-right:8px!important}
+  button{min-height:44px}
+  .flex{min-width:0}
+  .overflow-hidden{overflow:hidden}
+}
+@media (max-width:380px){
+  #menu-view,#exam-view,#results-dashboard{padding-left:8px;padding-right:8px}
+  .question-block label{font-size:13px}
+  #timer{font-size:.8rem!important}
+}
+</style>
+</head>
+<body class="text-slate-800">
+
+    <!-- MENU VIEW -->
+    <div id="menu-view" class="max-w-3xl mx-auto pt-8 sm:pt-16 px-4">
+        <div class="text-center mb-8 sm:mb-10">
+            <div class="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-indigo-100 text-indigo-600 mb-3 sm:mb-4">
+                <i class="fa-solid fa-book-open text-2xl sm:text-3xl"></i>
+            </div>
+            <h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mb-2 sm:mb-3">T.E.T CDP Question Bank</h1>
+            <p class="text-sm sm:text-lg text-slate-600">Select a paper below. Each paper contains 50 questions.</p>
+        </div>
+        
+        <div class="space-y-3 sm:space-y-4 pb-8">
+            <button onclick="openPaper(1)" class="w-full bg-white hover:bg-indigo-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-700 font-semibold text-lg sm:text-xl py-4 sm:py-5 px-4 sm:px-6 rounded-xl shadow-sm transition-all flex justify-between items-center group">
+                <span class="flex items-center gap-2 sm:gap-3"><i class="fa-regular fa-file-lines text-indigo-400"></i> Paper 1</span>
+                <span class="text-xs sm:text-sm font-normal text-slate-400 group-hover:text-indigo-500">Q 1 - 50 <i class="fa-solid fa-chevron-right ml-1 sm:ml-2"></i></span>
+            </button>
+            <button onclick="openPaper(2)" class="w-full bg-white hover:bg-indigo-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-700 font-semibold text-lg sm:text-xl py-4 sm:py-5 px-4 sm:px-6 rounded-xl shadow-sm transition-all flex justify-between items-center group">
+                <span class="flex items-center gap-2 sm:gap-3"><i class="fa-regular fa-file-lines text-indigo-400"></i> Paper 2</span>
+                <span class="text-xs sm:text-sm font-normal text-slate-400 group-hover:text-indigo-500">Q 51 - 100 <i class="fa-solid fa-chevron-right ml-1 sm:ml-2"></i></span>
+            </button>
+            <button onclick="openPaper(3)" class="w-full bg-white hover:bg-indigo-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-700 font-semibold text-lg sm:text-xl py-4 sm:py-5 px-4 sm:px-6 rounded-xl shadow-sm transition-all flex justify-between items-center group">
+                <span class="flex items-center gap-2 sm:gap-3"><i class="fa-regular fa-file-lines text-indigo-400"></i> Paper 3</span>
+                <span class="text-xs sm:text-sm font-normal text-slate-400 group-hover:text-indigo-500">Q 101 - 150 <i class="fa-solid fa-chevron-right ml-1 sm:ml-2"></i></span>
+            </button>
+            <button onclick="openPaper(4)" class="w-full bg-white hover:bg-indigo-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-700 font-semibold text-lg sm:text-xl py-4 sm:py-5 px-4 sm:px-6 rounded-xl shadow-sm transition-all flex justify-between items-center group">
+                <span class="flex items-center gap-2 sm:gap-3"><i class="fa-regular fa-file-lines text-indigo-400"></i> Paper 4</span>
+                <span class="text-xs sm:text-sm font-normal text-slate-400 group-hover:text-indigo-500">Q 151 - 200 <i class="fa-solid fa-chevron-right ml-1 sm:ml-2"></i></span>
+            </button>
+            <button onclick="openPaper(5)" class="w-full bg-white hover:bg-indigo-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-700 font-semibold text-lg sm:text-xl py-4 sm:py-5 px-4 sm:px-6 rounded-xl shadow-sm transition-all flex justify-between items-center group">
+                <span class="flex items-center gap-2 sm:gap-3"><i class="fa-regular fa-file-lines text-indigo-400"></i> Paper 5</span>
+                <span class="text-xs sm:text-sm font-normal text-slate-400 group-hover:text-indigo-500">Q 201 - 250 <i class="fa-solid fa-chevron-right ml-1 sm:ml-2"></i></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- EXAM VIEW -->
+    <div id="exam-view" class="hidden min-h-screen flex flex-col">
+        
+        <!-- Sticky Header with Timer and Progress -->
+        <div class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+            <div class="max-w-4xl mx-auto px-2 sm:px-4 py-2 sm:py-3 flex justify-between items-center gap-2 sm:gap-4">
+                
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <button onclick="goBack()" class="text-slate-500 hover:text-indigo-600 transition flex items-center justify-center w-8 h-8 sm:w-auto sm:h-auto sm:px-3 sm:py-2 rounded-lg bg-slate-100 hover:bg-indigo-50 flex-shrink-0">
+                        <i class="fa-solid fa-arrow-left"></i> <span class="hidden sm:inline sm:ml-2 font-medium">Back</span>
+                    </button>
+                    <div class="min-w-0">
+                        <h2 id="paper-title" class="font-bold text-sm sm:text-lg text-slate-800 leading-tight truncate">Paper 1</h2>
+                        <div class="text-[10px] sm:text-sm font-medium text-slate-500 whitespace-nowrap" id="progress-text">Answered: 0 / 50</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+                    <!-- Timer -->
+                    <div class="bg-slate-800 text-white px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg font-mono font-bold text-sm sm:text-lg flex items-center gap-1.5 sm:gap-2" id="timer-container">
+                        <i class="fa-regular fa-clock text-slate-400 text-xs sm:text-base"></i>
+                        <span id="timer-display">60:00</span>
+                    </div>
+                    
+                    <button id="submit-btn" onclick="confirmSubmit()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-1.5 px-3 sm:py-2 sm:px-6 rounded-lg shadow-sm transition flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base">
+                        <i class="fa-solid fa-check-double hidden sm:inline"></i> 
+                        <i class="fa-solid fa-check sm:hidden"></i>
+                        <span>Submit</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Progress Bar -->
+            <div class="w-full bg-slate-200 h-1.5">
+                <div id="progress-bar" class="bg-indigo-600 h-1.5 transition-all duration-300" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Results Dashboard (Hidden until submitted) -->
+        <div id="results-dashboard" class="hidden max-w-4xl mx-auto w-full px-3 sm:px-4 pt-6 sm:pt-8 pb-4">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden relative">
+                <div class="absolute top-0 left-0 w-full h-2 bg-emerald-500"></div>
+                <div class="p-4 sm:p-8 text-center">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mb-4 sm:mb-6">Exam Complete!</h2>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+                        <div class="bg-indigo-50 rounded-xl p-3 sm:p-4 border border-indigo-100">
+                            <div class="text-2xl sm:text-3xl font-bold text-indigo-700" id="res-score">0</div>
+                            <div class="text-[10px] sm:text-xs uppercase font-semibold text-indigo-500 mt-1">Total Score</div>
+                        </div>
+                        <div class="bg-emerald-50 rounded-xl p-3 sm:p-4 border border-emerald-100">
+                            <div class="text-2xl sm:text-3xl font-bold text-emerald-700" id="res-correct">0</div>
+                            <div class="text-[10px] sm:text-xs uppercase font-semibold text-emerald-500 mt-1">Correct</div>
+                        </div>
+                        <div class="bg-rose-50 rounded-xl p-3 sm:p-4 border border-rose-100">
+                            <div class="text-2xl sm:text-3xl font-bold text-rose-700" id="res-wrong">0</div>
+                            <div class="text-[10px] sm:text-xs uppercase font-semibold text-rose-500 mt-1">Incorrect</div>
+                        </div>
+                        <div class="bg-slate-100 rounded-xl p-3 sm:p-4 border border-slate-200">
+                            <div class="text-2xl sm:text-3xl font-bold text-slate-600" id="res-skipped">0</div>
+                            <div class="text-[10px] sm:text-xs uppercase font-semibold text-slate-500 mt-1">Skipped</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+                        <button onclick="toggleReviewMode()" id="btn-review-mistakes" class="w-full sm:w-auto bg-rose-100 hover:bg-rose-200 text-rose-800 font-semibold py-3 sm:py-2 px-6 rounded-lg transition flex items-center justify-center gap-2 text-sm sm:text-base">
+                            <i class="fa-solid fa-filter"></i> Review Mistakes Only
+                        </button>
+                        <button onclick="goBack()" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-900 text-white font-semibold py-3 sm:py-2 px-6 rounded-lg transition text-sm sm:text-base">
+                            Back to Menu
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions Container -->
+        <div id="questions-container" class="flex-grow max-w-4xl mx-auto w-full px-3 sm:px-4 py-6 sm:py-8 space-y-4 sm:space-y-6">
+            <!-- Questions will be loaded here -->
+        </div>
+
+    </div>
+
+    <!-- Custom Confirm Modal -->
+    <div id="confirm-modal" class="hidden fixed inset-0 bg-slate-900/60 z-[100] flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl shadow-xl max-w-md w-full p-5 sm:p-6 modal-enter">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xl sm:text-2xl mb-4 mx-auto">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 text-center mb-2">Submit Exam?</h3>
+            <p class="text-sm sm:text-base text-slate-600 text-center mb-6" id="confirm-message">Are you sure you want to submit?</p>
+            
+            <div class="flex flex-col sm:flex-row gap-3">
+                <button onclick="closeModal()" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-3 sm:py-2.5 rounded-lg transition text-sm sm:text-base order-2 sm:order-1">
+                    Keep Checking
+                </button>
+                <button onclick="processSubmission()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 sm:py-2.5 rounded-lg transition shadow-md text-sm sm:text-base order-1 sm:order-2">
+                    Yes, Submit Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Format: [id, English, Hindi, Opt1, Opt2, Opt3, Opt4, Correct_Answer_Number]
+        const questionBank = [
+            [1,"Father of Adolescence....","किशोरावस्था के जनक","Stanley Hall स्टैन्ली हॉल","Thorndike थार्नडाइक","Binet बिने","Rousseau रूसो",1],
+            [2,"Father of Experimental Psychology","प्रयोगात्मक मनोविज्ञान शास्त्र के जनक","Skinner स्किनर","Sigmund Freud सिग्मंड फ्रायड","Wilhelm Wundt विल्हेल्म वुंट","Erikson एरिक्सन",3],
+            [3,"Meaning of words psyche and logos","psyche और logos शब्दों का अर्थ है -","Science, School शास्त्र और पाठशाला","Soul, Knowledge आत्मा और ज्ञान","Behaviour, Nature व्यवहार और स्वभाव","Cognition, Mind संज्ञान और मस्तिष्क",2],
+            [4,"Development is the complex process of integrating different structures and functions, is defined by","विकास विभिन्न संरचनाओं और प्रकार्यों को एकीकृत करनेवाली संक्लिष्ट प्रक्रिया है। यह परिभाषा इनकी है -","Skinner स्किनर","Binet बिने","Erikson एरिक्सन","Anderson आंडर्सन",4],
+            [5,"Development = f (maturation x A). Here A is","विकास = f (परिपक्वता x A). यहाँ A का अर्थ","Learning अधिगम","Attitude अभिवृत्ति","Interest रुचि","Intelligence बुद्धि",1],
+            [6,"Father of Educational Psychology","शिक्षा मनोविज्ञान शाश्त्र के जनक","Aristotle अरस्तु","Thorndike थार्नडाइक","Stanley Hall स्टैन्ली हॉल","Binet बिने",2],
+            [7,"'Gymnasia School' was established by","निम्न में से जिम्नेशिया पाठशाला की स्थापना इन्होंने की -","Plato प्लेटो","Freud फ्रायड","Piaget पियाजे","Thorndike थार्नडाइक",1],
+            [8,"The slogan 'Go back to nature' was given by","प्रकृति की तरफ लौटे नारा देनेवाले हैं -","Thorndike थार्नडाइक","Rousseau रूसो","Stanley Hall स्टैन्ली हॉल","Froebel फ्रोबेल",2],
+            [9,"This is incorrect related to growth","अभिवृद्धि से यह संबंधित नहीं है","Narrow Concept संकुचित अवधारणा","Quantitative परिमाणात्मक","Lifelong process आजीवन प्रक्रिया","Measured accurately सटीक मापन",3],
+            [10,"The sequence of Crawling → Sitting → Standing → Walking follows in all individuals. This principle of development is","रेंगना बैठना खड़ा होना चलना। यह क्रम सभी लोगों में एक जैसा होता है। यह विकास सिद्धांत है -","Development is continuous विकास निरंतरशील है।","Development is predictable विकास की भविष्यवाणी कर सकते हैं।","Principle of Uniform Pattern एकरूपता का सिद्धांत","Principle of Proximodistal development निकट - दूरस्थ सिद्धांत",3],
+            [11,"A physically challenged child shows aggressive behaviour in some emotions. This principle of development is","एक दिव्यांग बालक कुछ संवेगों में हमलावर व्यवहार करता है। यह इस विकास सिद्धांत के अनुसार है -","Development is continuous विकास निरंतरशील है।","Different aspects of development are interrelated विभिन्न विकास आपस में संबंधित होते हैं।","Development is cumulative विकास संचित है।","Development is predictable विकास की भविष्यवाणी कर सकते हैं।",2],
+            [12,"We see that an infant uses his shoulders and elbows first to reach an object and then uses his wrists and fingers. This principle of development is","शिशु को किसी चीज को पकड़ने के लिए पहले भुजाएँ, बाद में कुहनी का उपयोग करने के बाद अपनी कलाई का ऊंगलियों का उपयोग करता है। यह इस प्रकार का विकास सिद्धांत है -","Development is continuous विकास निरंतरशील है।","Development is cumulative विकास संचित है।","Principle of Cephalocaudal development शिरो पादाभिमुख विकास है।","Principle of Proximodistal development निकट - दूरस्थ सिद्धांत",4],
+            [13,"Growth is rapid during infancy and childhood. Later it becomes slower. In adolescence it is rapid again. This principle of development is","शैशवास्था और बाल्यावस्था में विकास की गति अधिक होकर बाद में धीमी पडकर किशोरावस्था में फिर गति को प्राप्त करेगी। यह इस प्रकार का विकास सिद्धांत है -","Principle of Predictability विकास की भविष्यवाणी कर सकते हैं।","Principle of Non-Uniform Pattern विकास सभी अवस्थाओं में एक जैसा नहीं होता है।","Principle of Cephalocaudal development शिरो-पादाभिमुख विकास सिद्धांत","Principle of Cumulative development विकास संचित सिद्धांत",2],
+            [14,"A girl who is singing very well in her childhood is appreciated and blessed to become a good singer in future by her teacher. This principle of development is","अपनी बाल्यावस्था में मधुर गानेवाली बच्ची, अपने अध्यापक के द्वारा प्रशंसा पाकर भविष्य में एक अच्छी गायिका बनने का आशीर्वाद पायी है। यह इस प्रकार के विकास का सिद्धांत है -","Development is cumulative विकास संचित है।","Development is continuous विकास निरंतरशील है।","Development is predictable विकास की भविष्यवाणी कर सकते हैं।","Principle of Proxima distal development निकट - दूरस्थ सिद्धांत",3],
+            [15,"A mother is feeling bad finding her 1 year old son not being able to walk properly while her neighbour's 10months old boy is good at walking. This principle of development is","एक वर्ष की आयुवाले बच्चे की माँ इसी चिंता में दुःखी है कि उसके पड़ोसिन का बच्चा 10 वें महीने में ही चल पा रहा है, लेकिन अपना बच्चा अब तक नहीं। यह विकास के इस सिद्धांत से जुडा है।","Development is cumulative विकास संचित है।","Development is continuous विकास निरंतरशील है।","Development is predictable विकास की भविष्यवाणी कर सकते हैं।","Development has individual differences विकास में वैयक्तिक भेद होते हैं।",4],
+            [16,"Development starts from the central part of the body. Then it spreads to outer parts of the body. This principle of development is","विकास की प्रक्रिया सबसे पहले शरीर के मध्य भागों में प्रारंभ होकर बाद में बाहर के अंगों तक फैलती है। यह विकास का कौन - सा सिद्धांत है ?","Development is predictable विकास की भविष्यवाणी कर सकते हैं।","Development is cumulative विकास संचित है।","Principle of Cephalocaudal development शिरो पादाभिमुख विकास सिद्धांत","Principle of Proximodistal development निकट - दूरस्थ सि‌द्धांत",4],
+            [17,"A child starts crawling at 5 months while another child starts at 7 months. This principle of development is","एक शिशु ने अपने पाँचवें महीने में रेंगना शुरू किया तो और एक शिशु अपने सातवें महीने में। यह इस विकास सिद्धांत से संबंधित है -","Development is cumulative विकास संचित है।","Development is continuous विकास निरंतरशील है।","Development is predictable विकास की भविष्यवाणी कर सकते हैं।","Development has individual differences विकास में वैयक्तिक भेद होते हैं।",4],
+            [18,"A girl who is good at emotional development is also good at social relations. This principle of development is","जिस लड़की का संवेगात्मक विकास उत्तम होता है, उसके सामाजिक संबंध भी उत्तम होते हैं। यह इस विकास के सिद्धांत से संबंधित है -","Development is continuous विकास निरंतरशील है।","Development is predictable विकास की भविष्यवाणी कर सकते हैं।","Development is cumulative विकास संचित है।","Different aspects of development are interrelated विभिन्न प्रकार के विकास पारस्परिक संबंधों में जुड़े होते हैं।",4],
+            [19,"The word 'Pubertas' means","प्यूबरटास का अर्थ है -","Age of manhood पुंसत्व की आयु","Age of childhood बाल्यावस्था की आयु","Age of play खेलने की आयु","Age of questioning प्रश्न करने की आयु",1],
+            [20,"This stage is called as 'Period of Overlapping'","इस अवस्था को अति व्याप्त अवस्था कहते हैं","Pre-natal stage जनन पूर्व अवस्था","Infancy नवजात शिशु अवस्था","Adulthood प्रौढावस्था","Puberty यौनारंभ अवस्था",4],
+            [21,"This is not the related to Neonatal stage","निम्न में से यह नवजात शिशु की अवस्था से संबंधित नहीं है","Period of first two weeks of child शिशु के प्रथम दो सप्ताहों का समय","It lasts up to the detachment of umbilical cord. शिशु की नाभि रज्जू अलग हो जाने तक इस अवस्था में रहता है।","Takes 14 to 17 hours a day for sleeping. सोने का समय दिन में 14 से 17 घंटों तक रहता है।","Language development is very high at this stage. इस दशा में भाषा का अधिक विकास होता है।",4],
+            [22,"This is not the characteristic of Infancy","निम्न में से यह शैशव अवस्था से संबंधित नहीं है -","Period from 2 weeks to 2 years दो सप्ताहों से लेकर दो वर्षों का समय","The age of questioning प्रश्न करने की आयु","Period of rapid growth and development इस समय अभिवृ‌द्धि और विकास अधिक होता है।","First pair of milk teeth arises at this stage दूध के दाँतों की पहली जोड़ी इसी अवस्था में निकलती हैं।",2],
+            [23,"The word 'Puberty' is derived from this language","'Puberty' शब्द इस भाषा से उत्पन्न है।","Urdu उर्दू","Kannada कन्नड़","Tamil तमिल","Latin लैटिन",4],
+            [24,"This is the characteristic of Adulthood","निम्न में से प्रौढावस्था की विशेषता है।","Called as Gang age गिरोह व टोली दशा","Increased responsibilities of life's activities इस दशा में जीवन संबंधी क्रियाकलापों का दायित्व बढता है।","Period of rapid growth and development अभिवृद्धि एवं विकास तीव्र गति में होता है।","Takes 15 to 20 hours a day for sleeping सोने के लिए 15 से 20 घंटे लगते हैं।",2],
+            [25,"Zygote is","जैगोट एक","Ending of the life जीवन का अंत","Beginning of the life जीवन का आरंभ","Middle stage of the life जीवन की मध्य दशा","Stage of maturity परिपक्वता की दशा",2],
+            [26,"Secondary sexual characters are seen at this stage","गौण लैंगिक गुण इस अवस्था में दिखाई देते हैं -","Infancy नवजात शिशु अवस्था","Early childhood पूर्व बाल्यावस्था","Puberty यौनारंभ अवस्था","Adulthood प्रौढावस्था",3],
+            [27,"In human beings, nine months gestation period inside mother's womb is called","मानव के मात्रुगर्भ में नौ महीने तक भ्रूण के रहने की अवधि का नाम है -","Pre-natal period जनन पूर्व अवस्था","Neonatal stage नवजात शिशु अवस्था","Early childhood पूर्व बाल्यावस्था","Adolescence किशोरावस्था",1],
+            [28,"The process by which the individual knows himself and the environment is","व्यक्ति अपने बारे में और परिवेश के बारे में जानने की प्रक्रिया है -","Attitude अभिवृत्ति","Cognition संज्ञानात्मकता","Learning अधिगम","Personality व्यक्तित्व",2],
+            [29,"Understanding new situations is","नई परिस्थितियों को समझना है -","Incorporation संश्लेषण / समावेशन","Learning अधिगम","Interest रुचि","Motivation प्रेरणा",1],
+            [30,"Piaget's Cognitive Development stage from birth to 2 years","पियाजे के संज्ञानात्मक विकास के अनुसार जन्म से लेकर दो वर्ष की आयु तक की अवस्था","Sensory Motor Stage इन्द्रिय चालक दशा","Pre - Operational Stage पूर्व प्रचालक दशा","Concrete - Operational Stage मूर्त प्रचालक दशा","Formal Operational Stage अमूर्त प्रचालक दशा",1],
+            [31,"Piaget's Cognitive Development stage from 2 years to 7 years is","पियाजे के संज्ञानात्मक विकास के अनुसार दो वर्ष की आयु से लेकर सात वर्ष की आयु तक की अवस्था -","Sensory Motor Stage इन्द्रिय चालक अवस्था","Pre - Operational Stage पूर्व प्रचालक अवस्था","Concrete Operational Stage मूर्त प्रचालक अवस्था","Formal Operational Stage अमूर्त प्रचालक अवस्था",2],
+            [32,"Piaget's Cognitive Development stage from 7 years to 11 years is","पियाजे के संज्ञानात्मक विकास के अनुसार 7 वर्ष की आयु से लेकर 11 वर्ष की आयु तक की अवस्था","Sensory Motor Stage इन्द्रिय चालक अवस्था","Pre - Operational Stage पूर्व प्रचालक अवस्था","Concrete - Operational Stage मूर्त प्रचालक अवस्था","Formal Operational Stage अमूर्त प्रचालक अवस्था",3],
+            [33,"Piaget's Cognitive Development stage from 11 years to 15 or 16 years is","पियाजे के संज्ञानात्मक विकास के अनुसार 11 वर्ष की आयु से लेकर 15 या 16 वर्ष की आयु तक की अवस्था","Sensory Motor Stage इन्द्रिय चालक अवस्था","Pre - Operational Stage पूर्व प्रचालक अवस्था","Concrete - Operational Stage मूर्त प्रचालक अवस्था","Formal Operational Stage अमूर्त प्रचालक अवस्था",4],
+            [34,"At this stage of Piaget's Cognitive Development stages, the child develops problem solving ability","पियाजे के संज्ञानात्मक विकास की अवस्थाओं में से इस अवस्था में बालक समस्या के हल करने में कुशल बनेगा -","Sensory Motor Stage इन्द्रिय चालक अवस्था","Pre - Operational Stage पूर्व प्रचालक अवस्था","Concrete - Operational Stage मूर्त प्रचालक अवस्था","Formal Operational Stage अमूर्त प्रचालक अवस्था",4],
+            [35,"At this stage of Piaget's Cognitive Development stages, We can observe the concepts like Classification, Analysis and Preservation","पियाजे के संज्ञानात्मक विकास की अवस्थाओं में से इस अवस्था में हम वर्गीकरण, विश्लेषण, संरक्षण आदि भावनाएँ पाते हैं-","Sensory Motor Stage इन्द्रिय चालक अवस्था","Pre - Operational Stage पूर्व प्रचालक अवस्था","Concrete - Operational Stage मूर्त प्रचालक अवस्था","Formal Operational Stage अमूर्त प्रचालक अवस्था",3],
+            [36,"At this stage of Piaget's Cognitive Development stages, We can see higher levels of Ego centrism in child","पियाजे के संज्ञानात्मक विकास की अवस्थाओं में से इस अवस्था में बालक में अहं केंद्रित भावना अधिक दिखाई देती है","Sensory Motor Stage इन्द्रिय चालक अवस्था","Pre - Operational Stage पूर्व प्रचालक अवस्था","Concrete - Operational Stage मूर्त प्रचालक अवस्था","Formal Operational Stage अमूर्त प्रचालक अवस्था",1],
+            [37,"The Psycho Social crisis faced by a child at the stage of Babyhood according to Erik Erikson is","एरिक एरिक्सन के अनुसार शैशवोत्तर अवस्था में बालक इस मनोसामाजिक संक्लिष्ट स्थिति का सामना करता है -","Initiative Guilt पहल करना अपराध की भावना","Autonomy - Doubt स्वाधिपत्य - संशय","Generativity - Stagnation उत्पादन - स्तब्ता","Integrity - Despair समग्रता निराशा",2],
+            [38,"The Psycho Social crisis faced by an individual at the stage of Adolescence according to Erik Erikson is","एरिक एरिक्सन के अनुसार किशोरावस्था में बालक इस मनोसामाजिक संक्लिष्ट स्थिति का सामना करता है -","Role Identity - Role Confusion पात्र की पहचान पात्र की संदिग्धता","Intimacy - Isolation एकांत घनिष्टता","Autonomy - Doubt स्वयत्तता - संशय","Integrity - Despair समग्रता - निराशा",1],
+            [39,"The Psycho Social crisis faced by a child at the age of first year according to Erik Erikson is","एरिक एरिक्सन के अनुसार पहले वर्ष का बालक इस मनोसामाजिक संक्लिष्ट स्थिति का सामना करता है -","Autonomy - Doubt स्वयत्तता - संशय","Trust Mistrust विश्वास - अविश्वास","Intimacy - Isolation घनिष्टता - एकांत","Integrity - Despair समग्रता - निराशा",2],
+            [40,"The Psycho Social crisis faced by a child at the stage of School Age according to Erik Erikson is","एरिक एरिक्सन के अनुसार पाठशालावस्था के बालक इस मनोसामाजिक संक्लिष्ट स्थिति का सामना करता है -","Generativity - Stagnation उत्पादन स्तब्दता","Initiative Guilt पहल करना अपराध की भावना","Industry - Inferiority श्रम करना - न्यूनता","Integrity - Despair समग्रता - निराशा",3],
+            [41,"The Psycho Social crisis faced by an individual at the stage of Middle Adulthood according to Erik Erikson is","एरिक एरिक्सन के अनुसार मध्य प्रौढावस्था का व्यक्ति इस मनोसामाजिक संक्लिष्ट स्थिति का सामना करता है -","Trust-Mistrust विश्वास - अविश्वास","Industry - Inferiority श्रम करना - न्यूनता","Intimacy - Isolation घनिष्टता - एकांत","Generativity - Stagnation उत्पादन स्तब्दता",4],
+            [42,"Identify the correctly matched pair related to Erikson's Psycho Social Developmental Stage/s A: Infancy → Trust-Mistrust, B: Babyhood → Industry-Inferiority","एरिक्सन मनोसामाजिक विकास सिद्धांत के बारे में सही जोड़ियाँ हैं A: पूर्व शैशवावस्था → विश्वास अविश्वास, B: शैशवोत्तर अवस्था श्रम करना न्यूनता","Only A is Correct केवल A सही","Only B is Correct केवल B सही","Both A, B are Correct A और B दोनों सही","Both A, B are Incorrect A और B दोनों सही नहीं",1],
+            [43,"Correctly matched pair related to Erikson's Psycho Social Developmental Stage/s A: Adolescence → Role Identity-Role Confusion, B: School Age → Industry-Inferiority","एरिक्सन मनो सामाजिक विकास सि‌द्धांत के बारे में सही जोड़ियाँ हैं- A: किशोरावस्था पात्र की पहचान पात्र की संदिग्धता, B: पाठशाला अवस्था श्रम करना न्यूता","Only A is Correct केवल A सही","Only B is Correct केवल B सही","Both A, B are Correct A और B दोनों सही","Both A, B are Incorrect A और B दोनों सही नहीं",3],
+            [44,"The age group of people face Psycho Social Crisis, 'Integrity - Despair', according to Erikson (in years)","एरिक एरिक्सन के अनुसार इस आयु के व्यक्ति' समग्रता निराशा' नामक मनो सामाजिक संकलिष्ट स्थिति का सामना करते हैं-","12-20","20-30","30-60","> 60",4],
+            [45,"This age group of people face the Psycho Social Crisis, Isolation, according to Erikson (in years)","एरिक्सन के अनुसार इस आयु के व्यक्ति' एकांत मनो सामाजिक संकलिष्ट स्थिति का सामना करते हैं -","3-5","6-12","12-20","20-30",4],
+            [46,"The stage of Moral Development that belongs to Level -1 of Pre conventional Morality in Kohlberg's theory","कोहलबर्ग सिद्धांत के नैतिक विकास की दशाओं में पहली स्थायी - पूर्व पारंपरिक स्थाई इस अवस्था से संबंधित है -","Punishment - Obedience दंड - विधेय नीति","Good Boy - Good Girl अच्छा बालक अच्छी बालिका नीति","Law and Order - क़ानून व व्यस्था","Universal Ethical Principle सार्वभौमिक नैतिक सिद्धांत",1],
+            [47,"According to Kohlberg, at this stage people develop a sense of guilt if they fail to obey the universal principles.","कोहलबर्ग के अनुसार सार्वभौमिक सूत्रों को अमल करने में ये व्यक्ति अगर विफल हो तो अपने अपराध की भावना बढाते हैं -","Stage 2 अवस्था 2","Stage 4 अवस्था 4","Stage 6 अवस्था 6","Stage 8 अवस्था 8",3],
+            [48,"Expand EQ in the context of Emotional Intelligence.","संवेगात्मक बु‌‌द्धि के संबंध में EQ का विस्तरण कीजिए ।","Educational Quotient","Emotional Quotient","Emotional Question","Evaluation Question",2],
+            [49,"This is not a characteristic of Emotional Intelligence","यह संवेगात्मक बुद्धि का लक्षण नहीं -","Knowing our own emotions अपने संवेगों को जानना","Managing one's emotions अपने संवेगों को नियंत्रित करना","Handling relationships संबंधो को संभालना","Doesn't recognize emotions of others दूसरों के संवेगों को न पहचानना",4],
+            [50,"The emotion that is developed from the instinct 'Escape' is","यह संवेग पलायन नामक मूलप्रवृत्ति से विकसित होता है -","Love प्रेम","Fear भय","Wonder आश्चर्य","Unity एकता",2],
+            
+            [51,"The emotion that is developed from the instinct 'parental care' is","माँ बाप का संरक्षण मूल प्रवृत्ति से उत्पन्न संवेग है -","Fear भय","Anger क्रोध","Love प्रेम","Excitement उत्तेज",3],
+            [52,"The emotion that is developed from the instinct 'Disturb' is","भंग करना मूल प्रवृत्ति से उत्पन्न संवेग है","Love प्रेम","Anger क्रोध","Wonder आश्चर्य","Unity एकता",2],
+            [53,"Emotion is derived from the word of this language","'एमोशन 'शब्द इस भाषा से उत्पन्न हुआ है -","Telugu तेलुगु","Hindi हिंदी","Tamil तमिल","Latin लैटिन",4],
+            [54,"This is not a positive emotion","यह सकारात्मक संवेग नहीं है -","Affection वात्सल्य","Creativity सुजनात्मकता","Happiness आनंद","Anger क्रोध",4],
+            [55,"A girl is playing alone by imitating her cousin, who is playing beside her. This type of play is","एक लड़की अपनी चचेरी बहन के खेल का अनुकरण करते हुए अकेली खेल रही है। यह इस प्रकार का खेल है -","Solitary Play एकांत खेल","Parallel Play समानांतर खेल","Perpendicular Play- लंबवत खेल","Social Play सामाजिक खेल",2],
+            [56,"Socially matured children participate in this type of play.","सामाजिक परिपक्व बच्चे इस प्रकार के खोलों में भाग लेते हैं-","Solitary Play एकांत खेल","Parallel Play समानांतर खेल","Perpendicular Play- लंबवत खेल","Co-Operative Play - सहयोगात्मक खेल",4],
+            [57,"This is not a characteristic of a person with social development during adolescence.","किशोरावस्था में सामाजिक विकास वाले व्यक्ति का यह लक्षण नहीं है -","Sexual Consciousness लैंगिक चेतना","Social Consciousness सामाजिक चेतना","Group Loyalty समूह निष्ठा","Lack of interest in Social Service सामाजिक सेवा के प्रति रुचि न दिखाना",4],
+            [58,"Characteristic of a person with social development during adolescence is","किशोरावस्था में सामाजिक विकास वाले व्यक्ति का लक्षण है","Lack of Social Consciousness सामाजिक चेतना न होना","Group Loyalty समूह निष्ठा","Lack of interest in Social Service सामाजिक सेवा के प्रति रुचि न होना","Lack of Sexual Consciousness लैंगिक चेतना न होना",2],
+            [59,"Sexual Cleavage means","• लैंगिक विखंडन' (Sexual Cleavage) का अर्थ है","Boys and Girls play together लडके - लड़कियाँ मिलकर खेलना","Boys and Girls reject to play together लडके लड़कियाँ मिलकर खेलने से मना करना","Boys liking their mother लडके माँ को पसंद करना","Girls liking their father लड़कियाँ पिता को पसंद करना",2],
+            [60,"Correct option is सही विकल्प पहचानिए - A: Mass Media plays an important role in socialization of an individual, B: Peer Groups play a key role in socialization","A: व्यक्ति के सामाजीकरण में प्रसार प्रचार माध्यमों की प्रमुख भूमिका होती है - B: सामाजीकरण में समवयस्क समूहों की मुख्य भूमिका होती है -","Only A is correct केवल A सही है","Only B is correct केवल B सही है","Both A & B are correct A और B दोनों सही हैं","Both A & B are incorrect A और B दोनों सही नहीं हैं",3],
+            [61,"Correct option is सही विकल्प पहचानिए - A: Social Organizations can influence the socialization, B: Exposures in neighbourhood mould the social personality","A: सामाजिक संस्थाएँ सामाजीकरण को प्रभावित करते हैं । B: पड़ोस-पड़ोस के लोगों से मिलनसार रहने से सामाजिक व्यक्तित्व का निर्माण होता है","Only A is correct केवल A सही है","Only B is correct केवल B सही है","Both A & B are correct A और B दोनों सही हैं","Both A & B are incorrect A और B दोनों सही नहीं हैं",3],
+            [62,"This play a role in Socialization: A) Family, B) School, C) Religion","सामाजीकरण में इसकी भूमिका है. A) परिवार, B) पाठशाला, C) धर्म","Only A is correct केवल A सही है","Only B is correct केवल B सही है","Only C is correct केवल C सही है","A, B, C all are correct A, B, C तीनों सही हैं",4],
+            [63,"Socially matured person shows good relations with A) Family, B) Friends, C) Neighbours","सामाजिक परिपक्वता वाला व्यक्ति इनके साथ अच्छे संबंध बनाए रखता है - A) परिवार, B) मित्र, C) पड़ोस -पड़ोस","Only A is correct केवल A सही है","Only B is correct केवल B सही है","Only C is correct केवल C सही है","A, B, C all are correct A, B, C तीनों सही हैं",4],
+            [64,"'Developmental Psychology: A Life Span Approach' book was written by","'Developmental Psychology: A Life Span Approach' पुस्तक के लेखक","Elizabeth Hurlock एलिज्बेत हर्लाक","B.F. Skinner बियफ स्किनर","Francis Galton फ्रान्सिस गाल्टन","Thorndike थार्नडाइक",1],
+            [65,"According to Elizabeth Hurlock, this is not a social group during the stage of Adolescence.","एलिजबेथ हर्लाक के अनुसार ये किशोरावस्था में सामाजिक समूह नहीं है -","Crowds भीड़","Gangs गिरोह","Close Friends घनिष्ठ मित्र","Old Friends पुराने मित्र",4],
+            [66,"According to Stone and Brown, incorrectly paired crowd is","स्टोन एवं ब्राउन के अनुसार ये युग्म सही जोड़ी नहीं है -","Brains: Give more importance to Academics ब्रेइन्सः पढ़ाई के लिए प्राथमिकता देते हैं","Jacks: Participate in Games जाक्स : खेलों में भाग लेते हैं","Populars: Leaders in Classroom पापुलर्स : कक्षा नेता के रूप में रहते हैं","Partyers: Give more importance to Exams पार्टियार्स : परीक्षाओं को अधिक महत्व देते हैं",4],
+            [67,"'Dictionary of Psychology' was written by","'Dictionary of Psychology' के लेखक","Chaplin चाप्लिन","Skinner स्किनर","Weshler वेश्लर","Morgan मोर्गान",1],
+            [68,"This is not correct activity to improve leadership characteristics in Adolescents","किशोरों में नेतृत्व लक्षणों को विकसित करने के लिए यह उचित गतिविधि नहीं है -","Join the students in NCC छात्रों को NCC में भर्ती कराना","Training the students to develop life skills जीवन कौशलों को विकसित करने के लिए छात्रों को प्रशिक्षण देना","To make participate in school programs पाठशाला के कार्यक्रमों भाग लेने ले लिए प्रोत्साहित करना","To make participate in illegal activities अवैध गतिविधियों में भाग लेने के लिए प्रोत्साहित करना",4],
+            [69,"In this type of leadership, decisions are taken by the leaders by themselves.","इस प्रकार के नेतृत्व में केवल नेता ही निर्णय लेते हैं -","Authoritarian तानाशाही ( निरंकुश )","Democratic लोकतांत्रिक","Laissez-Faire हस्तक्षेप रहित","Friendly स्नेह पूर्वक",1],
+            [70,"This is not a special characteristic of Adolescents","यह किशोरों की विशेषता नहीं है -","Peer group relationship समवयस्कों से संबंध","Aspiring for Leadership नेतृत्व करने की इच्छा","No need of Independence स्वतंत्रता की आवश्यकता न होना","Firm Self Consciousness प्रबल स्वचेतना",3],
+            [71,"The group behaviour of Adolescents is seen in the following activities. A: Fun and joy through activities like singing, dancing etc. B: Indulging in destructive activities like strikes, protests etc.","किशोरों के समूह के प्रति व्यवहार को निम्न गतिविधियों में देखा जा सकते हैं। A : मजा और आनंद प्रदान करनेवाले गीत गाना, नृत्य करना जैसे कार्यक्रमों में भाग लेना B: हडताल, विरोध प्रदर्शन जैसे विध्वंसपूर्ण गतिविधियों में भाग लेना","Only A is correct केवल A सही है","Only B is correct केवल B सही है","Both A & B are correct A और B दोनों सही हैं","Both A & B are incorrect A और B दोनों गलत हैं",3],
+            [72,"The following life skills are to be taught to adolescents: A) Problem Solving, B) Creative Thinking, C) Empathy","निम्न जीवन कौशल किशोरों को सिखाना चाहिए A) समस्या समाधान B) सृजनात्मक सोच C) समानुभूति","Only A is correct केवल A सही है","Only B is correct केवल B सही है","Only C is correct केवल C सही है","A, B, C all are correct A, B, C तीनों सही",4],
+            [73,"A person's chronological age and mental ages are equal. Then his IQ is","एक व्यक्ति का शारीरिक, मानसिक आयु समान हो तो उसकी बुद्धि लब्धि है -","100","200","250","150",1],
+            [74,"The competency required for a person for purposive behaviourism, rational thinking, moulding the environment according to his needs is","उद्देश्यपूर्ण से व्यवहार करना, हेतुबद्ध चिंतन करने को आवश्यकताओं के अनुरूप परिसरों को अनुकूलन बनाने की क्षमता है -","Personality व्यक्तित्व","Reinforcement पुनर्बलन","Interest अभिरूचि","Intelligence बु‌द्धि",4],
+            [75,"This is not the type of intelligence according to Thorndike","थार्नडाइक के अनुसार यह बु‌द्धि का प्रकार नहीं -","Abstract intelligence अमूर्त बुद्धि","Mechanical Intelligence यांत्रिक बुद्धि","Social intelligence सामाजिक बुद्धि","Environmental Intelligence पर्यावरणीय बुद्धि",4],
+            [76,"The intelligence useful to understand surroundings","आस - पास के परिसरों को समझने के लिए उपयुक्त बुद्धि","Abstract Intelligence अमूर्त बु‌द्धि","Mechanical Intelligence यांत्रिक बु‌द्धि","Mathematical Intelligence गणितीय बु‌द्धि","Social Intelligence सामाजिक बु‌द्धि",4],
+            [77,"The internal energy that can see the interrelations in an individual is","एक व्यक्ति के भीतर पारस्परिक संबंधों को देख सकने वाले अन्तर्निहित शक्ति -","Personality व्यक्तित्व","Habit आदत","Frustration कुंठा","Intelligence बु‌द्धि",4],
+            [78,"The ability of learning by understanding the relations is","संबंधों को समझकर सीखने की क्षमता है -","Reinforcement पुनर्बलन","Habit आदत","Personality व्यक्तित्व","Intelligence बुद्धि",4],
+            [79,"The reason for the backwardness or high achievement among children in their curricular aspects of education is","पाठ्यचर्या संबंधी अंशों में छात्रों की पिछडापन व उत्तम प्रतिभा का कारण यह है -","Conditioning अनुबंधन","Intelligence बुद्धि","Personality व्यक्तित्व","Skills कौशल",2],
+            [80,"IQ means","IQ का अर्थ","Intelligence Questionnaire","Intelligence Quotient","Interrelated Questionnaire","Integrated Quotient",2],
+            [81,"The ability to adjust and face a new situation quickly and effectively is","नई परिस्थितियों में शीघ्रता से अनुकूलन करने व प्रभावपूर्वक सामना करने की क्षमता","Personality व्यक्तित्व","Intelligence बुद्धि","Learning अधिगम","Interest अभिरुचि",2],
+            [82,"Politicians, Sales representatives, Psychological counsellors and teachers usually possess strong","राजनैतिक नेता, सेल्स रेप्रजेंटेट्विस, मानसिक परामर्श दाता और शिक्षकों में इस प्रकार की बु‌द्धि प्रबल पाई जाती है -","Inter - Personal Intelligence अंतर वैयक्तिक बुद्धि","Intra Personal Intelligence अंतः वैयक्तिक बुद्धि","Spatial Intelligence स्थानीय बुद्धि","Musical Intelligence संगीतात्मक बु‌द्धि",1],
+            [83,"People with high intra personal intelligence are referred as","अंतः वैयक्तिक जिन में अधिक है, वे हैं -","Social smart सामाजिक कुशल","Self Smart स्व कुशल","Nature Smart प्राकृतिक कुशल","Word Smart शाब्दिक कुशल",2],
+            [84,"Biologists, Environmentalists and Farmers demonstrate a higher degree of","जीव वैज्ञानिक, पर्यावरण वैज्ञानिक और किसान इस प्रकार की बुद्धि को प्रदर्शित करते हैं -","Spatial Intelligence स्थानीय बुद्धि","Naturalistic Intelligence प्रकृति संबंधी बु‌द्धि","Linguistic Intelligence भाषाई बुद्धि","Intra Personal Intelligence अंतः वैयक्तिक बुद्धि",2],
+            [85,"Carnatic musicians have this type of Intelligence","कर्नाटक संगीतकारों में इस प्रकार की बु‌द्धि पायी जाती है","Spatial Intelligence स्थानीय बुद्धि","Bodily - Kinaesthetic Intelligence शारीरिक - स्पर्शात्मक बुद्धि","Mathematical - Logical Intelligence गणित - तार्किक बु‌द्धि","Musical Intelligence संगीतातमक बुद्धि",4],
+            [86,"Incorrect pair related to theories of Intelligence and their proponents","बुद्धि सिद्धांत और उनके प्रतिपादकों के संबंध में यह जोड़ी सही नहीं है -","Multiple Intelligence Theory - Howard Gardner बहु बु‌द्धि सिद्धांत - होवार्ड","Multi Factor Theory of Intelligence - Jean Piaget बहुकारक सिद्धांत - जीन पियाजे","Group Factor Theory of Intelligence -LL Thurston समूह कारक बु‌द्धि सिद्धांत यल यल. थर्स्टन","A Structure of Intellect Model Theory-Guilford बुद्धि संरचना नमूना सिद्धांत - गिल्फोर्ड",2],
+            [87,"According to Carl Spearman, the factor that is useful in doing specific deeds is","कार्ल स्पियर्मेनके अनुसार 'व्यक्ति एक विशेष कार्य करने के लिए उपयोग करने का कारक'","General Factor सामान्य कारक","Group Factor समूह कारक","Specific Factor विशिष्ट कारक","Primary Factor प्राथमिक कारक",3],
+            [88,"This is a traditional intelligence theory","यह परंपरागत सिद्धांत है -","Theory of Multiple intelligence बहुबुद्धि सिद्धांत","Multi Factor Theory of Intelligence बहुकारक बुद्धि सिद्धांत","Group Factor Theory of Intelligence समूह कारक बुद्धि कारक","Uni Factor Theory of Intelligence एकल कारक सिद्धांत",4],
+            [89,"The intelligence theory that believes that the excellency in one field will result in the same type excellency in remaining fields is","'किसी एक क्षेत्र में कुशलता है嵃 तो अन्य सभी क्षोत्रों में भी उसी प्रकार की कुशलता पायी जाती है।' - इस कथन को स्वीकारनेवाले बुद्धि सिद्धांत है -","Multiple Intelligence Theory बहुबु‌द्धि सिद्धांत","Multi Factor Theory of Intelligence बहुकारक बुद्धि सिद्धांत","Uni Factor Theory of Intelligence एकल कारक बु‌द्धि सिद्धांत","Two Factor Theory of Intelligence द्विकारक बुद्धि सिद्धांत",3],
+            [90,"This is the reason for definite interest in an individual according to Carl Spearman","कार्ल स्पियरमैन के अनुसार व्यक्ति में निर्दिष्ट अभिरूचि का कारण","General Factor सामान्य कारक","Specific Factor विशिष्ट कारक","Group Factor समूह कारक","Primary Factor प्राथमिक कारक",2],
+            [91,"In this type of memory, learner directly participates in learning and remembers the learned concept material in his memory","इस प्रकार की स्मृति में अधिगम कर्ता, अधिगम में सीधे भाग लेकर सीखे गये विषयों को याद करता है।","Short Term Memory अल्पकालिक स्मृति","Long term Memory दीर्घकालिक स्मृति","Rote Memory रटंत स्मृति","Active Memory सक्रिय स्मृति",4],
+            [92,"In this type of memory, learner remembers things by reading or listening","इस प्रकार की स्मृति में अधिगमकर्ता, सुनकर, पढ़कर विषयों को याद रखता है।","Short Term Memory अल्पकालिक स्मृति","Long term Memory दीर्घकालिक स्मृति","Active Memory क्रियात्मक स्मृति","Passive Memory निष्क्रियात्म्क स्मृति",4],
+            [93,"Sometimes we experience that things which we are seeing now are already seen. This is called","कई बार हम जिन विषयों को देखते हैं, उनको पहले ही देखे जाने के भ्रम में रहते हैं। इसे क्या कहते हैं -","Déjà vu डेजाऊ","Schemata स्कीमोटा","Fued फ्यूड","Zeigarnik effect जैगार्निक प्रभाव",1],
+            [94,"The phenomenon that people remember incomplete or interrupted tasks better than the completed ones","पूर्ण रूप से सीखे गये विषयों से भी बीच में छोड़े गये या रुकाये गये विषयों को लोग याद रख पाते हैं। इस दृग्विषय को कहते हैं -","Zeigarnik effect जैगार्निक प्रभाव","Pygmalion effect पिग्मालियान","Placebo effect प्लासिबो प्रभाव","Priming effect प्रैमिंग प्रभाव",1],
+            [95,"This is not a reason for forgetting","यह विस्मृति का कारण नहीं है -","Repression दमन","Inhibition अवरोध","Abnormal forgetting अपसामान्य विस्मृति","Relearning पुनरधिगम",4],
+            [96,"Reason for fading out memories with the advancement of time","जैसे- जैसे समय बीतता है, वैसे वैसे क्षीण होनेवाली विस्मृति का कारण है -","Repression दमन","Inhibition अवरोध","Abnormal forgetting अपसामान्य विस्मृति","Passive decay through disuse अनुपयोग के कारण स्मृति क्षय",4],
+            [97,"The painful experience are pushed into the unconscious layer of mind intentionally. This type of forgetting is","दुःख देनेवाले अनुभवों को बलपूर्वक अचेतन मन में भेज देते हैं। यह इस प्रकार की विस्मृति है -","Repression दमन","Abnormal forgetting अपसामान्य विस्मृति","Inhibition अवरोध","Passive decay through disuse अनुपयोग के कारण स्मृति क्षय",1],
+            [98,"This method is not useful for improving memory","स्मृति को बढाने के लिए यह पद्धति उपयुक्त नहीं है -","Motivation प्रेरणा","Attention अवधान","Repression दमन","Less Emotional कम संवेगात्म्कता",3],
+            [99,"When we listen to the name of Tajmahal, we remember Shajahan. This method of improving memory is","ताजमहल का नाम लेते ही शाहजहाँ की याद आना। यह इस प्रकार की स्मृति को बढाने की पद्धति है -","Motivation प्रेरणा","Association of ideas भावों का संसर्ग","Over learning तीव्र अधिगम","Mnemonic devices धारणावृत्ति चिह्न",2],
+            [100,"This aptitude test helps an individual to choose a job","वैयक्तिक व्यावसाय के चुनाव के लिए यह अभिक्षमता परीक्षण सहायकारी है।","Scholastic Aptitude Test विद्यालय संबंधी अभिक्षमता परीक्षण","Vocational Aptitude Test व्यवसायिक अभिक्षमता परीक्षण","Aesthetic Aptitude Test सौंदर्य शाश्त्र संबंधी अभिक्षमता परीक्षण","Sports Aptitude Test खेल संबंधी अभिक्षमता परीक्षण",2],
+            
+            [101,"The aptitude test that is used to choose a course in a field of education","शिक्षा - विभागों में सही शिक्षण कार्यक्रमों को चुनने के लिए यह अभिक्षमता का उपयोग करते हैं -","Scholastic Aptitude Test विद्यालय - संबंधी अभिक्षमता परीक्षण","Vocational Aptitude Test व्यावसायिक अभिक्षमता परीक्षण","Aesthetic Aptitude Test सौंदर्य संबंधी अभिक्षमता परीक्षण","Sports Aptitude Test खेल संबंधी अभिक्षमता परीक्षण",1],
+            [102,"DAT (Differential Aptitude Test) is useful to measure","DAT (डिफरेंशियल आप्टिट्यूड टेस्ट) इसके मापन के लिए उपयोगी है।","Personality व्यक्तित्व","Intelligence बु‌द्धि","Attention अवधान","Aptitude अभिक्षमता",4],
+            [103,"It is a motive towards an activity","यह प्रेरणा, कृत्य की दिशा में चलाती है -","Interest अभिरूचि","Personality व्यक्तित्व","Intelligence बुद्धि","Cognition संज्ञान",1],
+            [104,"'Strong's Vocational Interest Blank' is useful to measure","'स्ट्रांग ' (strong's ) का व्यवसायिक अभिरूचि मापन के द्वारा इसका मापन कर सकते हैं -","Personality व्यक्तित्व का","Intelligence का","Interest अभिरूचि का","Attention अवधान का",3],
+            [105,"It is a tendency to respond to people, institutions or events either positively or negatively","दूसरों के प्रति, अन्य संघटनाओं के प्रति सकारात्मक या नकारात्मक प्रतिक्रिया को कौन सा स्वभाव कहते हैं -","Attitude अभिवृत्ति","Aptitude अभिक्षमता","Attention अवधान","Creativity सृजनात्मकता",1],
+            [106,"The test that is not useful to measure attitude","अभिवृत्ति की माप करने के लिए यह परीक्षा उपयोगी नहीं है-","Likert's Summated Rating Method लैकर्ट संकलित निर्धारण मापन","Thurston's Attitude Scale थरस्टन अभिवृत्ति","Bogardus Social Distance Scale बोगार्ड्स सामाजिक अंतर मापन","Strong Vocational Interest Scale स्ट्रांग व्यवसायिक अभिरूचि मापन",4],
+            [107,"The first stage in the process of Creativity is","सृजनात्मक प्रक्रियाओं में पहली अवस्था","Preparatory Stage पूर्वारंभिक अवस्था","Latency Stage गुप्त अवस्था","Insight Stage अंतर्दृष्टि अवस्था","Verification Stage निर्धारण अवस्था",1],
+            [108,"It does not develop desirable attitudes towards school among children","यह बच्चों में पाठशाला के प्रति आकर्षणीय अभिवृत्ति का विकास नहीं कर सकता","Learning in free environment स्वतंत्र वातावरण में अधिगम","Co-curricular activities designed on uninterested areas अभिरूचि रहित सह पाठ्यक्रम का निर्माण करना","School staff should be cordial towards students. छात्रों के प्रति अध्यापक गण सहृदय भाव से होना","Prepare a plan to develop projects. परियोजना कार्य विकास के लिए योजना बनाना",2],
+            [109,"The way a person can visualise, the way he listens, the way he experiences, the way he tastes, the way he smells in his situations and environment is","व्यक्ति अपने परिवेश को जिस प्रकार देखता, अनुभव करता है, स्वाद लेता व सूँघता; वह है","Intelligence बु‌द्धि","Perception प्रत्यक्षीकरण","Attention अवधान","Personality व्यक्तित्व",2],
+            [110,"This is not a characteristic of Perception","यह बोध - क्षमता (प्रत्यक्षानुभूति) की विशेषता नहीं है -","It depends on sensation. यह संवेदना पर आधारित है।","Senses help in perception. ज्ञानेंद्रियों की सहायता करती है।","It is a process of analysis and synthesis यह विश्लेष्णात्मक व संश्लेषणात्म्क प्रक्रिया है","It is not affected by external and internal motives आतंरिक व बाह्य प्रेरकों से प्रभावित नहीं होता",4],
+            [111,"Grouping objects together based on similar characteristics like colour, space and magnitude is","रंग, आकार, परिमाण तीनों एक जैसा होनेवाले अंश एक समूह बनने का नियम -","Law of Proximity सामीप्य का नियम","Law of Similarity समानता का नियम","Law of Closure क्लोजर नियम","Law of Continuity निरंतरता का नियम",2],
+            [112,"Incomplete figures are perceived as complete is","असंपूर्ण आकृतियों को पूर्ण आकृति के रूप में देख सकने को कहते हैं -","Law of Closure क्लोजर नियम","Law of Proximity सामीप्य का नियम","Law of Continuity निरंतरता का नियम","Law of Similarity समानता का नियम",1],
+            [113,"Bird fly in the sky. In Figure-Ground relationship of perception, the sky is","पक्षी आकाश में उडता है, प्रत्यक्षीकरण में आकृति - क्षेत्र संबंध में आकाश यह है -","Figure अकृति","Ground क्षेत्र","Group समूह","Base आधार",2],
+            [114,"The tendency to perceive objects that are close to one another is","एक - दूसरे से निकट होनेवाले अंशों को एक समूह के रूप में देख सकने की प्रवृत्ति है -","Law of Continuity निरंतरता का नियम","Law of Similarity समानता का नियम","Law of Proximity सामीप्य का नियम","Law of Figure - Ground relationship आकृति - क्षेत्र का नियम",3],
+            [115,"Correct pair/s related to factors influencing perception: A: Personal factors - interests, attitudes. B: Objective factors - similarity, wholeness, nearness.","प्रत्यक्षीकरण को प्रभावित करनेवाले कारकों में सही जोड़ी है: A: वैयक्तिक कारक - रुचियाँ, अभिवृत्तियाँ. B : वस्तुनिष्ठ कारक समानता, संपूर्णता, सामीप्यता","Only A is correct केवल A सही है","Only B is correct केवल B सही है","Both A and B are correct A और B दोनों सही है","Both A and B are incorrect Aऔर B दोनों गलत है",3],
+            [116,"The Inventory that is not related to the assessment of Interest","यह अभिरूचि का मापन करने का साधक नहीं है।","Strong Vocational Interest Blank स्ट्रांग का व्यवसायिक अभिरुचि मापक","Minnesota Vocational Interest Inventory मिन्निसोटा व्यवसायिक अभिरुचि परिसूचिका","Kuder's General Interest Survey कूडर का साधारण अभिरुचि सर्वे","General Aptitude Test Battery सामान्य अभिक्षमता टेस्ट बैटरी",4],
+            [117,"The ability to recognise the primary colours like red and green","लाल व हरे जैसे प्राथमिक रंगों को पहचानने की क्षमता","Colour Concept रंग की अवधारणा","Money Concept धन की अवधारणा","Beauty Concept सौंदर्य की अवधारणा","Time Concept समय की अवधारणा",1],
+            [118,"Number of Spinal nerves in Human beings (in pairs)","मानव में रीढ़ की स्नायु तंत्रिकाओं की संख्या (जोडियोंमें)","43","12","31","22",3],
+            [119,"Vision, hearing, muscular strength depends on the functioning of this nervous system of human body.","मानव में देखने की, सुनने की और माँसपेशियों की शक्ति इस स्नायु व्यवस्था (तंत्रिका तंत्र) के आधार पर काम करती हैं -","Central Nervous System केंद्रीय स्नायु व्यवस्था","Peripheral Nervous System परिधीय स्नायु व्यवस्था","Autonomous Nervous System स्वायत स्नायु व्यवस्था","Hormones हारमोन",2],
+            [120,"This gland in the human body controls all other endocrine glands.","मानव शरीर में यह ग्रंथि सभी अंतःस्रवि ग्रंथियो को नियंत्रण करती है -","Pituitary Gland पीयूष ग्रंथि","Thyroid Gland थायराइड ग्रंथि","Adrenal Gland एड्रिनल ग्रंथि","Testis वृषण",1],
+            [121,"The gland that is located in the human brain.","मानव के मस्तिष्क में स्थित ग्रंथि","Pituitary Gland पीयूष ग्रंथि","Thyroid Gland थायराइड ग्रंथि","Adrenal Gland एड्रिनल ग्रंथि","Testis वृषण",1],
+            [122,"Thyroxin deficiency causes","थैराक्सिन स्राव की कमी से उत्पन्न परिणाम","Dwarfism बौनापन","Tetani टेटानी","Myxoedema मिक्सोडिमा","Gigantism दीर्घकायापन",3],
+            [123,"This is required to produce Thyroxin","थैराक्सिन उत्पत्ति के लिए यह आवश्यक है -","Sodium सोडियम","Zinc जिंक","Iodine आयोडीन","Oxygen ऑक्सीजन",3],
+            [124,"It mostly influences the emotions of an individual","यह एक व्यक्ति के संवेगों पर अधिक प्रभाव दिखाता है","Testis वृषण","Adrenal Gland एड्रिनल ग्लान्ड","Thyroid Gland थैराइड ग्लान्ड","Para thyroid Gland पैरा थैराइड ग्लान्ड",2],
+            [125,"The gland that produces 'Fight or Flight' hormone.","'फाइट या फ्लाइट' (संघर्ष या पलायन) हारमोन की उत्पत्ति करने वाली ग्रंथि","Testis वृषण","Female Gonads स्त्री बीज कोश","Para thyroid Gland पैरा थाइरॉइड ग्रंथि","Adrenal Gland एड्रिनल ग्रंथि",4],
+            [126,"Socio cultural factors related to Pre-Natal environment","यह सामाजिक सांस्कृतिक कारकों से संबंधित जनन पूर्व परिवेश है -","Neighbour पड़ोस - पेडोस","School पाठशालाएँ","Peer Group समवयस्क","Food habits of Mother माता के आहार की आदतें",4],
+            [127,"According to Spranger's classification, the value that 'Mother Theresa' possess is","स्प्रंगर के वर्गीकरण के अनुसार 'मदर टेरेसा' के मूल्य -","Social Values – सामाजिक मूल्य","Political Values - राजनैतिक मूल्य","Economic Values - आर्थिक मूल्य","Aesthetic Values - सौंदर्याराधना मूल्य",1],
+            [128,"According to Spranger's classification, the values that 'Film Director Bapu' possess","स्प्रंगर के वर्गीकरण के अनुसार फिल्म निर्देशक' बापू' के मूल्य","Political Values - राजनैतिक मूल्य","Economic Values - आर्थिक मूल्य","Social Values – सामाजिक मूल्य","Aesthetic Values - सौंदर्य आराधना मूल्य",4],
+            [129,"According to Spranger's classification, the values that 'Smt. Prathiba Patil' possess","स्प्रंगर के वर्गीकरण के अनुसार 'श्रीमति प्रतिभा पाटिल' के मूल्य","Political Values - राजनैतिक मूल्य","Theoretical Values - सैद्धांतिक मूल्य","Economic Values - आर्थिक मूल्य","Religious Values धार्मिक मूल्य",1],
+            [130,"According to Spranger's classification, the values that 'M.S. Swaminathan' possess","स्प्रंगर के वर्गीकरण के अनुसार 'यम. यस. स्वामिनाथन' के मूल्य -","Theoretical Values - सैद्धांतिक मूल्य","Religious Values - धार्मिक मूल्य","Economic Values - आर्थिक मूल्य","Political Values – राजनैतिक मूल्य",1],
+            [131,"According to R.B.Cattell's theory, the number of source traits in personality are","आर.बी. काटिल के सिद्धांत के अनुसार व्यक्तित्व के मूल लक्शानांशों की संख्या -","11","12","14","16",4],
+            [132,"According to R. B. Cattell's theory, the number of primary traits in personality are","R.B. काटिल के सिद्धांत के अनुसार व्यक्तित्व में पाये जानेवाले मूल लक्षणांशों की संख्या","165","170","171","175",3],
+            [133,"The psychologist who belongs to trait theory is","लक्षणांश सिद्धांत के मनोवैज्ञानिक हैं -","Kretschmer क्रेश्मर","Sheldon शोल्डन","R.B.Cattell R.B. काटिल","Jung जंग",3],
+            [134,"Person with Economic Values","आर्थिक मूल्यों वाला व्यक्ति -","Mukesh Ambani मुकेश अंबानी","Mahatma Gandhi महात्मा गाँधी","Ravi Varma रवि वर्मा","Mother Theresa मदर टेरेसा",1],
+            [135,"The classification of Introverts and Extroverts belongs to","अंतर्मुखी, बहिर्मुखियों का वर्गीकरण इन से संबंधित है","Jung जंग","Kretschmer क्रेश्मर","R.B.Cattell R.B. काटिल","Hippocrates - हिपोक्रोटिस",1],
+            [136,"According to Freud's Structure of Personality, 'Smoking is injurious to Health' is suggested by this system","फ्रायड के व्यक्तित्व निर्माण सिद्धांत के अनुसार ये 'धूम्रपान करना स्वास्थ्य के लिए हानिकार है ।' यह किससे सूचित किया जाएगा ?","Id इड","Ego अहम्","Super Ego सूपर अहम्","Libido लिबिडो",2],
+            [137,"According to Freud's Dynamics of Personality, we are aware of the present moment in this level","फ्रायड के सिद्धांत के अनुसार इस दशा में हम प्रस्तुत स्थिति को जानते हैं","Conscious Stage चेतनावस्था","Sub Conscious Stage उप चेतनावस्था","Unconscious Stage अचेनावस्था","Super Ego सूपर ईगो (अद्यहम्)",1],
+            [138,"This works on Reality Principle","यह वास्तविक सूत्र पर काम करता है -","Id अचेतन","Ego अहम्","Super Ego सूपर ईगो (अध्यहम्)","Libido लिबिड़ो",2],
+            [139,"According to Freud's Dynamics of Personality, this stage contains memories and stored knowledge.","फ्रायिड के व्यक्तित्व गतिशील सिद्धांत के अनुसार संचित ज्ञान वाली दशा","Conscious Stage चेतनावस्था","Sub Conscious Stage उपचेतनावस्था","Unconscious Stage अचेतनावस्था","Super Ego सूपर ईगो (अद्यहम्)",2],
+            [140,"According to Freud's Theory, memories cannot be recalled by an individual in","फ्रायड के सिद्धांत के अनुसार व्यक्ति इस दशा में अपनी स्मृतियों का पुनः स्मरण नही कर पाएगा -","Conscious Stage चेतनावस्था","Sub Conscious Stage उप चेतनावस्था","Unconscious Stage अचेतनावस्था","Super Ego सूरप इगो (अद्यहम्)",3],
+            [141,"According to Freud's Psychosexual Theory, the stage in which a child's age is between 2 - 3 years","फ्रायड के मनोलैंगिक सिद्धांत के अनुसार इस दशा में बच्चों की आयु 2 - 3 वर्षों के बीच होती है","Oral Stage मौखिक अवस्था","Anal Stage आसन अवस्था","Phallic Stage लैंगिक पूर्वावस्था","Latency Stage सुप्त अवस्था",2],
+            [142,"According to Freud's Psychosexual Theory, the stage in which a child's age is in between 4 - 6 years","फ्रायडू के मनोलैंगिक (मनोविश्लेषणात्मक) सिद्धांत के अनुसार इस दशा में बच्चों की आयू 4 6 वर्षों के बीच होती है","Oral Stage मौखिक दशा","Anal Stage गुदीय दशा (आसन दशा)","Phallic Stage लैंगिक पूर्वावस्था","Latency Stage सुप्त अवस्था",3],
+            [143,"According to Freud's Psychosexual Theory, the stage in which a child's age is in between birth to one year is","फ्रायड के सिद्धांत के अनुसार यह दशा शिशुओं में जन्म से एक वर्ष के बीच होती है -","Oral Stage मौखिक दशा","Anal Stage आसन दशा","Phallic Stage लैंगिक पूर्वावस्था","Latency Stage सुप्त अवस्था",1],
+            [144,"According to Freud, the number of Psychosexual Developmental stages","फ्रायड के अनुसार मनो लैंगिक विकास की दशाएँ -","4","6","5","10",3],
+            [145,"It is a tool to assess Social Relationship","यह सामाजिक संबंधो का अनुमान लगानेवाला साधन है -","Μ.Μ.Ρ.Ι एम. यम. पी. ए","Τ.Α.Τ टी.ए.टी","C.A.T सी.ए.टी","Sociometry समाजमिति",4],
+            [146,"The maximum number of cards used for Male in TAT is","TAT परीक्षा में केवल पुरुषों को ही उपयोग करने वाले अत्यधिक कर्डो की संख्या","50+1","20+1","30+1","40+1",2],
+            [147,"This is not a Projective Test","यह प्रक्षेपण परीक्षण नहीं है।","IBT","TAT","CAT","Case Study केस स्टडी",4],
+            [148,"This is a projective individual test","यह वैयक्तिक प्रक्षेपण परीक्षा है -","Interview साक्षात्कार","Case Study केस स्टडी","Biography जीवन इतिहास","IBT स्याही धब्बे परीक्षा",4],
+            [149,"The number of Red, Black coloured cards in Ink Blot Test","स्याही धब्बे परीक्षा मे काले, लाल कर्डो की संख्या -","15","10","3","2",4],
+            [150,"The founder of Mental Health Movement is","मानसिक स्वास्थ्य आंदोलन के प्रवर्तक","Freud फ्रायड","Clifford Beers किलफ़ोर्ड बीर्स","Erikson एरिकसन","J.L.Moreno जे. यल. मेरिनो",2],
+            
+            [151,"In Sociometry, a person who is opposed by many is","समाजमिति में आधिक लोगों से तिरस्कृत व्यक्ति यह है","Isolate एकाकी","Star कलाकार","Hero कथानायक","Leader नेता",1],
+            [152,"This Personality test was developed for the children of age group 3 to 10 years","यह व्यक्तित्व परीक्षा 3 से 10 वर्ष के बीच बच्चों के लिए विकसित की गयी है -","Τ.Α.Τ","C.A.T","I.B.T","W.A.T",2],
+            [153,"In Sociometry, a person who is liked by the most people is","समाजमिति में अधिक लोगो से पसंद किया जानेवाला व्यक्ति -","Isolate एकाकी","Star कलाकार","God भगवान","Object वस्तु",2],
+            [154,"Learning Multiplication tables helps in solving Arithmetic problems. This is an example of","सीखे गए 'पहाडे' अंकगणित की समास्याओं को सुलझाने में उपयोगी होना ये किसका उदाहरण है ?","Positive Transfer अनुकूल स्थानांतरण","Negative Transfer प्रतिकूल स्थानांतरण","Zero Transfer शून्य स्थानांतरण","Bilateral Transfer द्विपार्श्व स्थानांतरण",1],
+            [155,"A temporary period where there is no improvement in learning is known as","अधिगम में बिना किसी प्रकार के प्रगति की तत्कालिक अवस्था को क्या कहते है?","Final Stage अंतिम अवस्था","Stage of fluctuations उतार चढाव की अवस्था","Plateau Stage पाठार की अवस्था","Initial Spurt आरंभिक स्पूर्ति अवस्था",3],
+            [156,"Plateau Stage in Learning may be caused due to","अधिगम में पठार उत्पन्न होने का कारण","Motivation प्रेरणा","Practice अभ्यास","Interest रुचि","Fatigue थकान",4],
+            [157,"The correct sequence of stages in learning curve A) Stage of Fluctuations, B) Initial Spurt, C) Plateau Stage","अधिगम वक्र रेखा की सही अवस्थाओं का क्रम पहचानिए A) उतार चढाव की अवस्था, B) आरंभिक स्पूर्ति अवस्था, C) पठार अवस्था","B, A, C","A, B, C","C, A, B","B, C, A",1],
+            [158,"A learning curve mainly represents","एक अधिगम वक्र रेखा मुख्य रूप से इसे सूचित करती है","Intelligence बुद्धि","Change in performance with practice अभ्यास से उपलब्धि में परिवर्तन","Personality व्यक्तित्व","Motivation प्रेरणा",2],
+            [159,"Expand IEP","IEP का विस्तारण कीजिए","Individual Education Policy","Individualized Education Programme","Indian Education Programme","Inclusive Entertainment programme",2],
+            [160,"A child misunderstands + and x symbols while doing Mathematics. The problem faced by him is","एक बच्चा गणित सीखते समय और चिह्नों को गलत समझ रहा है। वह यहाँ किस प्रकार की समस्था का सामना कर रहा है?","Dysphasia डिसफेशिया","Dyslexia डिसलेक्सिया","Dyscalculia डिसक्यालुक्लिया","Dysgraphia डिसग्राफिया",3],
+            [161,"Positive transfer occurs when previous learning","पिछले अधिगम से इस प्रकार का अनुकूल स्थानांतरण होता है","Stops new learning नवीन अधिगम को रोकना","No Effect किसी भी प्रकार का प्रभाव न होना","Helps new learning नवीन अधिगम में सहायक बनना","Disturbs new learning नवीन अधिगम मे रुकावटे उत्पन्न करना",3],
+            [162,"Transfer of Learning in playing skill of Veena and becoming an athlete","खिलाडी बनने और वीणा बजाने में कुशलता दिखाने की प्रतिभा के बीच इस प्रकार का अधिगम स्थानांतर होता है","Negative Transfer प्रतिकूल स्थानांतरण","Positive Transfer अनुकूल स्थानांतरण","Zero Transfer शून्य स्थानांतरण","Bilateral Transfer द्विपार्श्व स्थानांतरण",3],
+            [163,"This is not a learning theory of E.L. Thorndike","यह थार्नडाइक का अधिगम सिद्धांत नहीं है -","Trial and Error Theory प्रयास व त्रुटि का सिद्धांत","Observation Learning निरीक्षण अधिगम","Connectionism Theory संयोजन का सिद्धांत","Bond Theory बंधन सिद्धांत",2],
+            [164,"The book 'Animal Intelligence' is written by","'Animal Intelligence' ग्रंथ के लेखक","Skinner स्किनर","Ivan Pavlov इवान पावलव","Thorndike थार्नडाइक","Bruner ब्रूनर",3],
+            [165,"If a student is ready to learn, the process becomes quick and effective. The law is","इस नियम के अनुसार छात्र सीखने के लिए तैयार हो तो वह प्रक्रिया तीव्र और प्रभावपूर्ण होती है।","Law of Readiness संसिद्धता का नियम","Law of Effect प्रभाव का नियम","Law of Exercise अभ्यास का  नियम","Law of Teaching शिक्षण का नियम",1],
+            [166,"The satisfying experiences to strengthen the bond between stimulus and response. This reflects in this law","संतोषप्रद अनुभवों उद्दीपन प्रतिक्रियाओं के बीच संबंध मजबूत होता है। ये इस नियम को प्रतिफलित करता है -","Law of Readiness संसिद्धता नियम","Law of Effect प्रभाव का नियम","Law of Exercise अभ्यास का नियम","Law of Teaching शिक्षण का नियम",2],
+            [167,"'Practice makes man perfect' is an example of this law.","अभ्यास मनुष्य को श्रेष्ठ बनाता है। ये किस नियम का उदाहरण है?","Law of Readiness संसिद्धता का नियम","Law of Effect प्रभाव का नियम","Law of Exercise अभ्यास का नियम","Law of Observation अवलोकन का नियम",3],
+            [168,"Classical conditioning theory is also known as","शास्त्रीय अनुबंधन सिद्धांत को इस नाम से भी जानते हैं -","S-type","R-type","C-type","P-type",1],
+            [169,"Ivan Pavlov conducted experiments on","इवान पावलोव ने इस पर अपने प्रयोग किया -","Dog कुत्ता","Rat चूहा","Cat बिल्ली","Chimpanzee चिंपांजी",1],
+            [170,"This is not a Law of Thorndike's Trial and Error Theory","थार्नडाइक के प्रयास व त्रुटिसिद्धांत में ये नियम नहीं है","Law of Generalization सामान्यीकरण का नियम","Law of Readiness संसिद्धता का नियम","Law of Effect प्रभाव का नियम","Law of Exercise अभ्यास का नियम",1],
+            [171,"This is not a key feature of Trial and Error learning","ये प्रयास व त्रुटि सिद्धांत का मुख्य लक्षण नहीं है","Learning is Gradual अधिगम धीरे धीरे होता है","Motivation is essential प्रेरणा अति आवश्यक है","Elimination of Incorrect Responses जो प्रतिक्रियाएँ उपयुक्त नहीं हैं उनका निराकरण","Learning occurs through imitation अनुकरण के माध्यम से अधिगम संपन्न होता है।",4],
+            [172,"Theory of Hierarchy of Needs was developed by","आवश्यकता पदानुक्रम सिद्धांत को विकसित करने वाला","Thorndike थार्नडाइक","Watson वाट्सन","Maslow मास्लो","Pavlov पावलोव",3],
+            [173,"Identify the correct pair: A: Maslow - Theory of Hierarchy of Needs, B: Carl Roger - Humanistic Approach Theory","सही जोडो पहचानिए: A: मास्लो - आवश्यकताओं का अनुक्रम सिद्धांत, B: कार्ल लोजर्स - मानवतावाद सिद्धांत","Only A is Correct केवल A सही है","Only B is Correct केवल B सही है","Both A & B are Correct A और B देनों सही हैं","Both A & B are incorrect A और B देनों गलत हैं",3],
+            [174,"This is a physiological need according to Maslow","मास्लो के अनुसार यह शारीरिक आवश्यकता है","Music संगीत","Food भोजन (आहार)","Identity पहचान","Love प्रेम",2],
+            [175,"According to Maslow, House is a","मास्लो के अनुसार घर एक","Physiological Need शारीरिक आवश्यकता","Safety Need सुरक्षा आवश्यकता","Esteem Need सम्मानजनक आवश्यकता","Love and Belonging Need प्रेम संबंधी आवश्यकता",2],
+            [176,"According to Maslow, Affection is a","मास्लो के अनुसार 'वात्सल्य'","Physiological Need शारीरिक आवश्यकता","Safety Need सुरक्षा आवश्यकता","Love and Belonging प्रेम संबंधी आवश्यकता","Esteem Need सम्मानजनक आवश्यकता",3],
+            [177,"Incorrect pair related to Maslow's Hierarchy of Needs","मास्लो के आवश्यकता पदानुक्रम से संबंधित ये जोड़ी सही नहीं है -","Water - Physiological Need जल - शारीरिक आवश्यकता","Home - Safety Need घर - सुरक्षा आवश्यकता","Love - Self Actualization Need प्रेम - आत्म सि‌द्धि आवश्यकता","Identity - Esteem Need पहचान - सम्मानजनक आवश्यकता",3],
+            [178,"This is not an advantage of Experiential learning","यह अनुभवपूर्वक अधिगम का प्रयोजन नहीं है","Encourages child centered learning छात्र केंद्रत अधिगम को प्रोत्साहित करता है","Students can learn life skills छात्र जीवन कौशलों को सीख सकते हैं","Useful to improve creativity सृजनात्मकता को पढाने के लिए उपयोगी","Students are not happy with this learning इस अधिगम से छात्र आनंदित नहीं होते हैं",4],
+            [179,"Maslow's theory is related to","मोस्लो का सिद्धांत इस से संबंधित है","Conditioning अनुबंधन","Needs आवश्यकताएँ","Intelligence बुद्धि","Attention अवधान",2],
+            [180,"This is a lower order need according to Maslow","मास्लो के अनुसार यह निचले श्रेणी की आवश्यकता","Esteem Needs सम्मानजनक आवश्यकताएँ","Self Actualization Needs आत्म सि‌द्धि आवश्यकताएँ","Love and Belonging Needs प्रेम संबंधी आवश्यकताएँ","Physiological Needs शारीरिक आवश्यकताएँ",4],
+            [181,"According to Bruner, this type of motivation has more influence on the learner","ब्रूनर के अनुसार इस प्रकार की प्रेरणा छात्र पर अधिक प्रभाव दिखाती है","Extrinsic Motivation बाहरी प्रेरणा","Intrinsic Motivation आंतरिक प्रेरणा","Forceful Motivation बलपूर्वक प्रेरणा","Motivation has no role प्रेरणा का पात्र नही है।",2],
+            [182,"According to Bruner,","ब्रूनर के अनुसार","Interest and curiosity of the learner are major learning factors छात्र में रूचि और जिज्ञासा अधिगम के प्रधान अंश हैं।","Self learning should not be given more importance स्व अधिगम को अधिक महत्व नहीं दिया गया","Learning is Teacher centred अधिगम शिक्षक केंद्रित है","The learning content is important rather than method of teaching अधिगम पद्धति से अधिगम की विषयवस्तु ही महत्वपूर्ण है",1],
+            [183,"Bruner's Theory is also known as","ब्रूनर सिद्धांत को इस नाम से भी जानते हैं -","Classical Conditioning Theory शास्त्रीय अनुबंधन सिद्धांत","Operant Conditioning Theory क्रिया - प्रसूत अनुबंधन सिद्धांत","Trial and Error Theory प्रयास व त्रुटि का सिद्धांत","Discovery Learning Theory खोजपूर्ण अधिगम सिद्धांत",4],
+            [184,"Bruner's approach gives importance to","ब्रूनर वाद इसे महत्व देता है","Self Learning स्व अधिगम","Teacher centred शिक्षक केंद्रित","Lecture Method भाषण पद्धति","Rote Learning रटंत विधि",1],
+            [185,"The teaching content that presents subject matter in a meaningful and organized form has","शिक्षण विषय जो विषयवस्तु को अर्थपूर्ण और व्यवस्थित रूप में प्रस्तुत करती है, उसमें यह होती है -","Content Validity विषय वैधता","Content Reliability विषय विश्वसनीयता","Content Construction विषय निर्माण","Content Test विषय परीक्षा",3],
+            [186,"'Any concept can be effectively taught to any one at any stage,' is said by","किसका कथन है कि 'किसी भी विषय को, किसी व्यक्ति को भी, किसी भी विकास की दशा में सफल रूप से शिक्षण प्रदान कर सकते हैं'","Thorndike थार्नडाइक","Ivan Pavlov इवान पावलोव","Skinner स्किन्नर","Jerome Bruner जेरोम ब्रूनर",4],
+            [187,"According to Bruner's Theory of Instruction, the correct order of teaching is A) Enactive, B) Iconic, C) Symbolic","ब्रूनर 'शिक्षण सिद्धांत' के अनुसार सही शिक्षण क्रम को पहचानिए A) क्रियात्मक पद्धति, B) चित्र प्रतिमा पद्धति, C) प्रतीकात्मक पद्धति","A, B, C","B, C, A","C, B, A","B, A, C",1],
+            [188,"In Bruner's Theory of Instruction, the teacher mainly acts as","ब्रूनर के शिक्षण सिद्धांत में शिक्षक को मुख्य रूप से इस प्रकार का व्यवहार करना चाहिए","Dictator तानाशाह","Monitor पर्यवेक्षक","Lecturer भाषणकर्ता / प्रवक्ता","Examiner परीक्षक",2],
+            [189,"According to Bruner's Theory, learning through diagrams and pictures represents","ब्रूनर सिद्धांत के अनुसार चित्र और रेखाचित्रों के द्वारा अधिगम को यह सूचित करती है","Enactive Method क्रियात्मक पद्धति","Iconic Method चित्रप्रतिमा पद्धति","Symbolic Method प्रतीकात्मक पद्धति","Verbal Method शाब्दिक पद्धति",2],
+            [190,"According to Vygotsky, the private speech at childhood transforms to this speech as they grow up","वैगोटस्की के अनुसार बाल्यावस्था में वैयक्तिक संभाषण, उसके वयस्क होने के बाद इस भाषा के रूप परिवर्तित होता है","Outer Speech बाह्य संभाषण","Inner Speech आंतरिक संभाषण","Indirect Speech परोक्ष संभाषण","Direct Speech प्रत्यक्ष संभाषण",2],
+            [191,"One of the following is not related to Gestaltism.","निम्न में ये गेस्टाल्टवादी नहीं हे","Verthimar वर्धिमर","Kofka कोफ्का","Kohler कोहलर","Skinner स्किनर",4],
+            [192,"The Mentality of Apes book was written by","The Mentality of Apes ग्रंथ के लेखक","Thorndike थार्नडाइक","Kohler कोहलर","Vygotsky वैगोट्स्की","Skinner स्किनर",2],
+            [193,"Kohler conducted experiments on this animal","कोहलर ने इस पशु पर प्रयोग किए","Dog कुत्ता","Cat बिल्ली","Elephant हाथी","Chimpanzee चिंपांजी",4],
+            [194,"Gestalt means","गेस्टाल्ट का अर्थ","Configuration समग्राकृति","Intelligence बु‌‌द्धि","Reinforcement पुनर्बलन","Teaching Machine शिक्षण यंत्र",1],
+            [195,"In Kohler's experiment, the name of chimpanzee is","कोहलर के प्रयोग में चिंपांजी का नाम","Rani रानी","Sultana सुल्तान","Fathima फातिमा","Jyothi ज्योति",2],
+            [196,"In this type of learning, thought comes like a flash","इस प्रकार के अधिगम में सोच अकस्मात् आती है -","Classical Conditioning शास्त्रीय अनुबंधन","Operant Conditioning क्रिया प्रसूत अनुबंधन","Trial and Error प्रयास व तृटि","Insightful अंतर्दृष्टि",4],
+            [197,"In Insightful learning, chimpanzee observed different aspects in this manner","अंतर्दृष्टि अधिगम में चिंपांजी विविध अंशों को इस प्रकार अवलोकित किया -","Analysed विश्लेषण","Organised whole संपूर्ण व्यवस्थीकृत रूप में","Synthesised संश्लेषण","Discriminated विभेदीकरण",2],
+            [198,"This is not a characteristic of Insightful Learning","अंतर्दृष्टि अधिगम का लक्षण नहीं है","Observe the problematic situation समस्यात्मक संदर्भ का निरीक्षण करना","Initially, trying Trial and Error method आरंभ में प्रयास व त्रुटि पद्धति का प्रयोग करना","Understanding the learning status as a whole अधिगम स्थिति को पूर्ण रूप से समझ लेना","Learning new task by conditioning अनुबंधन के द्वारा नये अंश सीखना",4],
+            [199,"Effective classroom","यह असरदार कक्षाकक्ष है","Not safe and secure सुरक्षित एवं संरक्षित नहीं है","Support the student's needs छात्रों की आवश्यकताओं का सहायक","Rigid in the rules नियमों में सख्त","Lack of proper lighting facilities सही प्रकाश की सुविधा की कमी है।",2],
+            [200,"Most desirable outcome of classroom management","कक्षा कक्ष के प्रबंध में मुख्य संप्राप्ति है -","Silence of students छात्रों की खामोशी","Fear towards a teacher शिक्षक के प्रति डर","Good learning environment अच्छी अधिगम का वातावरण","Punishing the students विद्यार्थियों को दंड देना",3],
+            
+            [201,"Classroom management principle of respect and empathy come under this approach","कक्षा का प्रबंध के नियमें में से सम्मान और सहानुभूति नियम इस वाद के अंतर्गत आते हैं -","Autocratic Approach तानाशाही वाद","Humanistic Approach मानवता वाद","Behaviouristic Approach स्वाभाविक वाद","Democratic Approach लोकतांत्रिकवाद",2],
+            [202,"As a leader, a teacher should not do","एक नेता होने के नाते अध्यापक ऐसा न करें -","Building a confidence in students छात्रों में विश्वास पैदा करना","Manage time effectively समय का सही निर्वाह करना","Encourage conflicts संघर्षों का प्रोत्साहन करना","Motivate students छात्रों को प्रेरणा देना",3],
+            [203,"Kurt Lewin's Model of Action Research does not possess this step","कर्ट लेबिन चर्यात्मक शोध नमूने में यह सोपान नहीं है","Planning प्रणाली की संरचना","Sharing बाँटना","Action चर्या","Observation निरीक्षण",2],
+            [204,"Leadership that encourages team members in decision making process","निर्णय लेते समय समूह के सदस्यों का प्रोत्साहन इस नेतृत्व में होता है","Democratic Leadership लोकतंत्र नेतृत्व","Autocratic leadership तानाशाही नेतृत्व","Service Leadership सेवा नेतृत्व","Coaching Leadership प्रशिक्षण नेतृत्व",1],
+            [205,"Poor strategy for managing classroom time","कक्षा कक्ष के समय के सदुपयोग में यह कमजोर व्यूह है-","Setting up clear goals स्पष्ट लक्ष्यों को चुनना","Use of Technology सांकेतिकता का उपयोग करना","Unawareness of the learning objectives अधिगम लक्ष्यों के प्रति ग्राह्यता न होना","Prioritisation प्राथमिकता तय होना",3],
+            [206,"Most suitable seating arrangement for the teacher - centred lecture","अध्यापक केंद्रित भाषण विधि के लिए अनुकूल बैठने की व्यवस्था है -","Traditional Rows परंपरागत कतार","Bean bag Seating बीन बैग सीटिंग","Small Groups छोटे समूह","Circular Environment वृत्ताकार आयोजन",1],
+            [207,"Delegative leadership is referred to","यह डेलिगेटिव नेतृत्व है","Democratic Leadership लोक तांत्रिक नेतृत्व","Autocratic Leadership तानाशीही नेतृत्व","Laissez Faire Leadership लेसेज फेयर नेतृत्व","Coaching Leadership शिक्षण नेतृत्व",3],
+            [208,"Group guidance is given to","सामूहिक मार्गदर्शन इन्हें देते है","Teachers only केवल शिक्षकों के लिए","Only to one individual केवल एक व्यक्ति के लिए","A group of individuals of same class एक ही वर्ग के समूह के लिए","Persons working in different professions विभिन्न व्यावसायों में काम करने वालों के लिए",3],
+            [209,"It is needed for good physical and mental health","अच्छे शारीरिक और मानसिक स्वास्थ्य के लिए यह आवश्यक है -","Should sleep at late night देर रात को सोना","Should do physical exercise regularly रोज व्यायाम करें","Should involve in unnecessary affairs अनावश्यक बातों में हस्तक्षेप करें","Should be jealous about others दूसरों से ईर्ष्या करें",2],
+            [210,"Positive factor that influences mental health","मानासिक स्वास्थ्य को प्रभावित करने वाले सकारात्मक अंश","Good social relations अच्छे सामाजिक संबंध","Maladjustment असमायोजन","Social Isolation सामाजिक अकेलापन","Overstress तीव्र तनाव",1],
+            [211,"Balance between persons needs and desires","एक व्यक्ति की अपनी आवश्यकताओं और इच्छाओं के बीच होने वाली समतुल्यता -","Stress तनाव","Adjustment समायोजन","Behaviour व्यवहार","Personality व्यक्तित्व",2],
+            [212,"Day dreaming is this type of defence mechanism","दिवास्वप्न ऐसा सुरक्षा तंत्र है -","Regression प्रतिगमन","Compensation परिहार","Projection प्रक्षेपण","Fantasy स्वैर काल्पनिक",4],
+            [213,"Personal Guidance is not related to","वैयक्तिक मार्गदर्शकता इससे संबंधित नहीं है -","Adjustment problems समायोजन समस्याएँ","Organisational problems संगठनात्मक समास्याएँ","Family problems पारिवारिक समस्याएँ","Marital problems वैवाहिक समस्याएँ",2],
+            [214,"Guidance given to the students to choose a suitable course","उपयुक्त पाठ्यक्रम चयन करने में छात्रो को दिये गये मार्गदर्शन -","Vocational guidance व्यावसायिकि मार्गदर्शन","Educational guidance शैक्षिक मार्गदर्शन","Personal guidance वैयक्तिक मार्गदर्शन","Sports guidance क्रीडा मार्गदर्शन",2],
+            [215,"Negative aspect of mental health","मानसिक स्वास्थ्य से संबंधित एक नकारात्मक अंश है -","Having stress तनाव पूर्ण होना","Having adjustment समायोजन होना","Having good friends अच्छे मित्र होना","Having good sleep अच्छी नींद होना",1],
+            [216,"Positive aspect of mental health","मानसिक स्वास्थ्य के लिए प्रोत्साहक अंश","Overthinking तीव्र चिंतन","Malnutrition संतुलित भोजन का लोप","Adjustment to the surroundings पेरिवेश समायोजन","Frustration कुंठा",3],
+            [217,"According to RTE - 2009 Act the following age group children have the right to compulsory education","RTE - 2009 कानून के आधार पर इस आयु वर्ग के छात्रों के लिए अनिवार्य शिक्षा अधिकार है -","5-9 years 5-9 आयु","6-14 years 6 - 14 आयु","4-12 years 4 - 12 आयु","7-18 years 7 - 18 आयु",2],
+            [218,"Expand APSCF","APSCF का विस्तारण कीजिए","Andhra Pradesh School Course Framework","Andhra Pradesh School Curriculum Framework","Andhra Pradesh State Children Framework","Andhra Pradesh State Curriculum Framework",4],
+            [219,"NCF-FS 2022 was designed by","NCF-FS 2022 को इसने बनाया","SCERT","DIET","NCERT","SSA",3],
+            [220,"4 belongs to this stage in NEP - 2020 structure of education 5+3+3+4,","NEP - 2020 के अनुसार 5+3+3+4 शैक्षिक निर्माण में 4 इससे संबंधित है -","Foundational level फौंडेशनल स्तर","Secondary level सेकंडरी स्तर","Preparatory level प्रिपरेटरी स्तर","Middle level मिडिल स्तर",2],
+            [221,"RTE Act was implemented from this year","RTE अधिनियम इस वर्ष से लागू किया गया","2009","2008","2010","2005",3],
+            [222,"DIKSHA means","दीक्षा का अर्थ","Directorate of Information for Knowledge Sharing","District Institute for Knowledge Sharing","Department of Information for Knowledge Sharing","Digital Infrastructure for Knowledge Sharing",4],
+            [223,"NEP-2020 gives importance to","NEP - 2020 इसको महत्व देता है","Experiential Learning प्रयोगात्मक अधिगम","Memorization मेमोराइजेशन","Learning to reading textbooks only केवल पाठ्य पुस्तक पठन","Rote learning रटंत विधि",1],
+            [224,"Anganwaadi education comes under this frame","अंगनवाडी शिक्षा इसके अंतर्गत आती है","Primary प्राथमिक","E.C.C.E इ. सी. सी. ई","High School उन्नत पाठशाला","Upper Primary प्राथमिकोन्नत",2],
+            [225,"Southern regional office of NCTE is in","NCTE दक्षिण प्रांत कार्यालय यहाँ है -","New Delhi नई दिल्ली","Hyderabad हैदराबाद","Bengaluru बैंगलूर","Lucknow लखनउ",3],
+            [226,"Aim of Continuous Comprehensive Evaluation","सतत् समग्र मूल्यांकन का उद्देश्य","Rote learning रटंत अधिगम","Remembering Information सूचनाओं को याद रखना","Analytical Thinking विश्लेषणात्मक सोच","Securing good marks अच्छे अंक प्राप्त करना",3],
+            [227,"Progress report of the child tells","बच्चों के प्रगति पत्र इसके बारे में बताता है","Holistic development of the students छात्रों के समग्र विकास के बारे में","Only the marks of the students केवल छात्रों के अंकों के बारे में","Information about the lessons पाठ्यांशों संबंधित समाचार","Information about the teachers शिक्षकों के बारे में समाचार",1],
+            [228,"This is not a quality of a good test","एक उत्तम परीक्षण का यह गुण नहीं है -","Validity वैधता","Reliability विश्वसनीयता","Objectivity लक्ष्यात्मकता","Subjectivity विषय निष्ठता",4],
+            [229,"Assessment done after the completion of a course","एक पाठ्यक्रम समाप्ति पर किया जानेवाला आकलन","Formative Assessment रचनात्मक आकलन","Baseline Test बेस लैन परीक्षण","Half yearly Examination अर्ध वार्षिक परीक्षण","Summative Assessment सारांशात्मक आकलन",4],
+            [230,"Item that is not related to Response Assessment","प्रतिक्रियात्मक आकलन से संबंधित अंश नहीं है -","Multiple - Choice Questions बहुविकल्पीय प्रश्न","Binary Choice Questions द्वि विकल्प","Natural Observation सहज निरीक्षण","Matching Type Questions जोड़ी बनाइए प्रश्न",3],
+            [231,"This tool is used to know whether a concept exists or not","एक अवधारणा उपस्थित है या नही इसकी पहचान करने के लिए उपयोगी साधन","Teacher Diary शिक्षक दैनिकी","Student's Diary छात्र दैनिकी","Checklist जाँच सूचे","Portfolio पोर्टफोलियो",3],
+            [232,"The Assessment that declares the final judgement on a children's learning achievement","ये आकलन बच्चों के अधिगम अभ्यास पर अंतिम निर्णय प्रकट करने वाला है -","Assessment of Learning अधिगम का आकलन","Assessment for Learning अधिगम के लिए आकलन","Assessment as Learning अधिगम के साथ आकलन","Assessment by Learning अधिगम द्वारा आकलन",1],
+            [233,"This type of questions help students to express their own views","इस प्रकार के प्रश्न से छात्र अपने स्वयं के विचारों को व्यक्त करने के लिए उपयोगी है -","Fill in the blanks रिक्त स्थान की पूर्ति करना","Essay Type Questions निबंधात्मक प्रश्न","Matching जोड़ी बनाइए","Multiple Choice Questions बहुविकल्पीय प्रश्न",2],
+            [234,"Assessment conducted at the end of the Academic Year","शैक्षिक वर्ष के अंत में संपन्न किया जानेवाला आकलन","Baseline Test आरंभिक स्तर का आकलन","Formative Assessment रचनात्मक आकलन","Summative Assessment सारांशात्मक आकलन","Assignment दत्तकार्य",3],
+            [235,"Q3 = 80, Q1 = 20 then Quartile deviation is","Q3 = 80, Q1 = 20 इसका चतुर्थांश का विचलन है -","20","30","40","50",2],
+            [236,"Difference between the highest value and the lowest value in a data is called","किसी आँकड़े में वरिष्ठ कनिष्ट मूल्यों के अंतर को ऐसे कहते हैं -","Standard Deviation प्रामाणिक विचलन","Quartile Deviation चतुर्थांश विचलन","Mean Deviation मध्यमान विचलन","Range प्रसार क्षेत्र",4],
+            [237,"This is a derived score","यह एक व्युत्पन्न प्राप्तांक है -","Range प्रसार - क्षेत्र (व्याप्ति)","Deviation विचलन","Z-Score Z - स्कोर","Mean मध्यमान",3],
+            [238,"Classification and interpretation of data is called","दत्तांश (डेटा) को विरलेषण और व्याख्या करने को ऐसे कहते हैं -","Numerology न्यूमरॉलजी","Statistics सांख्यिकी","Algebra बीज गणित","Symmetry सममिति (सौष्ठव)",2],
+            [239,"In the formula of Median, c denotes","मध्यांक के सूत्र में c किसको सूचित करता है","Frequency आवृत्ति","Lower Limit of the Class वर्ग का निम्न स्तर","Class Interval वर्ग - विस्तार","Sum of the Frequency आवृत्तियों का कुल",3],
+            [240,"Mode of the data 10, 20, 30, 40, 50","10, 20, 30, 40, 50 दत्तांश का बहुलांक","10","20","50","Cannot be determined निर्धारण नहीं कर सकते",4],
+            [241,"This is not related to Graphical representation of data","यह दात्तंश रेखाचित्रीय प्रदर्शन के लिए नहीं है -","Histogram हिस्टोग्राम","Pie Graph पै ग्राफ","Snellen Chart स्नेलेन चार्ट","Frequency Polygon फ्रीक्वेन्सी पोलीगाँन",3],
+            [242,"Ef is equal to","Ef इसके समान है","C","N","m","d",2],
+            [243,"Median of the scores 76, 24, 53, 35, 80, 09, 43","76, 24, 53, 35, 80, 09, 43 इन प्राप्तांकों का मध्यांक","53","43","80","76",2],
+            [244,"This characteristic is not required for Educational films used in Education","कक्षा कक्ष में उपयोग करने वाले चलचित्रों के लिए यह आवश्यक गुण नहीं है","Must align with curriculum context पाठ्यप्रणाली से संबंधित हो","Should not facilitate group learning सामूहिक अधिगम के लिए अनुकूल न हो","Authenticity is crucial प्रामाणिकता की खासियत","Should follow a structured format रचनात्मक प्रारूप का अनुसरण करें",2],
+            [245,"This is not an advantage of Educational film","यह शिक्षा के चलचित्र का लाभ नहीं है ।","Creates interest in studies छात्रों में रुचि जागृत करते हैं ।","Teach many people at once अधिक लोगों को एक साथ पढा सकते हैं ।","Can't present historical events ऐतिहासिक अंशों का प्रदर्शन नहीं कर सकते हैं।","Help in acquiring mental abilities necessary for learning अभ्यसन के लिए आवश्यक मानसिक क्षमताओं के समुपार्जन करने में सहायक हैं ।",3],
+            [246,"This is not a limitation of Educational films","शिक्षा चलचित्रों की सीमा यह नहीं है -","Training is required to operate projector प्रोजेक्टर का उपयोग करने के लिए शिक्षण की आवश्यकता है ।","Some schools do not have necessary resources आवश्यक साधन कुछ पाठशालाओं में उपलब्ध न होंगे।","It is very expensive अधिक व्ययात्मक हैं ।","Creates interest to students छात्रों में आसक्ति बढाते हैं।",4],
+            [247,"Incorrect statement on the importance of ICT to teachers","अध्यापकों के लिए ICT की प्रमुखता के संबंध में गलत प्रवचन है -","Creating new course material नये कोर्स मेटीरियल की तैयारी","Make abstract concepts easier to understand अमूर्त भावों की ग्राह्यता को आसान कर सकते हैं ।","Can provide real life experiences वास्तविक जीवन के अनुभवों को प्रदान कर सकते हैं।","Doesn't support the development of teaching methods शिक्षण प्रणालियों की वृ‌द्धि में सहायक नहीं है",4],
+            [248,"'Music' comes under this type of teaching technique","म्यूजिक (संगीत) इस प्रकार के अधिगम विधि होगी","Stimulating Visual learning दृश्य अधिगम को प्रेरित करना","Listening Teaching Method श्रवण शिक्षण विधा","Tactile Teaching Method स्पर्श बोध विधि","Kinesthetic Teaching Method कैनेस्थटिक अधिगम विधि (गति संवेदी)",2],
+            [249,"Flash cards come under this type of teaching method","'फ्लैश कार्ड्स' इस अधिगम विधि के अंतर्गत आते हैं -","Stimulating Visual learning दृश्य अधिगम को प्रेरित करना","Listening Teaching Method श्रवण शिक्षण विधि","Tactile Teaching Method स्पर्श अधिगम विधि","Kinesthetic Teaching Method कैनस्थटिक (गति संवेदी) अधिगम विधि",1],
+            [250,"This is not a feature of written communication","निम्न में से यह लिखित संप्रेषण का लक्षण नहीं है","It is clear यह स्पष्ट होता है","Can't be used as evidence साक्ष्य / सबूत के रूप में काम नहीं आता।","It is contextually useful समयानुकूल उपयोगी है","It is concise संक्षिप्त रहता है",2]
+        ];
+
+        let currentPaperNum = 1;
+        let currentStartIndex = 0;
+        let currentEndIndex = 0;
+        
+        let timerInterval = null;
+        let timeRemaining = 3600; // 60 minutes
+        let isSubmitted = false;
+        let isReviewMode = false;
+        let timerKey = '';
+
+        function openPaper(paperNum) {
+            currentPaperNum = paperNum;
+            document.getElementById('menu-view').classList.add('hidden');
+            document.getElementById('exam-view').classList.remove('hidden');
+            document.getElementById('results-dashboard').classList.add('hidden');
+            document.getElementById('submit-btn').style.display = 'flex';
+            
+            document.getElementById('paper-title').innerText = "Practice Paper " + paperNum;
+            isSubmitted = false;
+            isReviewMode = false;
+            resetReviewButton();
+
+            currentStartIndex = (paperNum - 1) * 50;
+            timerKey = `cdp_timer_paper${paperNum}`;
+            currentEndIndex = currentStartIndex + 50;
+            const paperQuestions = questionBank.slice(currentStartIndex, currentEndIndex);
+
+            const container = document.getElementById('questions-container');
+            let html = '';
+
+            paperQuestions.forEach((q, index) => {
+                const qNum = currentStartIndex + index + 1; // Real question number (1 to 250)
+                
+                // Retrieve saved answer if any
+                const savedAns = sessionStorage.getItem(`paper${paperNum}_q${qNum}`);
+
+                html += `
+                <div class="question-block bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden" id="q${qNum}">
+                    <div class="bg-slate-50 border-b border-slate-100 px-4 sm:px-6 py-2 sm:py-3 flex justify-between items-center text-xs sm:text-sm font-bold text-slate-500">
+                        <span>Question ${index + 1}</span>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <div class="text-base sm:text-lg font-bold text-slate-800 mb-2">${q[1]}</div>
+                        <div class="text-sm sm:text-base text-slate-600 mb-4 sm:mb-6">${q[2]}</div>
+                        <div class="space-y-2 sm:space-y-3">
+                            <label id="lbl-q${qNum}-1" class="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl border border-slate-200 hover:border-indigo-300 hover:bg-slate-50 cursor-pointer transition">
+                                <input type="radio" name="q${qNum}" value="1" onchange="handleAnswerChange()" ${savedAns === '1' ? 'checked' : ''} class="mt-0.5 sm:mt-1 flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5">
+                                <span class="text-slate-700 font-medium text-sm sm:text-base leading-snug pt-0.5">(1) ${q[3]}</span>
+                            </label>
+                            <label id="lbl-q${qNum}-2" class="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl border border-slate-200 hover:border-indigo-300 hover:bg-slate-50 cursor-pointer transition">
+                                <input type="radio" name="q${qNum}" value="2" onchange="handleAnswerChange()" ${savedAns === '2' ? 'checked' : ''} class="mt-0.5 sm:mt-1 flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5">
+                                <span class="text-slate-700 font-medium text-sm sm:text-base leading-snug pt-0.5">(2) ${q[4]}</span>
+                            </label>
+                            <label id="lbl-q${qNum}-3" class="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl border border-slate-200 hover:border-indigo-300 hover:bg-slate-50 cursor-pointer transition">
+                                <input type="radio" name="q${qNum}" value="3" onchange="handleAnswerChange()" ${savedAns === '3' ? 'checked' : ''} class="mt-0.5 sm:mt-1 flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5">
+                                <span class="text-slate-700 font-medium text-sm sm:text-base leading-snug pt-0.5">(3) ${q[5]}</span>
+                            </label>
+                            <label id="lbl-q${qNum}-4" class="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl border border-slate-200 hover:border-indigo-300 hover:bg-slate-50 cursor-pointer transition">
+                                <input type="radio" name="q${qNum}" value="4" onchange="handleAnswerChange()" ${savedAns === '4' ? 'checked' : ''} class="mt-0.5 sm:mt-1 flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5">
+                                <span class="text-slate-700 font-medium text-sm sm:text-base leading-snug pt-0.5">(4) ${q[6]}</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            window.scrollTo(0, 0);
+            
+            handleAnswerChange(); // init progress
+            startTimer();
+        }
+
+        function goBack() {
+            clearInterval(timerInterval);
+            closeModal();
+            isSubmitted = false;
+            isReviewMode = false;
+            resetReviewButton();
+
+            document.getElementById('confirm-modal').classList.add('hidden');
+            document.getElementById('exam-view').classList.add('hidden');
+            document.getElementById('menu-view').classList.remove('hidden');
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+
+            const savedTime = Number(sessionStorage.getItem(timerKey));
+            timeRemaining = Number.isFinite(savedTime) && savedTime > 0 ? savedTime : 3600;
+            updateTimerDisplay();
+            updateTimerWarning();
+
+            timerInterval = setInterval(() => {
+                timeRemaining = Math.max(0, timeRemaining - 1);
+                sessionStorage.setItem(timerKey, String(timeRemaining));
+                updateTimerDisplay();
+                updateTimerWarning();
+
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    processSubmission(true);
+                }
+            }, 1000);
+        }
+
+        function updateTimerWarning() {
+            const timer = document.getElementById('timer-container');
+            if (!timer) return;
+
+            if (timeRemaining <= 300) {
+                timer.classList.remove('bg-slate-800');
+                timer.classList.add('bg-rose-600', 'animate-pulse');
+            } else {
+                timer.classList.remove('bg-rose-600', 'animate-pulse');
+                timer.classList.add('bg-slate-800');
+            }
+        }
+
+        function updateTimerDisplay() {
+            const m = Math.floor(timeRemaining / 60).toString().padStart(2, '0');
+            const s = (timeRemaining % 60).toString().padStart(2, '0');
+            document.getElementById('timer-display').textContent = `${m}:${s}`;
+        }
+
+        function handleAnswerChange() {
+            // Count answered questions
+            let answeredCount = 0;
+            const paperQuestions = questionBank.slice(currentStartIndex, currentEndIndex);
+            
+            paperQuestions.forEach((q, index) => {
+                const qNum = currentStartIndex + index + 1;
+                const checked = document.querySelector(`input[name="q${qNum}"]:checked`);
+                if(checked) {
+                    answeredCount++;
+                    // Save to session so they don't lose work on reload
+                    sessionStorage.setItem(`paper${currentPaperNum}_q${qNum}`, checked.value);
+                }
+            });
+            
+            document.getElementById('progress-text').innerText = `Answered: ${answeredCount} / 50`;
+            const pct = (answeredCount / 50) * 100;
+            document.getElementById('progress-bar').style.width = `${pct}%`;
+        }
+
+        function confirmSubmit() {
+            const answeredCount = document.querySelectorAll('input[type="radio"]:checked').length;
+            const msg = document.getElementById('confirm-message');
+            
+            if(answeredCount < 50) {
+                msg.innerHTML = `You have <strong>${50 - answeredCount} unanswered</strong> questions. Are you sure you want to grade the exam?`;
+            } else {
+                msg.innerHTML = "You have answered all questions. Ready to submit?";
+            }
+            
+            document.getElementById('confirm-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('confirm-modal').classList.add('hidden');
+        }
+
+        function processSubmission(autoSubmit = false) {
+            if (isSubmitted) return;
+            closeModal();
+            clearInterval(timerInterval);
+            isSubmitted = true;
+            sessionStorage.removeItem(timerKey);
+            document.getElementById('submit-btn').style.display = 'none';
+            document.getElementById('timer-container').classList.replace('bg-rose-600', 'bg-slate-800');
+            document.getElementById('timer-container').classList.remove('animate-pulse');
+            
+            let score = 0;
+            let correctCount = 0;
+            let wrongCount = 0;
+            let skippedCount = 0;
+
+            const paperQuestions = questionBank.slice(currentStartIndex, currentEndIndex);
+            
+            paperQuestions.forEach((q, index) => {
+                const qNum = currentStartIndex + index + 1;
+                const correctAns = q[7];
+                const selectedRadio = document.querySelector(`input[name="q${qNum}"]:checked`);
+                const questionBlock = document.getElementById(`q${qNum}`);
+                
+                // Highlight correct answer in green
+                const correctLabel = document.getElementById(`lbl-q${qNum}-${correctAns}`);
+                if(correctLabel) {
+                    correctLabel.classList.add('bg-emerald-50', 'border-emerald-500', 'ring-1', 'sm:ring-2', 'ring-emerald-200');
+                    correctLabel.innerHTML += ' <span class="ml-auto flex-shrink-0 text-[10px] sm:text-xs font-bold bg-emerald-500 text-white px-2 py-1 rounded">CORRECT</span>';
+                }
+                
+                if (selectedRadio) {
+                    const selectedVal = parseInt(selectedRadio.value);
+                    if (selectedVal === correctAns) {
+                        score++;
+                        correctCount++;
+                        questionBlock.classList.add('is-correct'); // Used for filtering
+                    } else {
+                        wrongCount++;
+                        questionBlock.classList.add('is-wrong');
+                        // Highlight user's wrong answer in red
+                        const wrongLabel = document.getElementById(`lbl-q${qNum}-${selectedVal}`);
+                        if(wrongLabel) {
+                            wrongLabel.classList.add('bg-rose-50', 'border-rose-300', 'opacity-70', 'line-through');
+                            wrongLabel.innerHTML += ' <span class="ml-auto flex-shrink-0 text-[10px] sm:text-xs font-bold bg-rose-200 text-rose-700 px-2 py-1 rounded no-underline">YOUR CHOICE</span>';
+                        }
+                    }
+                } else {
+                    skippedCount++;
+                    questionBlock.classList.add('is-skipped');
+                }
+                
+                // Disable all radio buttons
+                document.querySelectorAll(`input[name="q${qNum}"]`).forEach(r => r.disabled = true);
+            });
+            
+            // Populate and show dashboard
+            document.getElementById('res-score').innerText = `${score}/50`;
+            document.getElementById('res-correct').innerText = correctCount;
+            document.getElementById('res-wrong').innerText = wrongCount;
+            document.getElementById('res-skipped').innerText = skippedCount;
+            
+            document.getElementById('results-dashboard').classList.remove('hidden');
+            window.scrollTo(0, 0);
+            
+            // Clear session storage for this paper so they can retake it fresh next time
+            paperQuestions.forEach((q, index) => {
+                sessionStorage.removeItem(`paper${currentPaperNum}_q${currentStartIndex + index + 1}`);
+            });
+        }
+
+        function resetReviewButton() {
+            const btn = document.getElementById('btn-review-mistakes');
+            if (!btn) return;
+            btn.innerHTML = '<i class="fa-solid fa-filter"></i> Review Mistakes Only';
+            btn.classList.remove('bg-slate-200', 'text-slate-800');
+            btn.classList.add('bg-rose-100', 'text-rose-800');
+        }
+
+        function toggleReviewMode() {
+            isReviewMode = !isReviewMode;
+            const btn = document.getElementById('btn-review-mistakes');
+            const corrects = document.querySelectorAll('.is-correct');
+            
+            if(isReviewMode) {
+                btn.innerHTML = '<i class="fa-solid fa-list"></i> Show All Questions';
+                btn.classList.replace('bg-rose-100', 'bg-slate-200');
+                btn.classList.replace('text-rose-800', 'text-slate-800');
+                corrects.forEach(el => el.classList.add('hidden'));
+            } else {
+                btn.innerHTML = '<i class="fa-solid fa-filter"></i> Review Mistakes Only';
+                btn.classList.replace('bg-slate-200', 'bg-rose-100');
+                btn.classList.replace('text-slate-800', 'text-rose-800');
+                corrects.forEach(el => el.classList.remove('hidden'));
+            }
+        }
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeModal();
+        });
+
+        resetReviewButton();
+    </script>
+</body>
+</html>
