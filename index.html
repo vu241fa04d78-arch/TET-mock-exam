@@ -3,23 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>CDP Practice Papers (Telugu/English)</title>
+    <title>CDP Practice Papers (630 Questions)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        
-        /* Smooth scrolling */
         html { scroll-behavior: smooth; }
-        
-        /* Custom scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
-        /* Custom Radio Button Styles for Mobile */
         input[type="radio"] {
             accent-color: #3b82f6;
             width: 1.25rem;
@@ -41,54 +36,34 @@
 </head>
 <body class="text-slate-800 antialiased">
 
-    <!-- MENU VIEW -->
-    <div id="menu-view" class="max-w-3xl mx-auto pt-8 sm:pt-12 px-4">
+    <div id="menu-view" class="max-w-4xl mx-auto pt-8 sm:pt-12 px-4">
         <div class="text-center mb-8 sm:mb-10">
             <div class="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-blue-100 text-blue-600 mb-4 shadow-sm">
                 <i class="fa-solid fa-graduation-cap text-2xl sm:text-3xl"></i>
             </div>
             <h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mb-2 sm:mb-3">T.E.T CDP Question Bank</h1>
             <p class="text-sm sm:text-base text-slate-600 font-medium">(Telugu & English Medium)</p>
-            <p class="text-sm text-slate-500 mt-2">Select a practice paper below. 50 questions per paper.</p>
+            <p class="text-sm text-slate-500 mt-2">Select a practice paper below. <strong id="total-q-count">0</strong> total questions available.</p>
         </div>
         
-        <div class="space-y-3 sm:space-y-4 pb-8">
-            <button onclick="openPaper(1)" class="w-full bg-white hover:bg-blue-50 border-2 border-slate-200 hover:border-blue-400 text-slate-700 font-bold text-lg py-4 px-5 rounded-2xl shadow-sm transition-all flex justify-between items-center group">
-                <span class="flex items-center gap-3"><i class="fa-solid fa-file-lines text-blue-400 text-xl"></i> Paper 1</span>
-                <span class="text-xs font-semibold text-slate-400 group-hover:text-blue-500 bg-slate-100 group-hover:bg-blue-100 px-3 py-1 rounded-full">Q 1 - 50 <i class="fa-solid fa-chevron-right ml-1"></i></span>
-            </button>
-            <button onclick="openPaper(2)" class="w-full bg-white hover:bg-blue-50 border-2 border-slate-200 hover:border-blue-400 text-slate-700 font-bold text-lg py-4 px-5 rounded-2xl shadow-sm transition-all flex justify-between items-center group">
-                <span class="flex items-center gap-3"><i class="fa-solid fa-file-lines text-blue-400 text-xl"></i> Paper 2</span>
-                <span class="text-xs font-semibold text-slate-400 group-hover:text-blue-500 bg-slate-100 group-hover:bg-blue-100 px-3 py-1 rounded-full">Q 51 - 100 <i class="fa-solid fa-chevron-right ml-1"></i></span>
-            </button>
-            <button onclick="openPaper(3)" class="w-full bg-white hover:bg-blue-50 border-2 border-slate-200 hover:border-blue-400 text-slate-700 font-bold text-lg py-4 px-5 rounded-2xl shadow-sm transition-all flex justify-between items-center group">
-                <span class="flex items-center gap-3"><i class="fa-solid fa-file-lines text-blue-400 text-xl"></i> Paper 3</span>
-                <span class="text-xs font-semibold text-slate-400 group-hover:text-blue-500 bg-slate-100 group-hover:bg-blue-100 px-3 py-1 rounded-full">Q 101 - 150 <i class="fa-solid fa-chevron-right ml-1"></i></span>
-            </button>
-            <button onclick="openPaper(4)" class="w-full bg-white hover:bg-blue-50 border-2 border-slate-200 hover:border-blue-400 text-slate-700 font-bold text-lg py-4 px-5 rounded-2xl shadow-sm transition-all flex justify-between items-center group">
-                <span class="flex items-center gap-3"><i class="fa-solid fa-file-lines text-blue-400 text-xl"></i> Paper 4</span>
-                <span class="text-xs font-semibold text-slate-400 group-hover:text-blue-500 bg-slate-100 group-hover:bg-blue-100 px-3 py-1 rounded-full">Q 151 - 200 <i class="fa-solid fa-chevron-right ml-1"></i></span>
-            </button>
-            <button onclick="openPaper(5)" class="w-full bg-white hover:bg-blue-50 border-2 border-slate-200 hover:border-blue-400 text-slate-700 font-bold text-lg py-4 px-5 rounded-2xl shadow-sm transition-all flex justify-between items-center group">
-                <span class="flex items-center gap-3"><i class="fa-solid fa-file-lines text-blue-400 text-xl"></i> Paper 5</span>
-                <span class="text-xs font-semibold text-slate-400 group-hover:text-blue-500 bg-slate-100 group-hover:bg-blue-100 px-3 py-1 rounded-full">Q 201 - 250 <i class="fa-solid fa-chevron-right ml-1"></i></span>
-            </button>
+        <!-- Dynamic Paper Buttons will be injected here -->
+        <div id="dynamic-menu" class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pb-8">
+            <!-- Loading placeholder -->
+            <div class="text-center text-slate-400 py-4 col-span-full"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Loading Papers...</div>
         </div>
     </div>
 
-    <!-- EXAM VIEW -->
     <div id="exam-view" class="hidden min-h-screen flex flex-col">
         
         <!-- Sticky Header with Progress -->
         <div class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
             <div class="max-w-4xl mx-auto px-3 sm:px-4 py-3 flex justify-between items-center gap-3">
-                
                 <div class="flex items-center gap-3">
                     <button onclick="goBack()" class="text-slate-500 hover:text-blue-600 transition flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 hover:bg-blue-50 flex-shrink-0">
                         <i class="fa-solid fa-arrow-left"></i>
                     </button>
                     <div class="min-w-0">
-                        <h2 id="paper-title" class="font-bold text-base sm:text-lg text-slate-800 leading-tight truncate">Paper 1</h2>
+                        <h2 id="paper-title" class="font-bold text-base sm:text-lg text-slate-800 leading-tight truncate">Paper</h2>
                         <div class="text-xs font-medium text-slate-500 whitespace-nowrap" id="progress-text">Answered: 0 / 50</div>
                     </div>
                 </div>
@@ -107,7 +82,6 @@
             </div>
         </div>
 
-        <!-- Results Dashboard (Hidden until submitted) -->
         <div id="results-dashboard" class="hidden max-w-4xl mx-auto w-full px-3 sm:px-4 pt-6 pb-2">
             <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden relative">
                 <div class="absolute top-0 left-0 w-full h-2 bg-emerald-500"></div>
@@ -145,14 +119,11 @@
             </div>
         </div>
 
-        <!-- Questions Container -->
         <div id="questions-container" class="flex-grow max-w-4xl mx-auto w-full px-3 sm:px-4 py-6 space-y-5">
             <!-- Questions will be loaded here -->
         </div>
-
     </div>
 
-    <!-- Custom Confirm Modal -->
     <div id="confirm-modal" class="hidden fixed inset-0 bg-slate-900/40 z-[100] flex items-center justify-center p-4 backdrop-blur-sm">
         <div class="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-6 modal-enter border border-slate-100">
             <div class="w-14 h-14 rounded-full bg-amber-100 text-amber-500 flex items-center justify-center text-2xl mb-4 mx-auto">
@@ -175,7 +146,6 @@
     <script>
         // Format: [id, English, Telugu, Opt1, Opt2, Opt3, Opt4, Correct_Answer_Number_1_based]
         const questionBank = [
-            // PAPER 1 (1-50)
             [1, "This does not come under the scope of Educational Psychology according to Skinner", "స్కిన్నర్ ప్రకారం విద్యా మనోవిజ్ఞానశాస్త్ర పరిధి కిందకు రానిది", "Learner", "Mandal Educational Officer", "Teacher", "Learning Experience", 2],
             [2, "Correct statement related to Development", "వికాసానికి సంబంధించి సరైన వాక్యం", "Development is a narrow concept", "Development can be measured accurately", "Development is limited to certain age", "Development is an internal and integrated process", 4],
             [3, "The word 'Psychology' is derived from the words of this language", "సైకాలజీ అనే పదం ఈ భాష పదాల నుండి ఉద్భవించినది.", "Greek", "Telugu", "Tamil", "Hindi", 1],
@@ -227,7 +197,6 @@
             [49, "Developmental stage from 6 years to 10 to 12 years is", "6సంవత్సరాల నుండి 10 లేదా 12 సంవత్సరాల వరకు గల వికాస దశ", "Neonatal stage", "Infancy", "Late childhood", "Adulthood", 3],
             [50, "Developmental stage from 10 or 12 years to 13 or 14 years is", "10 లేదా 12 సంవత్సరాల నుండి 13 లేదా 14 సంవత్సరాల వరకు గల వికాస దశ", "Neonatal stage", "Middle age", "Puberty", "Old age", 3],
             
-            // PAPER 2 (51-100)
             [51, "Developmental stage from 18 years to 40 years is", "18 సంవత్సరాల నుండి 40 సంవత్సరాల వరకు గల వికాస దశ", "Old age", "Infancy", "Adolescence", "Adulthood", 4],
             [52, "Developmental stage from 40 years to 60 years is", "40 సంవత్సరాల నుండి 60 సంవత్సరాల వరకు గల వికాస దశ", "Middle age", "Adolescence", "Infancy", "Old Age", 1],
             [53, "Developmental stage 60 afterwards is", "60 సంవత్సరాల పైబడిన వయస్సు గల వికాస దశ", "Middle age", "Adulthood", "Adolescence", "Old age", 4],
@@ -278,11 +247,9 @@
             [98, "The Psycho Social crisis faced by an individual at the stage of Adolescence is", "కౌమార దశలోని వ్యక్తి ఎదుర్కొనే క్లిష్ట పరిస్థితి", "Role Identity - Role Confusion", "Intimacy - Isolation", "Autonomy - Doubt", "Integrity - Despair", 1],
             [99, "The Psycho Social crisis faced by a child at the age of first year is", "మొదటి సంవత్సరంలోని పిల్లవాడు ఎదుర్కొనే క్లిష్ట పరిస్థితి", "Autonomy - Doubt", "Trust - Mistrust", "Intimacy - Isolation", "Integrity - Despair", 2],
             [100, "The Psycho Social crisis faced by a child at the stage of School Age is", "పాఠశాల దశలోని పిల్లవాడు ఎదుర్కొనే క్లిష్ట పరిస్థితి", "Generativity - Stagnation", "Initiative - Guilt", "Industry - Inferiority", "Integrity - Despair", 3],
-            
-            // PAPER 3 (101-150)
             [101, "The Psycho Social crisis faced by an individual at the stage of Middle Adulthood is", "మధ్య వయోజన దశలోని వ్యక్తి ఎదుర్కొనే క్లిష్ట పరిస్థితి", "Trust - Mistrust", "Industry - Inferiority", "Intimacy - Isolation", "Generativity - Stagnation", 4],
-            [102, "Correctly matched pair related to Erikson's Psycho Social Developmental Stage/s (A: Infancy->Trust-Mistrust, B: Babyhood->Industry-Inferiority)", "సరియైన జత/లు (A: పూర్వ శైశవ దశ->నమ్మకం-అవనమ్మకం, B: ఉత్తర శైశవ దశ->శ్రమించడం-న్యూనత)", "Only A is Correct", "Only B is Correct", "Both A, B are Correct", "Both A, B are Incorrect", 1],
-            [103, "Correctly matched pair related to Erikson's Psycho Social Developmental Stage/s (A: Adolescence->Role Identity, B: School Age->Industry-Inferiority)", "సరియైన జత/లు (A: కౌమార దశ->పాత్ర గుర్తింపు, B: పాఠశాల దశ->శ్రమించడం-న్యూనత)", "Only A is Correct", "Only B is Correct", "Both A, B are Correct", "Both A, B are Incorrect", 3],
+            [102, "Correctly matched pair related to Erikson's Psycho Social Developmental Stage/s", "సరియైన జత/లు", "Only A is Correct", "Only B is Correct", "Both A, B are Correct", "Both A, B are Incorrect", 1],
+            [103, "Correctly matched pair related to Erikson's Psycho Social Developmental Stage/s", "సరియైన జత/లు", "Only A is Correct", "Only B is Correct", "Both A, B are Correct", "Both A, B are Incorrect", 3],
             [104, "This age group of people face Psycho Social Crisis, 'Integrity - Despair' (in years)", "ఈ వయస్సు గల వ్యక్తులు, “సమగ్రత - నిరాశ” అనే పరిస్థితిని ఎదుర్కొంటారు. (సం. ల. లో)", "12-20", "20-30", "30-60", "> 60", 4],
             [105, "This age group of people face the Psycho Social Crisis, 'Isolation' (in years)", "ఈ వయస్సు గల వ్యక్తులు, \"ఏకాంతం\" అనే పరిస్థితిని ఎదుర్కొంటారు. (సం. ల. లో)", "3-5", "6-12", "12-20", "20-30", 4],
             [106, "At this stage of Kolberg's Moral Developmental theory, the decisions of an individual are based upon his conscience.", "ఈ దశలో వ్యక్తి, తన అంతరాత్మపై ఆధార పడి నిర్ణయాలు తీసుకుంటాడు.", "Stage 2", "Stage 3", "Stage 4", "Stage 6", 4],
@@ -331,15 +298,14 @@
             [149, "Meaning of 'Adolescere' is", "అడోల్సియర్ అనగా అర్ధం", "To grow into maturity", "To read fluently", "To walk properly", "To write neatly", 1],
             [150, "According to WHO, the period of Adolescence is (in years)", "ప్రపంచ ఆరోగ్య సంస్థ ప్రకారం, కౌమారదశ కాలం (సం. ల. లో)", "0-10", "5-8", "10-19", "20-30", 3],
             
-            // PAPER 4 (151-200)
             [151, "The age group of children are treated as kids at some times and adults at some other times", "కొన్ని సార్లు చిన్న పిల్లలు గా, కొన్ని సార్లు పెద్దవారిగా భావింపబడే వయస్సు", "Early Childhood", "Late Childhood", "Adolescence", "Adulthood", 3],
-            [152, "Correct statement related to Adolescence (A: Problem age, B: Period of change, C: Search for identity)", "కౌమార దశకు సంబంధించి సరైన ప్రవచనం", "Only A is correct", "Only B is correct", "Only C is correct", "A, B, C all are correct", 4],
+            [152, "Correct statement related to Adolescence", "కౌమార దశకు సంబంధించి సరైన ప్రవచనం", "Only A is correct", "Only B is correct", "Only C is correct", "A, B, C all are correct", 4],
             [153, "A: Adolescence is Time of search for identity. B: rapid changes occur in sexual organs", "A: గుర్తింపు కోసం శోధించే దశ B: లైంగిక అవయవాలలో వేగంగా మార్పులు", "Only A is correct", "Only B is correct", "Both A & B are correct", "Both A & B are incorrect", 3],
             [154, "This is not a need of Adolescents", "కౌమారుల అవసరం కానిది", "Friends", "Freedom", "Guidance", "Slavery", 4],
-            [155, "This is a need of Adolescents (A: Proper Parenting Style, B: Friends, C: Freedom)", "కౌమారులకు అవసరమైనది", "Only A is correct", "Only B is correct", "Only C is correct", "A, B, C all are correct", 4],
+            [155, "This is a need of Adolescents", "కౌమారులకు అవసరమైనది", "Only A is correct", "Only B is correct", "Only C is correct", "A, B, C all are correct", 4],
             [156, "This is not a characteristic of Adolescence", "కౌమార దశ లక్షణం కానిది", "Period of change", "Period without problems", "Period of search for identity", "Period of unrealistic thoughts", 2],
             [157, "Adolescence is a gateway to this stage", "కౌమార దశ అనునది ఈ దశకు ప్రవేశ మార్గం", "Early Childhood", "Late Childhood", "Puberty", "Adulthood", 4],
-            [158, "This is a need of Adolescent (A: Self Respect, B: Proper Parenting Style, C: Proper Identity)", "కౌమార దశలోని వ్యక్తి కోరుకునేది", "Only A is correct", "Only B is correct", "Only C is correct", "A, B, C all are correct", 4],
+            [158, "This is a need of Adolescent", "కౌమార దశలోని వ్యక్తి కోరుకునేది", "Only A is correct", "Only B is correct", "Only C is correct", "A, B, C all are correct", 4],
             [159, "Individuals of this age group behave like 'Birds of same feather flock together.'", "ఒకే జాతి పక్షులు కలిసి ఎగురుతాయి' అన్నట్లు ప్రవర్తించేవారు", "Adolescents", "Adults", "Old age people", "Middle aged", 1],
             [160, "'Developmental Psychology: A Life Span Approach' book was written by", "'డెవలప్మెంటల్ సైకాలజీ: ఎ లైఫ్ స్పాన్ ఎప్రోచ్' పుస్తక రచయత", "Elizabeth Hurlock", "B.F. Skinner", "Francis Galton", "Thorndike", 1],
             [161, "According to Elizabeth Hurlock, this is not a social group during the stage of Adolescence.", "హర్లాక్ ప్రకారం, కౌమారదశలోని సాంఘిక సమూహం కానిది", "Crowds", "Gangs", "Close Friends", "Old Friends", 4],
@@ -348,8 +314,8 @@
             [164, "This is not correct activity to improve leadership characteristics in Adolescents", "నాయకత్వ లక్షణాలు పెంపొందించుటకు చేపట్టవలసిన కార్యక్రమం కానిది", "Join the students in NCC", "Training the students to develop life skills", "To make participate in school programs", "To make participate in illegal activities", 4],
             [165, "In this type of leadership, decisions are taken by the leaders by themselves.", "కేవలం నాయకులే నిర్ణయాలు తీసుకునే నాయకత్వ రకం", "Authoritarian", "Democratic", "Laissez Faire", "Friendly", 1],
             [166, "This is not a special characteristic of Adolescents", "కౌమారుల యొక్క ప్రత్యేక లక్షణం కానిది", "Peer group relationship", "Aspiring for Leadership", "No need of Independence", "Firm Self Consciousness", 3],
-            [167, "The group behaviour of Adolescents is seen in (A: Fun/joy through activities B: Indulging in destructive activities)", "కౌమారుల సమూహ ప్రవర్తనలు", "Only A is correct", "Only B is correct", "Both A & B are correct", "Both A & B are incorrect", 3],
-            [168, "Life skills taught to Adolescents (A: Problem Solving, B: Creative Thinking, C: Empathy)", "జీవన నైపుణ్యాలు", "Only A is correct", "Only B is correct", "Only C is correct", "A, B, C all are correct", 4],
+            [167, "The group behaviour of Adolescents is seen in the following activities", "కౌమారుల సమూహ ప్రవర్తనలు", "Only A is correct", "Only B is correct", "Both A & B are correct", "Both A & B are incorrect", 3],
+            [168, "Life skills taught to Adolescents", "జీవన నైపుణ్యాలు", "Only A is correct", "Only B is correct", "Only C is correct", "A, B, C all are correct", 4],
             [169, "Intelligence is a/an", "ప్రజ్ఞ అనేది ఒక", "Abstract concept", "Concrete concept", "Physical concept", "Environmental concept", 1],
             [170, "The factor that decides individual differences among people", "వ్యక్తులలో వైయక్తిక భేదాలను నిర్ణయించే కారకం", "Drive", "Intelligence", "Conditioning", "Personality", 2],
             [171, "The variations in intelligence from person to person are due to", "ప్రజ్ఞలో గల తేడాలకు గల కారణం", "Heredity only", "Environment only", "Personality only", "Heredity and Environment", 4],
@@ -382,8 +348,6 @@
             [198, "People with Spatial intelligence are generally called", "ప్రాదేశిక ప్రజ్ఞ కలిగిన వారిని సాధారణంగా పిలుస్తారు", "Number smart", "Music smart", "Picture smart", "Social smart", 3],
             [199, "Sculptors, painters and Architects excel in this type of intelligence", "శిల్పులు, చిత్రకారులు మరియు వాస్తుశిల్పకారులు రకమైన ప్రజ్ఞ", "Spatial Intelligence", "Inter Personal", "Linguistic Intelligence", "Bodily - Kinaesthetic", 1],
             [200, "Dancers, Athletes, Yoga Masters and Mime Artists possess higher levels of", "నర్తకులు, క్రీడాకారులు, యోగా గురువులు దీనిని అధికంగా కలిగి ఉంటారు", "Bodily - Kinesthetic", "Intra Personal", "Logical Mathematical", "Naturalistic", 1],
-            
-            // PAPER 5 (201-250)
             [201, "The ability to introspect, analyse one's own strengths and weakness is", "తన స్వంత బలాలు, బాలహీనతలను విశ్లేషించుకునే ప్రజ్ఞ", "Inter - Personal Intelligence", "Intra Personal Intelligence", "Naturalistic Intelligence", "Linguistic Intelligence", 2],
             [202, "Politicians, Sales representatives, Psychological counsellors and teachers possess strong", "రాజకీయ నాయకులు, ఉపాధ్యాయులలో ఈ ప్రజ్ఞ బలంగా ఉంటుంది", "Inter - Personal Intelligence", "Intra Personal Intelligence", "Spatial Intelligence", "Musical Intelligence", 1],
             [203, "People with high intra personal intelligence are referred as", "వ్యక్తి అంతర్గత ప్రజ్ఞ ఎక్కువగా ఉన్న వ్యక్తులను ఇలా పిలుస్తారు.", "Social smart", "Self Smart", "Nature Smart", "Word Smart", 2],
@@ -433,13 +397,418 @@
             [247, "It is a motive towards an activity", "ఒక కృత్యం వైపునకు నడిపించే ప్రేరణే", "Interest", "Personality", "Intelligence", "Cognition", 1],
             [248, "Strong's Vocational Interest Blank is useful to measure", "స్ట్రాంగ్ ఔద్యోగిక అభిరుచి మాపని దీనిని మాపనం చేస్తుంది", "Personality", "Intelligence", "Interest", "Attention", 3],
             [249, "It is a tendency to respond to people, institutions or events either positively or negatively", "సకారాత్మకంగా కాని, నకారాత్మకంగా కానీ ప్రతిస్పందించే స్వభావం", "Attitude", "Aptitude", "Attention", "Creativity", 1],
-            [250, "The test that is not useful to measure attitude", "వైఖరి మాపనిగా ఉపయోగపడని పరీక్ష", "Likert's Summated Rating", "Thurston's Attitude Scale", "Bogardus Social Distance", "Strong Vocational Interest", 4]
+            [250, "The test that is not useful to measure attitude", "వైఖరి మాపనిగా ఉపయోగపడని పరీక్ష", "Likert's Summated Rating", "Thurston's Attitude Scale", "Bogardus Social Distance", "Strong Vocational Interest", 4],
+
+            [251, "The first stage in the process of Creativity is", "సృజనాత్మకత ప్రక్రియలో మొదటి దశ", "Preparatory Stage. సన్నాహ దశ", "Latency Stage. గుప్త దశ", "Insight Stage. అంతర్దృష్టి దశ", "Verification Stage. నిరూపణ దశ", 1],
+            [252, "It does not develop desirable attitudes towards school among children", "ఇది పిల్లల్లో పాఠశాల పట్ల ఇష్టపూర్వక వైఖరిని అభివృద్ధి చేయదు", "Learning in free environment", "Co-curricular activities designed on uninterested areas", "School staff should be cordial towards students", "Prepare a plan to develop projects", 2],
+            [253, "It is an unseen internal behaviour used for problem solving", "సమస్యా సాధనకు ఉపయోగపడే కనిపించని అంతర్గత ప్రవర్తన", "Thinking", "Attitude", "Personality", "Learning", 1],
+            [254, "This is not a characteristic of thinking", "ఆలోచన యొక్క లక్షణం కానిది", "Mental activity related to cognitive aspect", "Changes will occur frequently", "Thoughts are explicit", "It is a result-oriented process", 3],
+            [255, "According to Descartes, the root for the existence of mankind is", "డెకార్టెస్ ప్రకారం, మానవ మనుగడకు మూలము", "Personality", "Thinking", "Attitude", "Aptitude", 2],
+            [256, "This is not the characteristics of thinking", "ఆలోచన లక్షణం కానిది", "A mental exploration", "A physical exploration", "A result-oriented process", "Thoughts are implicit", 2],
+            [257, "This is the characteristic of thinking", "ఆలోచన యొక్క లక్షణం", "This is explicit", "This is a physical exploration", "This is a problem-solving behaviour", "Changes will not occur in thinking", 3],
+            [258, "In this type of thinking, knowledge acquisition takes place through sensory organs directly", "ఈ ఆలోచనా రకంలో విషయాన్ని జ్ఞానేంద్రియాల ద్వారా, ప్రత్యక్షంగా గ్రహిస్తాం.", "Concrete or perceptual Thinking", "Imaginative Thinking", "Convergent Thinking", "Divergent Thinking", 1],
+            [259, "The type of thinking about the status of India by 2050 due to the increase in population is", "2050 నాటికి జనాభా పెరుగుదల వలన భారతదేశపు స్థితిగతుల గురించి ఆలోచించడం, ఈ రకపు ఆలోచన", "Associative Thinking", "Imaginative Thinking", "Concrete Thinking", "Convergent thinking", 2],
+            [260, "While thinking about marriage, recalling about feast, relatives effortlessly is an example of this type of thinking", "పెళ్లి అన్న అంశమును గురించి ఆలోచిస్తున్నప్పుడు, అప్రయత్నంగా విందుభోజనం, బందువులు గుర్తుకు రావడం ఈ రకమైన ఆలోచనకు ఉదాహరణ", "Associative Thinking", "Divergent Thinking", "Convergent thinking", "Imaginative Thinking", 1],
+            [261, "In this type of thinking, student can tell 2 x 2 = 2+2, 2 x 2 = 5-1", "ఈ రకం ఆలోచనలలో విద్యార్ధి ఈ విధంగా చెప్పగలడు", "Concrete Thinking", "Divergent Thinking", "Convergent Thinking", "Imaginative Thinking", 2],
+            [262, "Thinking about shapeless things which we cannot see directly is", "మనం ప్రత్యక్షంగా చూడలేని, ఆకారం లేని వస్తువులు గురించి ఆలోచించడం", "Concrete Thinking", "Abstract Thinking", "Associative Thinking", "Convergent thinking", 2],
+            [263, "Performing the tasks associated with perception, learning, memory, understanding, reasoning, judgement and language involves", "ప్రత్యక్షం, అభ్యసన, స్మృతి, అవగాహన, వివేచన, తీర్పు, భాష వంటి అంశాలను ప్రదర్శించటం", "Interests", "Cognitive Ability", "Personality", "Aptitude", 2],
+            [264, "Meaning to experiences given based on sensory knowledge is", "ఇంద్రియ జ్ఞానానికి అనుభవపూర్వకమైన అర్ధాన్ని ఇవ్వడమే", "Attitude", "Perception", "Habit", "Personality", 2],
+            [265, "The way a person can visualise, the way he listens, the way he experiences, the way he tastes, the way he smells in his situations and environment is", "తన చుట్టూ ఉన్న పరిసరం, పరిస్థితి, ఏవిధంగా కనిపిస్తుందో, ఏ విధంగా వినిపిస్తుందో, ఏవిధంగా అనుభావాన్నిస్తుందో, రుచిని ఇస్తుందో, వాసనను ఇస్తుందో అదే", "Intelligence", "Perception", "Attention", "Personality", 2],
+            [266, "This is not a characteristic of Perception", "ప్రత్యక్షము యొక్క లక్షణము కానిది", "It depends on sensation.", "Senses help in perception.", "It is a process of analysis and synthesis", "It is not affected by external and internal motives", 4],
+            [267, "Grouping objects together based on similar characteristics like colour, space and magnitude is", "రంగు, ఆకారం, పరిమాణం వంటి ఒకదానికొకటి ఒకేలా ఉండే అంశాలు ఒక సమూహంగా ఏర్పడటమనేది", "Law of Proximity", "Law of Similarity", "Law of Closure", "Law of Continuity", 2],
+            [268, "Incomplete figures are perceived as complete is", "అసంపూర్తి ఆకృతులను పూర్ణాకృతులుగా చూడగలగడమే", "Law of Closure", "Law of Proximity", "Law of Continuity", "Law of Similarity", 1],
+            [269, "Bird fly in the sky In Figure-Ground relationship of perception, the sky is", "పక్షి ఆకాశంలో ఎగురుతుంది. ఆకృతి క్షేత్ర సంబంధ ప్రత్యక్షంలో, ఆకాశం అనేది", "Figure", "Ground", "Group", "Base", 2],
+            [270, "The tendency to perceive objects that are close to one another is", "ఒకదానికొకటి దగ్గరగా ఉన్న అంశాలను ఒక సమూహంగా చూడగలగడమే", "Law of Continuity", "Law of Similarity", "Law of Proximity", "Law of Figure - Ground relationship", 3],
+            [271, "Correct pair/s related to factors influencing perception A: Personal factors interests, attitudes B: Objective factors similarity, wholeness", "ప్రత్యక్షమును ప్రభావితం చేసే కారకాలకు సంబంధించి సరైన జత/లు", "Only A is correct", "Only B is correct", "Both A and B are correct", "Both A and B are incorrect", 3],
+            [272, "Inventory that is not related to the assessment of Interest", "అభిరుచిని మాపనం చేసే శోధిక కానిది", "Strong Vocational Interest Blank", "Minnesota Vocational Interest Inventory", "Kuder's General Interest Survey", "General Aptitude Test Battery", 4],
+            [273, "The ability to recognise the primary colours like red and green", "ప్రాథమిక రంగులైన ఎరుపు మరియు ఆకుపచ్చ వంటి వాటిని గుర్తించగలగడం", "Colour Concept", "Money Concept", "Beauty Concept", "Time Concept", 1],
+            [274, "The term personality is derived from this language", "మూర్తిమత్వం అను పదం ఈ భాష నుండి గ్రహింపబడినది", "French", "Hindi", "Latin", "Russian", 3],
+            [275, "The meaning of Latin word Persona is", "పర్సోనా అనే లాటిన్ పదానికి అర్ధం", "Head", "Face", "Mind", "Mask - ముసుగు", 4],
+            [276, "\"Personality is an integration of totality of a system.\" defined by", "“మూర్తిమత్వం ఒక సమగ్రమైన సంపూర్ణమైన వ్యవస్థ” అని నిర్వచించిన వారు", "Eysenck", "Allport", "Lewin", "Dashiell", 2],
+            [277, "The factor/s that influence personality A: Physical Factors B: Socio Cultural Factors", "మూర్తిమత్వంను ప్రభావితం చేసే కారకం / కారకాలు A) భౌతిక కారకాలు B) సాంఘిక కారకాలు", "Only A is correct", "Only B is correct", "Both A & B are correct", "Both A & B are incorrect", 3],
+            [278, "The upper part of the Brain is called", "మెదడు యొక్క పై భాగమును ఇలా పిలుస్తారు.", "Cerebrum", "Mid Brain", "Hind Brain", "Spinal cord", 1],
+            [279, "This part in the human body controls Muscular system", "మానవ శరీరంలో ఈ భాగం కండర వ్యవస్థను నియంత్రింస్తుంది", "Cerebrum", "Mid Brain", "Hind Brain", "Hormones", 1],
+            [280, "This is the source of Thorndike's Mechanical Intelligence.", "థారక్షైక్ పేర్కొన్న యాంత్రిక ప్రజ్ఞకు ఇది మూలం.", "Hormones", "Cerebrum", "Mid Brain", "Hind Brain", 2],
+            [281, "Motor skills of a person depends on this part of human brain", "వ్యక్తి చాలక కౌశలాలు మానవ మెదడులో ఈ భాగంపై ఆధారపడి ఉంటాయి", "Cerebrum", "Mid Brain", "Hind Brain", "Hormones", 1],
+            [282, "This part of human brain helps to maintain equilibrium of the brain.", "మానవమెదడులోని ఈ భాగం వ్యక్తి శరీరమును సమతాస్థితిలో ఉంచడానికి దోహద పడుతుంది.", "Cerebellum", "Mid Brain", "Cerebrum", "Hormones", 1],
+            [283, "The part of human brain that controls involuntary actions like breathing, heart rate, blood pressure etc.,", "మానవమెదడు లోని ఈ భాగం శ్వాసక్రియ, హృదయస్పందన, రక్త పీడనం మొదలైన అసంకల్పిత చర్యలను తన ఆధీనంలో ఉంచుకుంటుంది", "Cerebrum", "Mid Brain", "Medulla Oblongata", "Hormones", 3],
+            [284, "When children touch some hot objects, they immediately remove their hand from the object.", "పిల్లలు ఏదైనా వేడి వస్తువును తాకినప్పుడు, వెంటనే చేతిని వెనుకకు తీసుకోవడం", "Central Nervous System", "Peripheral Nervous System", "Autonomous Nervous System", "Hormones", 1],
+            [285, "Number of Nerves in human brain (in pairs)", "మానవుని మెదడులోని నాడుల సంఖ్య (జతలలో)", "43", "12", "31", "22", 2],
+            [286, "Number of Spinal nerves in Humanbeings (in pairs)", "మానవునిలోని వెన్ను నాడుల సంఖ్య (జతలలో)", "43", "12", "31", "22", 3],
+            [287, "Vision, hearing, muscular strength depends on the functioning of this nervous system of human body.", "దృష్టి, వినికిడి, కండరబలం మానవ శరీరంలో ఈ నాడీవ్యవస్థ పనితీరుపై ఆధారపడుతుంది.", "Central Nervous System", "Peripheral Nervous System", "Autonomous Nervous System", "Hormones", 1],
+            [288, "This gland in the human body controls all other endocrine glands.", "మానవ శరీరం లో ఈ గ్రంథి మిగతా అన్ని అంతఃస్రావగ్రంథులను నియంత్రణ చేస్తుంది", "Pituitary Gland", "Thyroid Gland", "Adrenal Gland", "Testis", 1],
+            [289, "This gland that is located in the human brain.", "మానవ మెదడులో ఉండే గ్రంథి", "Pituitary Gland", "Thyroid Gland", "Adrenal Gland", "Testis", 1],
+            [290, "Thyroxin deficiency causes", "థైరాక్సిన్ స్రావకం లోపించినప్పుడు కలిగేది", "Dwarfism", "Tetani", "Myxoedema", "Gigantism", 1],
+            [291, "This is required to produce Thyroxin", "థైరాక్సిన్ ఉత్పత్తికి ఇది అవసరం", "Sodium", "Zinc", "Iodine", "Oxygen", 3],
+            [292, "It mostly influences the emotions of an individual", "ఇది వ్యక్తి ఉద్వేగాలు పై ఎక్కువ ప్రభావం చూపిస్తుంది", "Testis", "Adrenal Gland", "Thyroid Gland", "Para thyroid Gland", 2],
+            [293, "The gland that produces 'Fight or Flight' hormone.", "పోరాట పలాయనం హార్మోనును ఉత్పత్తి చేసే గ్రంథి", "Testis", "Female Gonads", "Para thyroid Gland", "Adrenal Gland", 4],
+            [294, "Socio cultural factors related to Pre-Natal environment", "సాంఘిక సాంస్కృతిక కారకాలకు చెందిన జనన పూర్వ పరిసరం", "Neighbour", "School", "Peer Group", "Food habits of Mother", 1],
+            [295, "Hippocrates: Greece:: Spranger:", "హిప్పోక్రటీస్: గ్రీన్:: సాంగర్:", "Italy", "India", "Germany", "Austria", 3],
+            [296, "According to Hippocrates' classification, 'blood is the dominant fluid in the body of", "హిప్పోక్రటీస్ వర్గీకరణ ప్రకారం శరీరంలో అధిక రక్తం వీరిలో ఉంటుంది.", "Sanguine", "Choleric", "Phlegmatic", "Melancholic", 1],
+            [297, "According to Hippocrates' classification, black bile is the dominant fluid in the body of", "హిప్పోక్రటీస్ వర్గీకరణ ప్రకారం శరీరంలో అధికంగా నల్లని పైత్య రసం వీరిలో ఉంటుంది.", "Sanguine", "Choleric", "Phlegmatic", "Melancholic", 4],
+            [298, "According to Hippocrate's classification phlegm is the dominant fluid in the body of", "హిప్పోక్రటీస్ వర్గీకరణ ప్రకారం శరీరంలో అధికంగా శ్లేష్మం వీరిలో ఉంటుంది.", "Sanguine", "Choleric", "Phlegmatic", "Melancholic", 3],
+            [299, "According to Hippocrates' classification, yellow bile is the dominant fluid in the body of", "హిప్పోక్రటిస్ వర్గీకరణ ప్రకారం శరీరంలో అధికంగా పసుపు వర్ణం గల పైత్య రసం ఎక్కువగా వీరిలో ఉంటుంది.", "Sanguine", "Choleric", "Phlegmatic", "Melancholic", 2],
+            [300, "According to Hippocrates' classification, they are calm slow and lazy", "హిప్పోక్రటీస్ వర్గీకరణ ప్రకారం వీరు నెమ్మదిగా, నిదానంగా, సోమరితనంగా ఉంటారు.", "Sanguine", "Choleric", "Phlegmatic", "Melancholic", 3],
+            [301, "According to Kretschmer's classification, They are obese, jolly, sociable people.", "క్రెష్మర్ వర్గీకరణ ప్రకారం లావుగా, ఉల్లాసంగా, కలుపుగోలుగా ఉండేవారు.", "Pyknic", "Athletic", "Leptosomatic", "Choleric", 1],
+            [302, "According to Kretschmer's classification, energetic, optimistic and adjustment characteristics are seen in", "క్రెష్మర్ వర్గీకరణ ప్రకారం, కండపుష్టి, ఆశావాది, సర్దుబాటు లక్షణాలు వీరిలో కనిపిస్తాయి", "Sanguine", "Pyknic", "Athletic", "Leptosomatic", 3],
+            [303, "According to Kretschmer's classification, these people are lean, weak, shy, introverts and pessimists", "క్రెష్మర్ వర్గీకరణ ప్రకారం సన్నగా, బలహీనంగా, సిగ్గుపడుతూ, అంతర్వర్తనులుగా, నిరాశావాదులుగా ఉండేవారు", "Pyknic", "Athletic", "Leptosomatic", "Melancholic", 3],
+            [304, "According to Spranger's classification, the values that Bill Gates possess is", "సాంగర్ వర్గీకరణ ప్రకారం 'బిల్ గేట్స్' కు ఉన్న విలువలు", "Religious Values", "Economic Values", "Political Values", "Aesthetic Values", 2],
+            [305, "According to Spranger's classification, the values that Abdul Kalam possess is", "సాంగర్ వర్గీకరణ ప్రకారం 'అబ్దుల్ కలాం'కు ఉన్న విలువలు", "Religious Values", "Economic Values", "Political Values", "Theoretical Values", 4],
+            [306, "According to Spranger's classification, the values that 'Dalailama' possess is", "సాంగర్ వర్గీకరణ ప్రకారం 'దలైలామా'కు ఉన్న విలువలు", "Social Values", "Political Values", "Economic Values", "Religious Values", 4],
+            [307, "According to Spranger's classification, the value that 'Mother Theresa' possess is", "సాంగర్ వర్గీకరణ ప్రకారం 'మథర్ థెరిసా'కు ఉన్న విలువ", "Social Values", "Political Values", "Economic Values", "Aesthetic Values", 1],
+            [308, "According to Spranger's classification, the values that 'Film Director Bapu' possess", "స్క్రాంగర్ వర్గీకరణ ప్రకారం 'సినిమా డైరక్టరు బాపుగారి'కి ఉన్న విలువలు", "Political Values", "Economic Values", "Social Values", "Aesthetic Values", 4],
+            [309, "According to Spranger's classification, the values that 'Smt. Prathiba Patil' possess", "స్ట్రాంగర్ వర్గీకరణ ప్రకారం 'శ్రీమతి ప్రతిభా పాటిల్'కు ఉన్న విలువలు", "Political Values", "Theoretical Values", "Economic Values", "Religious Values", 1],
+            [310, "According to Spranger's classification, the values that 'M.S. Swaminathan' possess", "స్ట్రాంగర్ వర్గీకరణ ప్రకారం 'ఎం. ఎస్. స్వామినాథన్'కు ఉన్న విలువలు", "Theoretical Values", "Religious Values", "Economic Values", "Political Values", 1],
+            [311, "According to R.B.Cattell's theory, the number of source traits in personality are", "R.B. కాటిల్ సిద్ధాంతం ప్రకారం, మూర్తిమత్వంలో మూల లక్షణాంశాల సంఖ్య", "11", "12", "14", "16", 4],
+            [312, "According to R.B.Cattell's theory, the number of primary traits in personality are", "R.B.కాటిల్ సిద్ధాంతం ప్రకారం, మూర్తిమత్వంలో ప్రాథమిక లక్షణాంశాల సంఖ్య", "165", "170", "171", "175", 2],
+            [313, "The psychologist who belongs to trait theory is", "లక్షణాంశ సిద్ధాంతానికి చెందిన మనోవిజ్ఞానవేత్త", "Kretschmer", "Sheldon", "R.B.Cattell", "Jung", 3],
+            [314, "Person with Economic Values", "ఆర్థిక విలువలు కలిగిన వ్యక్తి", "Mukesh Ambani", "Mahatma Gandhi", "Ravi Varma", "Mother Theresa", 1],
+            [315, "The classification of Introverts and Extroverts belongs to", "అంతర్వర్తనులు, బహిర్వర్తనులు వర్గీకరణ వీరికి చెందినది", "Jung", "Kretschmer", "R.B.Cattell", "Hippocrates", 1],
+            [316, "Theory of Psycho Sexual Development was proposed by", "మనోలైంగిక వికాస సిద్ధాంతమును ప్రతిపాదించినవారు", "Kimble", "Sigmund Freud", "Ebbinghaus", "Kohlberg", 2],
+            [317, "'Id' depends on this principle", "'అచిత్తు' ఈ సూత్రం పై ఆధారపడి వుంటుంది", "Pleasure Principle", "Reality Principle", "Moral Principle", "Ethical Principle", 1],
+            [318, "In Freud's theory, it is hidden in the deep layer of his unconscious mind", "ఫ్రాయిడ్ సిద్ధాంతంలో ఇది అచేతన స్థితి లో పూర్తిగా దాగి వుంటుంది.", "Ego", "Id", "Super Ego", "Libido", 2],
+            [319, "'Super ego' depends on this principle", "'అధ్యహం' ఈ సూత్రం పై ఆధారపడి వుంటుంది.", "Pleasure Principle", "Reality Principle", "Moral Principle", "Unconscious stage", 3],
+            [320, "'Perfection rather than pleasure' is it's goal", "'ఆనందం కంటే లోపరాహిత్యం' దీని ముఖ్య లక్ష్యం", "Ego", "Id", "Super Ego", "Libido", 3],
+            [321, "Ego depends on this principle", "అహం ఈ సూత్రం పై ఆధారపడి వుంటుంది.", "Pleasure Principle", "Reality Principle", "Moral Principle", "Ethical Principle", 2],
+            [322, "It is partly conscious but not entirely", "ఇది పాక్షికంగా చేతనంలో వుంటుంది కానీ పూర్తిగా కాదు", "Id", "Ego", "Super Ego", "Libido", 2],
+            [323, "According to Freud's theory, Structure of Personality, the third system is", "ఫ్రాయిడ్ మూర్తిమత్వ నిర్మితి ప్రకారం మూడవ వ్యవస్థ", "Id", "Ego", "Super Ego", "Libido", 3],
+            [324, "It judges good or bad in Freud's Structure of Personality.", "ఫ్రాయిడ్ మూర్తిమత్వ నిర్మితిలో ఇది మంచి చెడులను నిర్ణయిస్తుంది", "Super Ego", "Ego", "Id", "Libido", 1],
+            [325, "According to Freud's Structure of Personality, the second system is", "ఫ్రాయిడ్ మూర్తిమత్వ నిర్మితి సిద్ధాంతం ప్రకారం రెండవ వ్యవస్థ", "Id", "Ego", "Super Ego", "Libido", 2],
+            [326, "According to Freud's Structure of Personality, the first system is", "ఫ్రాయిడ్ మూర్తిమత్వ నిర్మితి సిద్ధాంతం ప్రకారం మొదటి వ్యవస్థ", "Id", "Ego", "Super Ego", "Libido", 1],
+            [327, "According to Freud's Structure of Personality, a person wants to attain pleasure by consuming alcohol. This is an example for", "ఫ్రాయిడ్ మూర్తిమత్వ నిర్మిత సిద్ధాంతం ప్రకారం ఒక వ్యక్తి మద్యం సేవించి ఆనందం పొందాలి అనుకోవడం దీనికి ఉదాహరణ", "Id", "Ego", "Super Ego", "Libido", 1],
+            [328, "According to Freud's Structure of Personality, 'Smoking is injurious to Health' is suggested by", "ఫ్రాయిడ్ మూర్తిమత్వ నిర్మితి సిద్ధాంతం ప్రకారం 'ధూమపానం ఆరోగ్యానికి హానికరం' అని సూచించేది", "Id", "Ego", "Super Ego", "Libido", 3],
+            [329, "According to Freud's Dynamics of Personality, we are aware of the present moment in this level", "ఫ్రాయిడ్ సిద్ధాంతం ప్రకారం, ఈ దశలో మనము ప్రస్తుత స్థితిని తెలుసుకుని ఉంటాము", "Conscious Stage", "Sub Conscious Stage", "Unconscious Stage", "Super Ego", 1],
+            [330, "This works on Reality Principle", "ఇది వాస్తవ సూత్రం పై పనిచేస్తుంది", "Id", "Ego", "Super Ego", "Libido", 2],
+            [331, "According to Freud's Dynamics of Personality, this stage contains memories and stored knowledge.", "ఫ్రాయిడ్ మూర్తిమత్వ గతిశీలత సిద్ధాంతం ప్రకారం, స్మృతులు, పదిలపరచిన జ్ఞానం ఉండే దశ", "Conscious Stage", "Sub Conscious Stage", "Unconscious Stage", "Super Ego", 2],
+            [332, "According to Freud's Theory memories cannot be recalled by an individual in", "ఫ్రాయిడ్ సిద్ధాంతం ప్రకారం, ఈ దశలో వ్యక్తి తన స్మృతులను పునఃస్మరణ చేసుకోలేని దశ", "Conscious Stage", "Sub Conscious Stage", "Unconscious Stage", "Super Ego", 3],
+            [333, "According to Freud's Psychosexual Theory, the stage in which a child's age is in between 2 - 3 years", "ఫ్రాయిడ్ మనో లైంగిక సిద్ధాంతం ప్రకారం, ఈ దశలో పిల్లల వయస్సు 2-3 సం. ల మధ్య ఉంటుంది.", "Oral Stage", "Anal Stage", "Phallic Stage", "Latency Stage", 2],
+            [334, "According to Freud's Psychosexual Theory, the stage in which a child's age is in between 4 - 6 years", "ఫ్రాయిడ్ మనోలైంగిక సిద్ధాంతం ప్రకారం, ఈ దశలో పిల్లల వయస్సు 4-6 సం. ల మధ్య ఉంటుంది.", "Oral Stage", "Anal Stage", "Phallic Stage", "Latency Stage", 3],
+            [335, "According to Freud's Psychosexual Theory, the stage in which a child's age is in between birth to one year is", "ఫ్రాయిడ్ మనోలైంగిక సిద్ధాంతం ప్రకారం, ఈ దశలో పిల్లల వయస్సు పుట్టుక నుండి ఒక సంవత్సరం మధ్య ఉంటుంది.", "Oral Stage", "Anal Stage", "Phallic Stage", "Latency Stage", 1],
+            [336, "According to Freud, the number of Psychosexual Developmental stages", "ఫ్రాయిడ్ ప్రకారం మనో లైంగిక వికాసంలోని దశలు", "4", "6", "5", "10", 3],
+            [337, "Odd one among the following", "కింది వానిలో భిన్నంగా ఉన్న ది", "Case Study", "Interview", "Biography", "Ink Blot Test", 4],
+            [338, "The total number of cards in Ink Blot Test", "సిరామరకల పరీక్షలో మొత్తం కార్డుల సంఖ్య", "10", "5", "3", "2", 1],
+            [339, "As per Murray & Morgan's TAT, the meaning of 'Thema' is", "ముర్రే, మోర్గాన్ ల TAT ప్రకారం,'Thema' అనగా", "Drama", "Story", "Picture", "Acting", 2],
+            [340, "The total number of cards in TAT is", "TAT పరీక్షలో మొత్తం కార్డుల సంఖ్య", "30+1", "10+1", "20+1", "40+1", 3],
+            [341, "The mismatched pair related to measurement tool and its developer.", "మాపనా సాధనం మరియు దానిని అభివృద్ధి పరచిన వారికి సంబంధించి సరి కాని జత", "Sociometry - Jacob L. Moreno", "T.A.T - Murray & Morgan", "C.A.T - L.Bellak & S.Bellak", "I.B.T - Freud", 4],
+            [342, "In the Ink Blot Test, 'K' indicates", "సిరామరకల పరీక్షలో 'K' దీనిని సూచిస్తుంది", "Form", "Colour", "Shading", "Movements", 3],
+            [343, "In the Ink Blot Test, 'Ad' indicates", "సిరామరకల పరీక్షలో 'Ad' దీనిని సూచిస్తుంది", "Inanimate things", "Human Forms", "Nature", "Animal Parts", 4],
+            [344, "In the Ink Blot Test, 'Hd' indicates", "సిరామరకల పరీక్షలో 'Hd' దీనిని సూచిస్తుంది.", "Inanimate things", "Animal Forms", "Nature", "Human Part", 4],
+            [345, "Total number of questions in the first edition of M.M.P.I.", "M.M.P.I. మొదటి ముద్రణ లోని లో మొత్తం ప్రశ్నల సంఖ్య", "500", "550", "600", "650", 2],
+            [346, "According to M.M.P.I, useless thoughts, pessimism and despair are the symptoms of", "M.M.P.I ప్రకారం, నిరూపయోగమైన ఆలోచనలు, నిరాశావాదం, నిరుత్సాహం అనునవి ఇందులోని లక్షణాలు", "Depression", "Hysteria", "Paramonia", "Hypomania", 1],
+            [347, "According to M.M.P.I, feeling more aggressive is the symptom of", "M.M.P.I ప్రకారం, అధికంగా ఉద్రేక పడటం అనునది దీని లక్షణం", "Depression", "Dementia", "Hypomania", "Paramonia", 3],
+            [348, "According to M.M.P.I, doing meaningless things repeatedly is", "M.M.P.I ప్రకారం, అర్ధరహితమైన పనులను పదే పదే చేయడం", "Psychasthenia", "Depression", "Hysteria", "Hypomania", 1],
+            [349, "It is a tool to assess Social Relationship", "ఇది సాంఘిక సంబంధాలను అంచనా వేసే సాధనం", "M.M.P.I", "T.A.T", "C.A.T", "Sociometry", 4],
+            [350, "The maximum number of cards used for Male in TAT is", "TAT పరీక్షలో పురుషులకు ఉపయోగించే గరిష్ట కార్డుల సంఖ్య", "50+1", "20+1", "30+1", "40+1", 2],
+
+            [351, "This is not a Projective Test", "ప్రక్షేపక పరీక్ష కానిది", "IBT", "TAT", "CAT", "Case Study", 4],
+            [352, "This is a projective individual test", "ఇది వైయక్తిక ప్రక్షేపక పరీక్ష", "Interview", "Case Study", "Biography", "IBT", 4],
+            [353, "The number of Red, Black coloured cards in Ink Blot Test", "సిరామరకల పరీక్షలో నలుపు, ఎరుపు కార్డుల సంఖ్య", "15", "10", "3", "2", 4],
+            [354, "The founder of Mental Health Movement is", "మానసిక ఆరోగ్య ఉద్యమానికి మూల పురుషుడు", "Freud", "Clifford Beers", "Erikson", "J.L.Moreno", 2],
+            [355, "In Sociometry, a person who is opposed by many is", "సాంఘికమితి లో ఎక్కువమందిచే వ్యతిరేకించబడే వ్యక్తి", "Isolate", "Star", "Hero", "Leader", 1],
+            [356, "This Personality test was developed for the children of age group 3 to 10 years", "ఇది 3 సం. నుండి 10 సం.ల మధ్య వయసు పిల్లల కోసం అభివృద్ధి చేసిన మూర్తిమత్వ పరీక్ష", "T.A.T", "C.A.T", "I.B.T", "W.A.T", 2],
+            [357, "In Sociometry, a person who is liked by the most people is", "సాంఘికమితిలో ఎక్కువ మంది ఇష్టపడే వ్యక్తి", "Isolate", "Star", "God", "Object", 2],
+            [358, "Learning is the modification of behaviour through experience and training, is defined by", "అభ్యసనమంటే అనుభవం ద్వారా, శిక్షణ ద్వారా ప్రవర్తన లో వచ్చే మార్పు అని నిర్వచించిన వారు", "Gates", "Crow and Crow", "Norman L Munn", "Smith M.P", 1],
+            [359, "Expand ADHD", "ADHD ను విస్తరించుము", "Attention Deviate Hypoactive Deficiency", "Attention Deviate Hyperactive Deficiency", "Attention Deficit Hyperactive Disorder", "Attention Deficit Hypoactive Disorder", 3],
+            [360, "This is not the nature of learning", "అభ్యసన లక్షణం కానిది", "Learning is a modification of behaviour", "Learning is goal directed", "Learning is purposeful", "Learning is not a process", 4],
+            [361, "This is not a type of learning", "ఇది అభ్యసన రకం కాదు", "Motor Learning", "Verbal Learning", "Perceptual Learning", "Aptitude Learning", 4],
+            [362, "'Theory of Identical Elements' in transfer of learning is proposed by", "అభ్యసన బదలాయింపులో సమరూప మూలకాల సిద్ధాంతంను ప్రతిపాదించిన వారు.", "Thorndike", "Charles Judd", "Bagley", "Vygotsky", 1],
+            [363, "'Training in driving a car helps to drive a jeep' is an example of", "'కారు డ్రైవింగ్ లో శిక్షణ జీపు నడపడంలో సహాయపడుట' దీనికి ఉదాహరణ", "Negative Transfer", "Positive Transfer", "Zero Transfer", "Bilateral Transfer", 2],
+            [364, "Factor that is not related to the learner that influences learning", "అభ్యసనాన్ని ప్రభావితం చేయు కారకాలలో అభ్యాసకునికి సంబంధం లేని కారకం", "Age", "Maturity", "School Development Plan", "Fatigue", 3],
+            [365, "Learning where the previous learning does not affect the subsequent learning is", "గతంలో నేర్చుకున్నది, తరువాత నేర్చుకునే దానిపై ఎటువంటి ప్రభావం చూపనప్పుడు, ఆ అభ్యసనం", "Positive Transfer", "Negative Transfer", "Zero Transfer", "Bilateral Transfer", 3],
+            [366, "This is not a characteristic of learning", "అభ్యసన లక్షణం కానిది", "Learning is Universal", "Learning is a life long process", "Learning is purposeful", "Learning is not a continuous process", 4],
+            [367, "This is not a theory of Transfer of Learning", "అభ్యసన బదలాయింపు సిద్ధాంతం కానిది", "Theory of Generalization", "Transposition Theory", "Theory of Ideals", "Theory of Classical Conditioning", 4],
+            [368, "The mismatched theory and its proponent is", "తప్పుగా జతచేయబడ్డ సిద్దాంతము మరియు దాని ప్రతిపాదకులు", "Theory of Identical Elements - Thorndike", "Theory of Ideals - Bagley", "Theory of Formal Discipline - Skinner", "Theory of Generalization - Charles Judd", 3],
+            [369, "'Learning a concept causes difficulty in learning another new concept.' The transfer of learning here is", "అభ్యసించిన ఒక అంశం వేరొక కొత్త అంశం అభ్యసించుటలో కష్టతరం అయిన, ఇక్కడ జరిగిన అభ్యసన బదలాయింపు", "Positive Transfer", "Negative Transfer", "Zero Transfer", "Bilateral Transfer", 2],
+            [370, "Learning Multiplication tables helps in solving Arithmetic problems. This is an example of", "నేర్చుకున్న ఎక్కాలు అంకగణిత సమస్యలను పరిష్కరించేందుకు సహాయపడడం ఇది దీనికి ఉదాహరణ", "Positive Transfer", "Negative Transfer", "Zero Transfer", "Bilateral Transfer", 1],
+            [371, "A temporary period where there is no improvement in learning is known as", "అభ్యసనంలో ఎటువంటి పురోగతి లేని తాత్కాలిక దశను ఇలా అంటారు", "Final Stage", "Stage of fluctuations", "Plateau Stage", "Initial Spurt", 3],
+            [372, "Plateau Stage in Learning may be caused due to", "అభ్యసనంలో పీఠభూమి ఏర్పడుటకు గల కారణం", "Motivation", "Practice", "Interest", "Fatigue", 4],
+            [373, "The correct sequence of stages in learning curve", "అభ్యసనా వక్ర రేఖలో సరియైన దశల వరుస క్రమము A) ఒడిదుడుకుల దశ B) ప్రారంభ స్పూర్తి C) పీఠభూమి దశ", "B, A, C", "A, B, C", "C, A, B", "B, C, A", 1],
+            [374, "A learning curve mainly represents", "ఒక అభ్యసన వక్రరేఖ ముఖ్యంగా దీన్ని సూచిస్తుంది.", "Intelligence", "Change in performance with practice", "Personality", "Motivation", 2],
+            [375, "Expand IEP", "IEP ను విస్తరింపుము", "Individual Education Policy", "Individualized Education Programme", "Indian Education Programme", "Inclusive Entertainment programme", 2],
+            [376, "A child misunderstands + and - symbols while doing Mathematics. The problem faced by him is", "ఒక శిశువు గణితం చేస్తున్నప్పుడు + మరియు - గుర్తులను తప్పుగా అర్ధం చేసుకుంటున్నాడు. ఇక్కడ అతను ఎదుర్కొంటున్న సమస్య", "Dysphasia", "Dyslexia", "Dyscalculia", "Dysgraphia", 3],
+            [377, "Positive transfer occurs when previous learning", "గత అభ్యసనం వల్ల ఈ అనుకూల బదలాయింపు జరుగును", "Stops new learning", "No Effect", "Helps in new learning", "Disturbs new learning", 3],
+            [378, "Transfer of Learning in playing skill of Veena and becoming an athlet", "అథ్లెట్ కావడానికి మరియు వీణ వాయించడంలో నైపుణ్యం కనబరచడానికి మధ్య ఉన్న అభ్యసన బదలాయింపు", "Negative Transfer", "Positive Transfer", "Zero Transfer", "Bilateral Transfer", 3],
+            [379, "Classical Conditioning theory is associated with", "శాస్త్రీయ నిబంధన సిద్ధాంతమునకు సంబంధం వున్నవారు", "Ivan Pavlov", "Skinner", "Ebbinghaus", "Thorndike", 1],
+            [380, "The propounder of Classical Conditioning Theory is", "శాస్త్రీయ నిబంధన సిద్ధాంత రూపకర్త", "Skinner", "Thorndike", "Bandura", "Ivan Pavlov", 4],
+            [381, "According to Pavlov, learning is through", "ఇవాన్ పావ్ లావ్ ప్రకారం అభ్యసనం ఇలా జరుగును", "Imitation", "Association between the stimuli and the response", "Trial and Error", "Observation", 2],
+            [382, "Ivan Pavlov, a scientist and a behaviourist belongs to", "శాస్త్రవేత్త, ప్రవర్తనావాది అయిన ఇవాన్ పావ్ లోవ్ ఈ దేశానికి చెందినవాడు", "America", "Britain", "Russia", "India", 3],
+            [383, "The book 'The Work of Digestive Glands' is written by", "ది వర్క్ ఆఫ్ డైజెస్టివ్ గ్లాండ్స్ పుస్తక రచయిత", "Skinner", "Thorndike", "Ivan Pavlov", "Bandura", 3],
+            [384, "In Ivan Pavlov's experiment, food before conditioning is", "ఇవాన్ పావ్ లోవ్ ప్రయోగంలో నిబంధనకు ముందు ఆహారం అనేది", "Unconditioned Stimulus (UCS)", "Unconditioned Response (UCR)", "Conditioned Stimulus (CS)", "Conditioned Response (CR)", 1],
+            [385, "In Pavlov's experiment before conditioning, the sound of bell is", "పావ్ లోవ్ ప్రయోగంలో నిబంధనం ఏర్పడక ముందు గంట శబ్దము", "Conditioned Stimulus", "Natural Stimulus", "Neutral Stimulus", "Conditioned Response", 3],
+            [386, "In Ivan Pavlov's experiment, after conditioning, Bell is considered as", "ఇవాన్ పావ్ లోవ్ ప్రయోగంలో నిబంధనం ఏర్పరిచిన తరువాత గంట అనేది", "Unconditioned Stimulus (UCS)", "Unconditioned Response (UCR)", "Conditioned Stimulus (CS)", "Conditioned Response (CR)", 3],
+            [387, "This is not a principle of classical conditioning", "శాస్త్రీయ నిబంధనంలో లేని నియమము", "Extinction", "Spontaneous recovery", "Stimulus generalization", "Readiness", 4],
+            [388, "'A child is bitten by a big dog may develop fear of even towards small dogs' is", "పెద్ద కుక్కచే కరచ బడిన బాలుడు చిన్న కుక్కలకూ కూడా భయపడుట", "Discrimination", "Generalization", "Higher Order Conditioning", "Spontaneous recovery", 2],
+            [389, "Trail and Error Theory of Learning is proposed by", "యత్న దోష అభ్యసన పద్ధతిని ప్రతిపాదించినవారు", "Ivan Pavlov", "Skinner", "Thorndike", "Bandura", 3],
+            [390, "Thorndike's 'Trial and Error Theory' is also called as", "థారన్ డైక్ యత్న దోష సిద్ధాంతమును ఇలా అంటారు", "Bond Theory", "Observation Theory", "Classical Theory", "Operant Condition Theory", 1],
+            [391, "This is not a learning theory of E.L.Thorndike", "థారన్ డైక్ అభ్యసనా సిద్ధాంతం కానిది", "Trial and Error Theory", "Observation Learning", "Connectionism Theory", "Bond Theory", 2],
+            [392, "The book 'Animal Intelligence' is written by", "యానిమల్ ఇంటెలిజన్స్ పుస్తక రచయిత", "Skinner", "Ivan Pavlov", "Thorndike", "Bruner", 3],
+            [393, "'If a student is ready to learn, the process becomes quick and effective.' The law is", "విద్యార్థి నేర్చుకోవడానికి సిద్ధంగా ఉంటే ఆ ప్రక్రియ వేగంగా మరియు సమర్థవంతంగా ఉంటుంది. ఈ నియమం", "Law of Readiness", "Law of Effect", "Law of Exercise", "Law of Teaching", 1],
+            [394, "'The satisfying experiences to strengthen the bond between stimulus and response.' It reflects this law", "సంతృప్తి కలిగిన అనుభవాలు, ఉద్దీపన ప్రతిస్పందనల మధ్య బంధం బలపడుతుంది. దీన్ని ఈ నియమం ప్రతిబింబిస్తుంది.", "Law of Readiness", "Law of Effect", "Law of Exercise", "Law of Teaching", 2],
+            [395, "'Practice makes man perfect' is an example of this law.", "అభ్యాసం కూసు విద్య అనేది ఈ నియమానికి ఉదాహరణ", "Law of Readiness", "Law of Effect", "Law of Exercise", "Law of Observation", 3],
+            [396, "Classical conditioning theory is also known as", "శాస్త్రీయ నిబంధనా సిద్ధాంతం ను ఇలా కూడా అంటారు", "S-type", "R-type", "C-type", "P-type", 1],
+            [397, "Ivan Pavlov conducted experiments on", "ఇవాన్ పావ్ లోవ్ ప్రయోగాలను దీనిపై నిర్వహించారు.", "Dog", "Rat", "Cat", "Chimpanzee", 1],
+            [398, "This is not a Law of Thorndike's Trial and Error Theory", "థారన్ డైక్ యత్న దోష సిద్ధాంతంలో లేని నియమము", "Law of Generalization", "Law of Readiness", "Law of Effect", "Law of Exercise", 1],
+            [399, "This is not a key feature of Trial and Error learning", "యత్న దోష అభ్యసనం లో ముఖ్య లక్షణం కానిది", "Learning is Gradual", "Motivation is essential", "Elimination of Incorrect Responses", "Learning occurs through imitation", 4],
+            [400, "Operant Conditioning Theory was developed by", "కార్యసాధక సిద్ధాంతాన్ని అభివృద్ధి పరచినది", "Francis Galton", "Sigmund Freud", "Erikson", "Skinner", 4],
+            [401, "Operant Conditioning Theory is also called as", "కార్యసాధక సిద్ధాంతాన్ని ఇలా కూడా పిలుస్తారు.", "Insightful Learning", "Higher order Conditioning", "Industrial Learning", "Instrumental Learning", 4],
+            [402, "Skinner used this animal in his experiments", "స్కిన్నర్ తన ప్రయోగాలలో ఈ జంతువును ఉపయోగించారు", "Rat", "Lion", "Tiger", "Pig", 1],
+            [403, "Operant Conditioning is also called as", "కార్యసాధక నిబంధనం ఈ విధంగా పిలవబడుతుంది.", "R type", "G type", "K type", "P type", 1],
+            [404, "In Skinner's Operant Conditioning, Reinforced stimulus is given only to", "స్కిన్నర్ కార్యసాధక నిబంధనలో పునర్బలన ఉద్దీపన దీనికి మాత్రమే యివ్వబడుతుంది.", "Wrong Response", "Correct Response", "Every Response", "Some Responses", 2],
+            [405, "A boy is doing his project work. Providing reinforcement for every 5 minutes to him is called as", "ఒక బాలుడు తన ప్రాజెక్ట్ పని చేయుచున్నాడు. అతనికి ప్రతి 5 నిమిషాలకి పునర్బలనాన్ని అందించడాన్ని ఇలా అంటారు.", "Discontinuous Reinforcement", "Fixed Interval Reinforcement", "Fixed Ratio Reinforcement", "Variable Reinforcement", 2],
+            [406, "Choose the correct option. A: Skinner conducted experiments on Chimpanzee B: Pavlov conducted experiments on Dog", "సరైన ఐచ్చికమును ఎన్నుకొనుము. A) స్కిన్నర్ చింపాంజీపై ప్రయోగాలు చేశారు B) పావ్ లోవ్ కుక్కపై ప్రయోగాలు చేశారు", "Only A is Correct", "Only B is Correct", "Both A & B are Correct", "Both A & B are incorrect", 2],
+            [407, "Correct options from the following statements. A: Classical Conditioning Theory is proposed by Ivan Pavlov B: Operant conditioning Theory is developed by Thorndike", "కింది ప్రవచనములలో సరైన ఐచ్చికము. A) శాస్త్రీయ నిబంధనా సిద్ధాంతం ప్రతిపాదించినది పావ్ లోవ్ B) కార్యసాధక నిబంధనా సిద్ధాంతం థారన్ డైక్", "Only A is Correct", "Only B is Correct", "Both A & B are Correct", "Both A & B are incorrect", 1],
+            [408, "Correct sentence related to Learning Theories A: Pavlov Conditioning Theory is called as 'S' type B: Skinner Conditioning Theory is called as 'R' type", "అభ్యసన సిద్ధాంతములకు సంబంధించి సరైన వాక్యము A) పావ్ లోవ్ సిద్ధాంతం 'S' type B) స్కినర్ సిద్ధాంతం 'R' type", "Only A is Correct", "Only B is Correct", "Both A & B are Correct", "Both A & B are incorrect", 3],
+            [409, "'Providing reinforcement to every correct answer given by student'. The law of reinforcement here is.", "విద్యార్థి యిచ్చే ప్రతి సరైన సమాధానానికి పునర్బలనం అందించడం ఇందులోని పునర్బలన నియమం", "Discontinuous", "Unstable ratio", "Variable", "Continuous", 4],
+            [410, "A boy who gives responses to a questionnaire is provided reinforcement for every three responses. The law of reinforcement here is", "ఒక ప్రశ్నావళికి ప్రతిస్పందనలను ఇస్తున్న బాలుడికి ప్రతి మూడు ప్రతిస్పందనలకు పునర్బలనాన్ని అందించడం", "Discontinuous", "unstable Interval", "Fixed Ratio", "Variable", 3],
+            [411, "Client Cantered Therapy was developed by", "సహాయార్థి కేంద్రిత చికిత్సను అభివృద్ధి పరచినది", "Watson", "Carl Rogers", "Crow and Crow", "Allport", 2],
+            [412, "'Theory of Hierarchy of Needs' was developed by", "అవసరాల అనుక్రమణ సిద్ధాంతం ను అభివృద్ధి పరచినది.", "Thorndike", "Watson", "Maslow", "Pavlov", 3],
+            [413, "Identify the correct pair A: Maslow Theory of Hierarchy of Needs B: Carl Roger - Humanistic Approach Theory", "సరైన జతను గుర్తించండి", "Only A is Correct", "Only B is Correct", "Both A & B are Correct", "Both A & B are incorrect", 3],
+            [414, "This is a physiological need according to Maslow", "మాస్లో ప్రకారం, ఇది శారీరక అవసరం", "Music", "Food", "Identity", "Love", 2],
+            [415, "According to Maslow, House is a", "మాస్లో ప్రకారం, ఇల్లు అనేది", "Physiological Need", "Safety Need", "Esteem Need", "Love and Belonging Need", 2],
+            [416, "According to Maslow, Affection is a", "మాస్లో ప్రకారం, వాత్సల్యం అనేది", "Physiological Need", "Safety Need", "Love and Belonging Need", "Esteem Need", 3],
+            [417, "Incorrect pair related to Maslow's Hierarchy of Needs", "మాస్లో అవసరాల అనుక్రమణికకు సంబంధించి సరికాని జత", "Water - Physiological Need", "Home - Safety Need", "Love - Self Actualization Need", "Identity - Esteem Need", 3],
+            [418, "This is not an advantage of Experiential learning", "అనుభవ పూర్వక అభ్యసనం యొక్క ప్రయోజనము కానిది", "Encourages child centered learning", "Students can learn life skills", "Useful to improve creativity", "Students are not happy with this learning", 4],
+            [419, "Maslow's theory is related to", "మాస్లో సిద్ధాంతం వీటికి సంబంధించినది", "Conditioning", "Needs", "Intelligence", "Attention", 2],
+            [420, "This is a lower order need according to Maslow", "మాస్లో ప్రకారం, ఇది దిగువ శ్రేణి అవసరం", "Esteem Needs", "Self Actualization Needs", "Love and Belonging Needs", "Physiological Needs", 4],
+            [421, "Social Learning Theory was proposed by", "సాంఘిక అభ్యసన సిద్ధాంతంను ప్రతిపాదించిన వారు", "Thorndike", "Ivan Pavlov", "Skinner", "Bandura", 4],
+            [422, "According to Bandura, Learning occurs by", "బండూర ప్రకారం అభ్యసనం ఇలా జరుగుతుంది.", "Association", "Imitation", "Trail and Error", "Sudden action", 2],
+            [423, "This is not the other name of Bandura's Theory", "బండురా సిద్ధాంతానికి మరొక పేరు కానిది", "Learning by Modelling", "Learning through Observation", "Learning by Imitation", "Learning by Association", 4],
+            [424, "This is not a step in Bandura's Theory", "బండురా సిద్ధాంతంలో లేని సోపానం", "Attention", "Retention", "Generalization", "Reinforcement", 3],
+            [425, "In Bandura's theory 'Remembering the observed behaviour' is called", "బండురా సిద్ధాంతం లో పరిశీలించిన ప్రవర్తనను జ్ఞప్తిలో ఉంచటం ను ఇలా అంటాము", "Attention", "Retention", "Performance", "Reinforcement", 2],
+            [426, "A child watches carefully while his teacher is solving a problem. Later he solves similar problems. The type of learning here is", "ఒక ఉపాధ్యాయుడు సమస్యను పరిష్కరిస్తున్నప్పుడు, ఒక పిల్లవాడు జాగ్రత్తగా గమనించి తరువాత అలాంటి సమస్యలను సాధించాడు. ఇక్కడి అభ్యసన రకం", "Observation Learning", "Classical Conditioning", "Trial and Error", "Operant Conditioning", 1],
+            [427, "The first step of Bandura's Social Imitation Learning Theory", "బండురా 'సాంఘిక అనుకరణ అభ్యసనం' లో మొదటి సోపానం", "Retention", "Performance", "Reinforcement", "Attention", 4],
+            [428, "Bandura demonstrates 'Observation Learning Theory' through the following experiment", "బండురా, ఈ క్రింది ప్రయోగం ద్వారా పరిశీలన అభ్యసనమును తెలియజేశారు", "Bobo Doll Experiment", "Ice Berg Experiment", "Puzzle Box Experiment", "Trial and Error Experiment", 1],
+            [429, "According to Bandura, these are important for learning A) Novel observation B) Keen observation C) Imitation", "బండురా ప్రకారం అభ్యసనమునకు ముఖ్యమైనవి", "Only A is Correct", "Only B is Correct", "Only C is Correct", "A, B, C all are Correct", 4],
+            [430, "The author of the book 'Social Learning and Personality Development' is", "Social Learning and Personality Development పుస్తక రచయిత", "Bandura", "Skinner", "Thorndike", "Bruner", 1],
+            [431, "The book 'The Process of Education' was written by", "The Process of Education పుస్తక రచయిత", "Thorndike", "Ivan Pavlov", "Jerome Bruner", "Bandura", 3],
+            [432, "According to Bruner's Theory of Instruction, this is in correct one.", "బ్రూనర్ శిక్షణా సిద్దాంతం ప్రకారం సరికానిది", "Learning Readiness", "Content Construction", "Content Sequence", "Punishment", 4],
+            [433, "According to Bruner, this type of motivation has more influence on the learner", "బ్రూనర్ ప్రకారం ఈ రకమైన ప్రేరణ విద్యార్థిపై అధిక ప్రభావం చూపును", "Extrinsic Motivation", "Intrinsic Motivation", "Forceful Motivation", "Motivation has no role", 2],
+            [434, "According to Bruner,", "బ్రూనర్ ప్రకారం", "Interest and curiosity are major learning factors", "Self learning should not be given more importance", "Learning is Teacher centred", "Learning content is important rather than method", 1],
+            [435, "Bruner's Theory is also known as", "బ్రూనర్ సిద్ధాంతంను ఇలా కూడా అంటారు", "Classical Conditioning Theory", "Operant Conditioning Theory", "Trial and Error Theory", "Discovery Learning Theory", 4],
+            [436, "Bruner's approach gives importance to", "బ్రూనర్ వాదం దీనికి ప్రాధాన్యతనిస్తుంది", "Self Learning", "Teacher centered", "Lecture Method", "Rote Learning", 1],
+            [437, "The teaching content that presents subject matter in a meaningful and organized form has", "బోధించాల్సిన విషయాలను అర్థవంతంగా క్రమ పద్ధతిలో అందించడంలో ఉండేది", "Content Validity", "Content Reliability", "Content Construction", "Content Test", 3],
+            [438, "'Any concept can be effectively taught to any one at any stage,' is said by", "ఏ విషయమైన, ఎవరికైనా ఏ వికాస దశలోనైనా ఫలవంతంగా బోధించవచ్చు అని చెప్పినది", "Thorndike", "Ivan Pavlov", "Skinner", "Jerome Bruner", 4],
+            [439, "According to Bruner's Theory of Instruction, the correct order of teaching is A) Enactive B) Iconic C) Symbolic", "బ్రూనర్ శిక్షణ సిద్ధాంతం ప్రకారం సరైన బోధనా క్రమం", "A, B, C", "B, C, A", "C, B, A", "B, A, C", 1],
+            [440, "In Bruner's Theory of Instruction, the teacher mainly acts as", "బ్రూనర్ శిక్షణా సిద్ధాంతంలో ఉపాద్యాయుడు ముఖ్యంగా ఇలా వ్యవహరించాలి", "Dictator", "Monitor", "Lecturer", "Examiner", 2],
+            [441, "According to Bruner's Theory, learning through diagrams and pictures represents", "బ్రూనర్ సిద్ధాంతం ప్రకారం చిత్రాలు మరియు బొమ్మల ద్వారా అభ్యసనాన్ని సూచించేది", "Enactive Method", "Iconic Method", "Symbolic Method", "Verbal Method", 2],
+            [442, "Vygotsky belongs to this country", "వైగోట్స్కీ ఈ దేశానికి చెందినవారు", "Sri Lanka", "India", "Russia", "Pakistan", 3],
+            [443, "Socio Cultural Theory was developed by", "సాంఘిక సాంస్కృతిక సిద్ధాంతమును అభివృద్ధి పరచినవారు", "Skinner", "Sigmund Freud", "Vygotsky", "Erikson", 3],
+            [444, "The concept of ZPD was given by", "ZPD అనే భావనను అందించినవారు.", "Watson", "Vygotsky", "Erikson", "Sigmund Freud", 2],
+            [445, "This concept is not related to Vygotsky", "వైగోట్స్కీకి చెందని భావన", "ZPD", "Schemata", "Scaffolding", "Reciprocal Teaching", 2],
+            [446, "According to Vygotsky, ZPD means", "వైగోట్ స్కీ ప్రకారం, ZPD అనగా", "Zone of Pre Development", "Zone of Proximal Development", "Zone of Personality Development", "Zone of Psychological Development", 2],
+            [447, "This is not a Lower Mental Function according to Vygotsky", "వైగోట్స్కీ ప్రకారం దిగువ స్థాయి మానసిక ప్రక్రియ కానిది", "Observation", "Questioning", "Comparing", "Reasoning", 4],
+            [448, "This belongs to Lower Mental function according to Vygotsky", "వైగోట్స్కీ ప్రకారం దిగువ స్థాయి మానసిక ప్రక్రియకి చెందినది", "Reasoning", "Questioning", "Discrimination", "Analysing", 2],
+            [449, "This is not a Higher Mental Functions according to Vygotsky", "వైగోట్స్కీ ప్రకారం, ఉన్నత స్థాయి మానసిక ప్రక్రియ కానిది", "Analysing", "Synthesizing", "Creative Thinking", "Comparing", 4],
+            [450, "According to Vygotsky, correct use of higher mental functions A) Controls aggressive behaviour B) Self regulation", "వైగోట్స్కీ ప్రకారం, ఉన్నత స్థాయి మానసిక ప్రక్రియల ఉపయోగం", "Only A", "Only B", "Both A and B", "Both A and B are not related", 3],
+
+            [451, "ZPD means A) Learning by themselves B) Learning with the cooperation of more knowledgeable person.", "ZPD అనగా A) తమకు తాముగా నేర్చుకోవడం B) ఇతరుల సహకారంతో నేర్చుకోవడం", "A+B", "B-A", "A/B", "AxB", 2],
+            [452, "A: 'Social Scaffolding' is used by Vygotsky B: 'Instructional Scaffolding' is used by Bruner", "A: వైగోట్స్కీ 'సామాజిక స్కఫోల్డింగ్' B: బ్రూనర్ 'ఇన్స్ట్రక్షనల్ స్కఫోల్డింగ్'", "Only A is Correct", "Only B is Correct", "Both A & B are Correct", "Both A & B are incorrect", 3],
+            [453, "This plays a major role in cognitive development, according to Vygotsky.", "వైగోట్స్కీ ప్రకారం, జ్ఞానాత్మక వికాసంలో ప్రముఖ పాత్ర పోషించునది", "Rote Learning", "Memorization", "Language", "Habits", 3],
+            [454, "According to Vygotsky, the private speech at childhood transforms to this speech as they grow up", "వైగోట్స్కీ ప్రకారం, బాల్యదశలోని వ్యక్తిగత భాషణం ఈ భాషగా మారుతుంది.", "Outer Speech", "Inner Speech", "Indirect Speech", "Direct Speech", 2],
+            [455, "One of the following is not related to Gestaltism.", "కింది వారిలో గెస్టాల్ట్ వాదానికి చెందని వారు", "Verthimar", "Kofka", "Kohler", "Skinner", 4],
+            [456, "The Mentality of Apes book was written by", "ది మెంటాలిటీ ఆఫ్ ఏప్స్ అను పుస్తక రచయిత", "Thorndike", "Kohler", "Vygotsky", "Skinner", 2],
+            [457, "Kohler conducted experiments on this animal", "కోహెలర్ ఈ జంతువు పై ప్రయోగాలు చేశారు", "Dog", "Cat", "Elephant", "Chimpanzee", 4],
+            [458, "Gestalt means", "గెస్టాల్ట్ అనగా", "Configuration", "Intelligence", "Reinforcement", "Teaching Machine", 1],
+            [459, "In Kohler's experiment, the name of chimpanzee is", "కోహెలర్ ప్రయోగంలో చింపాంజీ యొక్క పేరు", "Rani", "Sultana", "Fathima", "Jyothi", 2],
+            [460, "In this type of learning, thought comes like a flash", "ఈ రకపు అభ్యసనలో ఆలోచన మెరుపులా వస్తుంది", "Classical Conditioning", "Operant Conditioning", "Trial and Error", "Insightful", 4],
+            [461, "In Insightful learning, chimpanzee observed different aspects in this manner", "అంతర్ దృష్టి అభ్యసనలోచింపాంజీ, వివిధ అంశాలను ఈ విధంగా చేసుకొని గ్రహించింది", "Analysed", "Organised whole", "Synthesised", "Discriminated", 2],
+            [462, "This is not a characteristic of Insightful Learning", "అంతర్ దృష్టి అభ్యసన లక్షణం కానిది", "Observe the problematic situation", "Initially, trying Trial and Error method", "Understanding the learning status as a whole", "Learning new task by conditioning", 4],
+            [463, "First step in action research", "చర్యాత్మక పరిశోధనలో మొదటి సోపానం", "Identification of the problem", "Defining the problem", "Recording the results", "Preparing the report", 1],
+            [464, "This leadership focuses on serving the needs of their team members", "బృంద సభ్యుల అవసరాలను తీర్చడానికి ప్రాధాన్యత చూపే నాయకత్వం", "Democratic Leadership", "Servant Leadership", "Transactional Leadership", "Autocratic Leadership", 2],
+            [465, "This is not the characteristics of a good classroom environment", "మంచి తరగతి గది వాతావరణానికి సంబంధించని లక్షణం", "Safe and secure", "Positive Atmosphere", "Supportive Relationships", "No clear rules", 4],
+            [466, "The final step in Action Research plan", "చర్యాత్మక పరిశోధన ప్రణాళికలో చివరి సోపానం", "Identifying the problem", "Preparation of the report", "Preparation of Research plan", "Implementation of Research plan", 2],
+            [467, "In the classroom management, this is not related to physical organisation", "తరగతి గది నిర్వహణలో భౌతిక వ్యవస్థాపనానికి సంబంధించనిది", "Lesson Construction", "Seating Arrangement", "White Boards", "Projectors", 1],
+            [468, "The art of influencing, guiding and inspiring individuals in a team is", "బృందంలోని వ్యక్తులను ప్రభావితం, దిశానిర్దేశం మరియు ప్రేరణ కలుగచేసే కళ", "Friendship", "Leadership", "Dictatorship", "Relationship", 2],
+            [469, "This is not a quality of a good leader", "మంచి నాయకుని లక్షణం కానిది", "Visionary", "Motivation", "Influencer", "Unstable person", 4],
+            [470, "Leadership style where the leader make decisions without consulting others", "ఇతరులను సంప్రదించకుండా నాయకుడే నిర్ణయాలు తీసుకునే నాయకత్వం", "Democratic Leadership", "Service Leadership", "Autocratic Leadership", "Transactional Leadership", 3],
+            [471, "Father of Action Research", "చర్యాత్మక పరిశోధన పితామహుడు", "Kurt Lewin", "Sigmund Freud", "Ivan Pavlov", "Thorndike", 1],
+            [472, "Seating arrangement in straight lines", "సరళ రేఖలుగా కూర్చునే అమరిక", "U-Shaped Arrangement", "Traditional Arrangement", "Circular Arrangement", "Auditorium Arrangement", 2],
+            [473, "Seating arrangement suitable for collaborative work", "భాగస్వామ్య పనికి సంబంధించి అనువైన కూర్చునే అమరిక", "Small Group Clusters", "Straight Rows", "Bean bag Seating", "Not related to seating", 1],
+            [474, "An e classroom", "e - క్లాస్ రూమ్ లో", "Uses only chalk and board", "Uses only charts", "Uses only lectures", "Uses Multimedia", 4],
+            [475, "Effective classroom", "ప్రభావవంతమైన తరగతి గది", "Not safe and secure", "Support the student's needs", "Rigid in the rules", "Lack of proper lighting facilities", 2],
+            [476, "Most desirable outcome of classroom management", "తరగతి గది నిర్వహణలో ముఖ్యమైన ఉత్పాదక అంశం", "Silence of the students", "Fear towards a teacher", "Good learning environment", "Punishing the students", 3],
+            [477, "Classroom management principle of respect and empathy come under this approach", "గౌరవం మరియు సహానుభూతి నియమాలు ఈ వాదం కిందికి వస్తాయి", "Autocratic Approach", "Humanistic Approach", "Behaviouristic Approach", "Democratic Approach", 2],
+            [478, "As a leader, a teacher should not", "ఒక నాయకునిగా ఉపాధ్యాయుడు చేయకూడనిది", "Build a confidence in students", "Manage time effectively", "Encourage conflicts", "Motivate students", 3],
+            [479, "Kurt Lewin's Model of Action Research does not possess this step", "కర్ట్ లెవిన్ చర్యాత్మక పరిశోధనా నమూనాలో లేని సోపానం", "Planning", "Sharing", "Action", "Observation", 2],
+            [480, "Leadership that encourages team members in decision making process", "నిర్ణయాలు తీసుకునే ప్రక్రియలో బృంద సభ్యులను ప్రోత్సహించే నాయకత్వం", "Democratic Leadership", "Autocratic leadership", "Service Leadership", "Coaching Leadership", 1],
+            [481, "Poor strategy for managing classroom time", "తరగతిగది కాలాన్ని సద్వినియోగపరచుకోవడంలో బలహీనమైన వ్యూహం", "Setting up clear goals", "Use of Technology", "Unawareness of the learning objectives", "Prioritisation", 3],
+            [482, "Most suitable seating arrangement for the teacher - centred lecture", "ఉపాధ్యాయ కేంద్ర ఉపన్యాస పద్ధతికి అనువైన కూర్చునే అమరిక", "Traditional Rows", "Bean bag Seating", "Small Groups", "Circular Environment", 1],
+            [483, "Delegative leadership is referred to", "డెలిగేటివ్ నాయకత్వం అని దీనిని అంటాం", "Democratic Leadership", "Autocratic Leadership", "Laissez Faire Leadership", "Coaching Leadership", 3],
+            [484, "Guidance is a", "మార్గదర్శకత్వం అనేది", "Continuous processes", "Teaching learning process", "Regular physical activity", "One time activity", 1],
+            [485, "Process of giving Guidance is", "మార్గదర్శకత్వాన్నిచ్చే సహాయ ప్రక్రియ", "Experiment", "Conversation", "Counselling", "Teaching", 3],
+            [486, "Characteristics of a well-being person", "సమతుల్యత కలిగిన వ్యక్తి లక్షణం", "Compares with others", "Emotionally stable", "Pessimist", "Cannot adjust with others", 2],
+            [487, "Guidance given to select a suitable career is", "సరైన ఉద్యోగాన్ని ఎంపిక చేసుకోవడానికి ఇచ్చే మార్గదర్శకత్వం", "Educational guidance", "Vocational guidance", "Personal guidance", "Marital guidance", 2],
+            [488, "Guidance given to personal problems is", "వ్యక్తిగత సమస్యలకు ఇచ్చే మార్గదర్శకత్వం", "Educational guidance", "Vocational guidance", "Institutional guidance", "Personal guidance", 4],
+            [489, "Defence mechanisms help in", "రక్షణతంత్రాలు ఇందుకు సహాయ పడతాయి.", "Reducing Psychological stress", "Overthinking about problems", "Solve problems", "To become emotionally unstable", 1],
+            [490, "Characteristic of a person with adjustment", "సర్దుబాటు కలిగిన వ్యక్తి యొక్క లక్షణం", "Knows about his abilities", "Unable to take decisions", "Having over confidence", "Involves in unnecessary things", 1],
+            [491, "Defence mechanism that refuses reality", "వాస్తవాన్ని అంగీకరించేందుకు వ్యతిరేకించే రక్షణ తంత్రం", "Projection", "Rationalization", "Denial", "Repression", 3],
+            [492, "The type of counselling where the counsellor shows domination", "ఈ రకమైన మంత్రణంలో మంత్రణకుడు ఆధిపత్యాన్ని చూపుతాడు", "Non - Directive counselling", "Elective counselling", "Directive counselling", "Goal directed counselling", 3],
+            [493, "Incorrect statement regarding counselling", "కౌన్సిలింగ్ కు సంబంధించి సరికాని వాక్యం", "Psychological tests do not help in counselling.", "Counselling helps in understanding abnormal behaviour.", "In directive counselling, counsellor plays a major role.", "Counselling helps in solving problems", 1],
+            [494, "Defence mechanism that is pushing sorrowful thoughts into unconsciousness", "విచారకరమైన విషయాలను అచేతన మనస్సులోనికి పంపే రక్షణతంత్రం", "Compensation", "Repression", "Identification", "Displacement", 2],
+            [495, "Well-being is related to these aspects", "సంపుర్ణారోగ్యం ఈ అంశాలతో సంబంధాన్ని కలిగి ఉంటుంది.", "Physical", "Mental", "Social", "Related to all these aspects", 4],
+            [496, "Group guidance is given to", "సమూహ మార్గదర్శకత్వం వీరికి ఇస్తారు", "Teachers only", "Only to one individual", "A group of individuals of same class", "Persons working in different professions", 3],
+            [497, "It is needed for good physical and mental health", "సరైన శారీరక మరియు మానసిక ఆరోగ్యానికి ఇది అవసరం", "Should sleep at late night", "Should do physical exercise regularly", "Should involve in unnecessary affairs", "Should be jealous about others", 2],
+            [498, "Positive factor that influences mental health", "మానసిక ఆరోగ్యాన్ని ప్రభావితం చేసే ధనాత్మక అంశం", "Good social relations", "Maladjustment", "Social Isolation", "Overstress", 1],
+            [499, "Balance between persons needs and desires", "వ్యక్తి అవసరాలకు మరియు కోరికలకు మధ్య ఉండే సమతుల్యం", "Stress", "Adjustment", "Behaviour", "Personality", 2],
+            [500, "Day dreaming is this type of defence mechanism", "పగటికలలు కనడం ఈ రకమైన రక్షణతంత్రం", "Regression", "Compensation", "Projection", "Fantasy", 4],
+            [501, "Personal Guidance is not related to", "వ్యక్తిగత మార్గదర్శకత్వం దీనికి సంబంధించినది కాదు", "Adjustment problems", "Organisational problems", "Family problems", "Marital problems", 2],
+            [502, "Guidance given to the students to choose a suitable course", "సరైన కోర్స్ను ఎన్నుకోవడంలో విద్యార్థులకు అందించే మార్గదర్శకత్వం", "Vocational guidance", "Educational guidance", "Personal guidance", "Sports guidance", 2],
+            [503, "Negative aspect of mental health", "మానసిక ఆరోగ్యానికి సంబంధించిన ఒక ఋణాత్మక అంశం", "Having stress", "Having adjustment", "Having good friends", "Having good sleep", 1],
+            [504, "Positive aspect of mental health", "మానసిక ఆరోగ్యానికి ప్రోత్సాహక అంశం", "Overthinking", "Malnutrition", "Adjustment to the surroundings", "Frustration", 3],
+            [505, "In NEP-2020 NEP means", "NEP-2020 లో NEP అనగా", "National Employment Policy", "National Examination Policy", "National Education Policy", "National Enrolment Policy", 3],
+            [506, "The first education policy of the 21st century is", "21వ శతాబ్దపు మొట్టమొదటి విద్యావిధానం", "POA-1992", "NEP - 1986", "NEP - 1968", "NEP - 2020", 4],
+            [507, "In NEP - 2020, 5+3+3+4 structure is prescribed to the children of this age group (in years)", "NEP - 2020 లో 5+3+3+4 విద్యావిధానం ఈ వయస్సు గల పిల్లల కోసం", "4-12", "3-18", "6-14", "3-15", 2],
+            [508, "NEP - 2020 emphasis this aspect", "NEP-2020 ప్రాముఖ్యతనిచ్చే అంశం", "Rote learning", "Examination preparation", "Teacher centred education", "21st century skills", 4],
+            [509, "NCF-2005 was designed by", "NCF - 2005 ను తయారుచేసినది", "SCERT", "DIET", "NCTE", "NCERT", 4],
+            [510, "NCF-2005 stands for", "NCF-2005 అనగా", "National Children Framework - 2005", "National Course Framework - 2005", "National Curriculum Framework - 2005", "National Class Framework - 2005", 3],
+            [511, "National Education Policy - 2020 formulated this structure of education", "జాతీయ విద్యావిధానం 2020 ఈ విద్యానిర్మాణాన్ని ప్రతిపాదించింది", "10+2+3", "11+1+3", "5+3+3+4", "10+3+3", 3],
+            [512, "According to NEP-2020 education starts at the age of", "NEP - 2020 ప్రకారం చదువు ప్రారంభం అయ్యే వయస్సు", "3 years", "5 years", "6 years", "2 years", 1],
+            [513, "NCF-FS 2022 is based on", "NCF - FS 2022 దీనిపై ఆధారపడినది", "NPE - 1986", "NCF - 2008", "RTE - 2009", "NEP - 2020", 4],
+            [514, "NCTE", "NCTE", "National Committee on Teacher Education", "National Council for Trade and Education", "National Council for Teacher Education", "National Conference on Teacher Empowerment", 3],
+            [515, "APSCF aims at this", "APSCF దీనిని లక్ష్యంగా కలిగి ఉంది", "Developing memory skills", "Developing examination skills", "Holistic development", "Improve hand writing skills", 3],
+            [516, "NTA means", "NTA అనగా", "National Technological Assessment", "National Television Academy", "National Trade and Administration", "National Testing Agency", 4],
+            [517, "According to RTE-2009 Act the following age group children have the right to compulsory education", "RTE - 2009 చట్టం ప్రకారం ఈ కింది వయస్సు గల పిల్లలు నిర్బంధ ప్రాథమికవిద్యా హక్కును కలిగి ఉన్నారు.", "5-9 years", "6-14 years", "4-12 years", "7-18 years", 2],
+            [518, "Expand APSCF", "APSCF ను విస్తరింపుము", "Andhra Pradesh School Course Framework", "Andhra Pradesh School Curriculum Framework", "Andhra Pradesh State Children Framework", "Andhra Pradesh State Curriculum Framework", 4],
+            [519, "NCF-FS 2022 was designed by", "NCFFS 2022 తయారు చేసినది", "SCERT", "DIET", "NCERT", "SSA", 3],
+            [520, "4 indicates this stage in NEP - 2020 structure of education 5+3+3+4", "NEP - 2020 లో 4 ఈ స్థాయిని సూచిస్తుంది", "Foundational level", "Secondary level", "Preparatory level", "Middle level", 2],
+            [521, "RTE Act was implemented from this year", "RTE చట్టం ఈ సంవత్సరం నుండి అమలులోకి వచ్చింది", "2009", "2008", "2010", "2005", 3],
+            [522, "DIKSHA means", "DIKSHA అనగా", "Directorate of Information for Knowledge Sharing", "District Institute for Knowledge Sharing", "Department of Information for Knowledge Sharing", "Digital Infrastructure for Knowledge Sharing", 4],
+            [523, "NEP-2020 gives importance to", "NEP-2020 ఇందుకు ప్రాధాన్యతను ఇస్తుంది", "Experiential Learning", "Memorization", "Learning to reading textbooks only", "Rote learning", 1],
+            [524, "Anganwaadi education comes under this frame", "అంగన్వాడీ విద్య ఈ చట్రం కిందికి వస్తుంది", "Primary", "E.C.C.E", "High School", "Upper Primary", 2],
+            [525, "Southern regional office of NCTE is in", "NCTE దక్షిణ ప్రాంత కార్యాలయం ఇక్కడ ఉంది", "New Delhi", "Hyderabad", "Bengaluru", "Lucknow", 3],
+            [526, "This is not an Assessment tool", "మదింపు సాధనం కానిది", "Essay Type Tests", "Interview", "Observation", "Time Table", 4],
+            [527, "Assessment carried out from time to time to know the progress of the children", "పిల్లల ప్రగతిని ఎప్పటికప్పుడు తెలుసుకోవడానికి చేసే మదింపు", "Summative Assessment", "Formative Assessment", "Baseline Test", "Project work", 2],
+            [528, "Number of times the Summative Assessment is conducted in schools", "పాఠశాలల్లో సంగ్రహణ ముల్యాంకమును ఇన్నిసార్లు నిర్వహిస్తారు.", "One Time", "Two Times", "Three Times", "Four Times", 2],
+            [529, "Assessing the children's abilities as a part of daily teaching - learning process is", "రోజువారీ బోధనాభ్యసన ప్రక్రియల్లో విద్యార్థుల సామర్థ్యా న్ని మదింపు చేయడమే", "Assessment as Learning", "Assessment for Learning", "Assessment of Learning", "Assessment on Learning", 1],
+            [530, "Assessment used to understand the children's behaviour in a classroom", "తరగతి గదిలో పిల్లల ప్రవర్తనను అర్ధం చేసుకోవడానికి ఉపయోగపడే మదింపు", "Written test", "Project work", "Observation", "Note books", 3],
+            [531, "This is not correctly related to Summative Assessment", "సంగ్రహణాత్మక మూల్యాంకనానికి సంబంధించి సరి కానిది", "It is assessed in the form of examinations.", "It is conducted in a specific schedule.", "It reveals only about the result only.", "It is an internal classroom assessment", 4],
+            [532, "This is not the main aim of Diagnostic Evaluation", "లోప నిర్ధారణ మూల్యాంకనం యొక్క ముఖ్య ఉద్దేశం కానిది", "Estimates the strengths and weaknesses among Students.", "Provides Qualitative Education.", "Identifies the hurdles among students.", "It is not useful to rectify the mistakes of Children.", 4],
+            [533, "'Destiny of the Nation is shaped in the classroom', stated by", "'దేశ భవిష్యత్తు తరగతి గదిలో రూపొందుతుంది', అని తెలిపినవారు", "Kothari Commission", "Radha Krishnan Commission", "University Commission", "Macaulay Report", 1],
+            [534, "The process of preparing a report by observing and analysing a problem and its solution is called", "ఒక సమస్య మరియు దాని పరిష్కారానికి పరిశీలనా మరియు విశ్లేషణ చేసి, ఒక నివేదికను తయారుచేసే ప్రక్రియను ఇలా అంటారు", "Observation", "Project Work", "Interview", "Questionnaire", 2],
+            [535, "Choose the wrong statement related to Assessment.", "మదింపుకు సంబంధించి సరికాని వాక్యాన్ని ఎన్నుకోండి", "Different tools are used for Assessment", "It is used in teaching - learning process", "It gives importance to knowledge construction.", "It is done only through examinations", 4],
+            [536, "According to RTE 2009, this age group children should be given free and compulsory education (in years)", "RTE 2009 ప్రకారం, ఈ కింది వయస్సు గల బాలలు అందరికీ, నిర్భంద ఉచితవిద్యను అందచేయాలి", "1-14", "6-14", "3-14", "1-16", 2],
+            [537, "CCE means", "CCE అనగా", "Comprehensive Curricular Evaluation", "Continuous Curricular Evaluation", "Comprehensive Continuous Evaluation", "Continuous Comprehensive Evaluation", 4],
+            [538, "Aim of Continuous Comprehensive Evaluation", "నిరంతర సమగ్ర ముల్యాంకనం యొక్క ఉద్దేశం", "Rote learning", "Remembering Information", "Analytical Thinking", "Securing good marks", 3],
+            [539, "Progress report of the child tells", "పిల్లల ప్రగతి నివేదిక దీనిని తెలియచేస్తుంది", "Holistic development of the students", "Only the marks of the students", "Information about the lessons", "Information about the teachers", 1],
+            [540, "This is not a quality of a good test", "ఒక మంచి నికష యొక్క లక్షణం కానిది", "Validity", "Reliability", "Objectivity", "Subjectivity", 4],
+            [541, "Assessment done after the completion of a course", "ఒక కోర్సు ముగిసిన తరువాత చేసే మదింపు", "Formative Assessment", "Baseline Test", "Half yearly Examination", "Summative Assessment", 4],
+            [542, "Item that is not related to Response Assessment", "స్పందన మదింపుకు సంబంధించని అంశం", "Multiple Choice Questions", "Binary Choice Questions", "Natural Observation", "Matching Type Questions", 3],
+            [543, "This tool is used to know whether a concept exists or not", "ఒక భావం ఉన్నదో లేదో తెలుసుకోవడానికి ఉపయోగించే సాధనం", "Teacher Diary", "Student's Diary", "Checklist", "Portfolio", 3],
+            [544, "The Assessment that declares the final judgement on a childrens's learning achievement", "ఈ మదింపు పిల్లల అభ్యసనా సాధనపై తుది నిర్ణయాన్ని ప్రకటించే మదింపు", "Assessment of Learning", "Assessment for Learning", "Assessment as Learning", "Assessment by Learning", 1],
+            [545, "This type of questions help students to express their own views", "ఈ రకమైన ప్రశ్నలు విద్యార్థులు తమ యొక్క సొంత అభిప్రాయాలను వెల్లడించడానికి ఉపయోగపడతాయి", "Fill in the blanks", "Essay Type Questions", "Matching", "Multiple Choice Questions", 2],
+            [546, "Assessment conducted at the end of the Academic Year", "విద్యాసంవత్సరం చివరిలో జరిపే మదింపు", "Baseline Test", "Formative Assessment", "Summative Assessment", "Assignment", 3],
+            [547, "Measure of central tendency", "కేంద్రీయ ప్రవృత్తిమానం", "Arithmetic Mean", "Variance", "Standard Derivation", "Range", 1],
+            [548, "This is not a measure of variability", "చరశీలతామానం కానిది", "Quartile Deviation", "Average Deviation", "Variance", "Median", 4],
+            [549, "Arithmetic mean of 16, 18, 20, 22, 24", "16,18, 20, 22, 24 అంక మధ్యమం విలువ", "24", "20", "18", "16", 2],
+            [550, "Formula for finding Quartile deviation", "చతుర్థాంశ విచలనాన్ని కనుగొనడానికి సూత్రం", "QD=(Q1+Q2)/2", "QD=(Q1-Q2)/2", "QD=(Q3-Q1)/2", "QD=(Q3xQ1)/2", 3],
+            [551, "Mean of the first ten Natural Numbers", "మొదటి పది సహజ సంఖ్యల సరాసరి", "3.5", "4.5", "5.5", "6.5", 3],
+            [552, "Median of the scores is 14, 17, 16, 12, 8, 4, 24, 22", "14, 17, 16, 12, 8, 4, 24, 22 మధ్యగతం", "14", "16", "15", "17", 3],
+            [553, "Mode of the given data 7, 6, 8, 9, 10, 7, 6, 9, 8, 10, 7, 8, 7", "దత్తాంశం బాహుళకం", "9", "8", "7", "10", 3],
+            [554, "In a pie diagram, the sum of the angles of all sectors is", "వృత్త రేఖా చిత్రంలో వృత్త విభాగాల కోణాల మొత్తం", "120", "180", "90", "360", 4],
+            [555, "The following are the marks of a student in various subjects 57, 63, 48, 65, 61. The range is", "విద్యార్థికి వచ్చిన మార్కులు 57, 63, 48, 65, 61. వ్యాప్తి", "57", "48", "17", "25", 3],
+            [556, "The empirical relation between the measures of central tendency", "కేంద్రీయ ప్రవృత్తిమానాల మధ్య అనుభావిక సంబంధం", "Mode = 3 Median - 2 Mean", "Mode = 3 Mean - 2 Median", "Mode = 3 Median + 2 Mean", "Mode = Median - Mean", 1],
+            [557, "Bar graph among the following", "కింది వానిలో కమ్మీ చిత్రం", "Frequency polygon", "Cumulative Percentage Frequency Curve", "Histogram", "Circle Graph", 3],
+            [558, "The Arithmetic Mean of the data 7,10,15,10,8,8,7,3,2,10", "దత్తాంశం యొక్క అంకమధ్యమం", "10", "8", "5", "16", 2],
+            [559, "Q3=80, Q1=20 then Quartile deviation is", "Q3=80 Q1=20 అయిన చతుర్థాంశ విచలనము", "20", "30", "40", "50", 2],
+            [560, "Difference between the highest value and the lowest value in a data is called", "దత్తాంశం లోని గరిష్ఠ కనిష్ట విలువల మధ్య తేడాను ఇలా అంటాం", "Standard Deviation", "Quartile Deviation", "Mean Deviation", "Range", 4],
+            [561, "This is a derived score", "ఒక ఉద్భవ గణన", "Range", "Deviation", "Z-Score", "Mean", 3],
+            [562, "Classification and interpretation of data is called", "దత్తాంశాన్ని వర్గీకరించడం మరియు వ్యాఖ్యానించడాన్ని ఇలా అంటారు", "Numerology", "Statistics", "Algebra", "Symmetry", 2],
+            [563, "In the formula of Median, L+((N/2-m)/f)xc, c denotes", "మధ్యగతం యొక్క సూత్రం L+((N/2-m)/f)xc నందు c దీనిని తెలుపుతుంది", "Frequency", "Lower Limit of the Class", "Class - Interval", "Sum of the Frequency", 3],
+            [564, "Mode of the data 10, 20, 30, 40, 50", "10, 20, 30, 40, 50 దత్తాంశం యొక్క బాహుళకం", "10", "20", "50", "Cannot be determined", 4],
+            [565, "This is not related to Graphical representation of data", "రేఖాచిత్రాలలో దత్తాంశ ప్రదర్శనకు సంబంధించనది", "Histogram", "Pie Graph", "Snellen Chart", "Frequency Polygon", 3],
+            [566, "Sf is equal to", "Sf దీనికి సమానం", "C", "N", "m", "d", 2],
+            [567, "Median of the scores 76, 24, 53, 35, 80, 09, 43", "మధ్యగతం", "53", "43", "80", "76", 1],
+            [568, "This belongs to audio Visual Aid", "దృశ్య శ్రవణ పరికరానికి చెందినది", "Radio", "Television", "News Paper", "Black Board", 2],
+            [569, "The word 'Technology' is derived from", "“టెక్నాలజీ” అను పదం ఈ భాష నుండి ఉద్భవించింది", "Russian", "English", "Greek", "Persian", 3],
+            [570, "'Information for all,' this statement is given by", "'సమాచారం అందరిది.' ఈ ప్రవచనాన్ని ఇచ్చినది", "W.T.O", "W.H.O", "I.L.O", "UNESCO", 4],
+            [571, "The word 'communis' is derived from this language", "'కమ్యూనిస్' అను పదం ఈ భాష నుండి ఉద్భవించింది", "Hindi", "English", "Latin", "Telugu", 3],
+            [572, "According to UNESCO, Information Technology is related to these branches.", "యునెస్కో ప్రకారం, సమాచార సాంకేతికత ఈ విభాగాలకు సంబంధించినది", "Medicine, Technology", "Architecture, Geology", "Technology, Engineering", "Statistics, Data Science", 3],
+            [573, "This belongs to Print Media", "ముద్రణా మద్యమమునకు సంబంధించినది", "Radio", "Television", "Cinema", "News Paper", 4],
+            [574, "This belongs to Audio aid", "శ్రవణ ఉపకరణమునకు సంబంధించినది", "Radio", "Television", "Cinema", "News Paper", 1],
+            [575, "The term 'Educational Technology' is derived from the combination of these two words", "విద్యా సాంకేతిక శాస్త్రం అనే పదం ఈ రెండూ పదాల కలయిక వలన ఏర్పడింది.", "Education, Technology", "Education, Psychology", "Education, Philosophy", "Education, Sociology", 1],
+            [576, "The type of communication used in reports, responses to queries and petitions is", "నివేదికలు, ఉత్తర ప్రత్యుత్తరాలకు, అభ్యర్థనలకు ఉపయోగించే సమాచార ప్రసార రకము", "Horizontal Communication", "Cluster Communication", "Upward Communication", "Star Communication", 3],
+            [577, "According to Robert Stolorow, the reason for the utilization of technological knowledge in educational system is", "రాబర్ట్ స్టోలోరో ప్రకారం, విద్య విధానంలో సాంకేతిక పరిజ్ఞానం ఉపయోగానికి గల కారణం", "Illiteracy", "Acceleration in the generation of New Knowledge", "Poverty and Economic Statutes", "Disparities in the Society", 2],
+            [578, "This is not an objective of Educational Technology", "విద్యా సాంకేతికత శాస్త్ర లక్ష్యం కానిది", "Creating gap between Teachers and Students.", "Provision of modern educational tools", "Creating more self-directed learning opportunities.", "Providing Opportunities for more individuals.", 1],
+            [579, "This is not an example of Print Media", "ముద్రణా మాధ్యమానికి ఉదాహరణ కానిది", "News Paper", "Books", "Television", "Posters", 3],
+            [580, "This characteristic is not required for Educational films used in Education", "తరగతిగదిలో ఉపయోగించడానికి విద్యాచలన చిత్రానికి ఉండవలసిన లక్షణం కానిది", "Must align with curriculum context", "Should not facilitate group learning", "Authenticity is crucial", "Should follow a structured format", 2],
+            [581, "This is not an advantage of Educational film", "విద్యా చలన చిత్రాల ఉపయోగం కానిది", "Creates interest in studies", "Teach many people at once", "Can't present historical events", "Help in acquiring mental abilities", 3],
+            [582, "This is not a limitation of Educational films", "విద్యా చలన చిత్రాల పరిమితి కానిది", "Training is required to operate projector", "Some schools do not have necessary resources.", "It is very expensive", "Creates interest to students", 4],
+            [583, "Incorrect statement on the importance of ICT to teachers", "ఉపాధ్యాయులకు సమాచార ప్రసార సాంకేతిక ఉపయోగానికి సంబంధించిన సరికాని ప్రవచనము", "Creating new course material", "Make abstract concepts easier to understand.", "Can provide real life experiences", "Doesn't support the development of teaching methods", 4],
+            [584, "'Music' comes under this type of teaching technique", "“మ్యూజిక్” అనేది ఈ రకపు బోధనా విధానం కిందికి వస్తుంది", "Stimulating Visual learning", "Listening Teaching Method", "Tactile Teaching Method", "Kinesthetic Teaching Method", 2],
+            [585, "Flash cards come under this type of teaching method", "ఫ్లాష్ కార్డ్స్ అనునవి ఈ బోధనా పద్ధతి కిందికి వస్తాయి", "Stimulating Visual learning", "Listening Teaching Method", "Tactile Teaching Method", "Kinesthetic Teaching Method", 1],
+            [586, "This is not a feature of written communication", "లిఖిత భావప్రసారం యొక్క లక్షణం కానిది", "It is clear", "Can't be used as evidence", "It is contextually useful", "It is concise", 2],
+            [587, "In Flander's interaction analysis category method, the category 'Lecturing' comes under this item.", "ఫ్లాండర్స్ పరస్పర చర్యా విశ్లేషణ శ్రేణి పద్ధతిలో, ‘ఉపన్యసించడం’", "Teacher Talk", "Student Talk", "Silence", "Confusion", 1],
+            [588, "In Flander's interaction analysis category method, 'student talk response' comes under this item", "ఫ్లాండర్స్ ఫ్లాండర్స్ పరస్పర చర్యా విశ్లేషణ శ్రేణి పద్ధతిలో, 'విద్యార్థి ప్రతిస్పందించుట'", "Teacher Talk", "Student Talk", "Silence", "Confusion", 2],
+            [589, "This is not an advantage of ICT", "ICT యొక్క ప్రయోజనం కానిది", "Increases Motivation to study", "Completely replaces the role of a teacher", "Learning experience has the potential to extend.", "Helps to implement personalised learning", 2],
+            [590, "This is not a part of Multimedia", "ఇది మల్టీమీడియా లోని భాగం కాదు", "Graphics", "Animations", "Videos", "Radio", 4],
+            [591, "This is not the advantage of Multimedia", "ఇది మల్టీమీడియా వలన కలిగే ఉపయోగం కాదు", "Friendly Exchange", "Expensive", "Accessible to audience", "Flexible", 2],
+            [592, "This is an advantage of Multimedia", "మల్టీమీడియా యొక్క ప్రయోజనము", "Expensive", "Friendly exchange", "Takes long display loading time", "Compilation Time", 2],
+            [593, "This is not a disadvantage of online Education", "అంతర్జాల ఆధారిత విద్య యొక్క ప్రతికూలత కానిది", "Obscenity falls very easily to young children.", "There are many scam sites in the internet.", "Hackers may steal person's identity", "Saves time and money", 4],
+            [594, "This is not a disadvantage of online Education", "అంతర్జాల ఆధారిత విద్య యొక్క ప్రతికూలత కానిది", "Malicious persons can enter personal computers.", "Some people may get addicted to the internet.", "Reduces communication gaps", "There are many antisocial sites on internet.", 3],
+            [595, "This is not a computer language", "కంప్యూటర్ భాష కానిది", "Fortran", "Cobol", "Pascal", "Newton", 4],
+            [596, "The device used in second generation computers", "రెండవతరం కంప్యూటర్ లలో వాడిన పరికరం", "Transistors", "Vacuum Tubes", "Integrated circuits", "Artificial Intelligence", 1],
+            [597, "This is not a characteristic of computers", "కంప్యూటర్ లక్షణం కానిది", "Speed", "Accuracy", "Forgetting", "Reliability", 3],
+            [598, "This is not a characteristic of computers", "కంప్యూటర్ లక్షణం కానిది", "Memory", "Fatigue", "Reliability", "Repetition", 2],
+            [599, "This is not a characteristic of computers", "కంప్యూటర్ లక్షణం కానిది", "Versatility", "Diligency", "Automation", "Emotional", 4],
+            [600, "This is not an input device", "ఇన్పుట్ పరికరం కానిది", "Key board", "Mouse", "Scanner", "Speaker", 4],
+            [601, "This is not an output device", "అవుట్పుట్ పరికరం కానిది", "Monitor", "Printer", "Speaker", "Mouse", 4],
+            [602, "This is not a type of memory in ICT", "ఇది ICT లోని మెమొరీ రకం కాదు.", "Cache memory", "Primary memory", "Elementary memory", "Secondary memory", 3],
+            [603, "Microsoft's widely used slideshow software", "మైక్రోసాఫ్ట్ యొక్క విస్తృతంగా ఉపయోగించే స్లయిడ్ షో సాఫ్ట్ వేర్", "MS WORD", "MS EXCEL", "MS POWERPOINT", "MS DOS", 3],
+            [604, "The network works across large areas such as countries and continents", "దేశం, ఖండం వంటి ప్రాంతాలలో పనిచేసే నెట్వర్క్", "LAN", "MAN", "CAN", "WAN", 4],
+            [605, "The network that works in small areas like a building or a campus", "భవనం లేదా క్యాంపస్ వంటి చిన్న ప్రదేశాలలో పనిచేసే నెట్వర్క్", "MAN", "LAN", "GAN", "WAN", 2],
+            [606, "This is not a type of computer network", "ఇది కంప్యూటర్ నెట్వర్క్ లోని రకము కాదు", "LAN", "MAN", "CAN", "WAN", 3],
+            [607, "In computer network, this is not an advantage of Intranet", "కంపూటర్ నెట్వర్క్ లో ఇంట్రానెట్ యొక్క ప్రయోజనం కానిది", "Communication", "Collaboration", "Affordable", "Time Consuming", 4],
+            [608, "Father of modern computer", "ఆధునిక కంప్యూటర్ పితామహుడు", "Charles Babbage", "Stephen Hawking", "Pascal", "Leibniz", 1],
+            [609, "Logarithms were invented by", "లాగరిథమ్స్ ను కనుగొన్నవారు", "Pascal", "Napier", "Leibniz", "Babbage", 2],
+            [610, "Shortcut key useful for closing window/ shut down", "విండో ను మూసివేయుటకు లేదా షట్ డౌన్ చేయుటకు", "Alt +F4", "Ctrl+Y", "Ctrl+Z", "Ctrl+X", 1],
+            [611, "Shortcut key useful for spellcheck", "స్పెల్ చెక్ కొరకు ఉపయోగించే షార్ట్కట్ కీ", "F1", "F2", "F5", "F7", 4],
+            [612, "Shortcut key useful for underlining", "అండర్ లైన్ చేయుటకు ఉపయోగించే షార్ట్ కట్ కి", "Ctrl+S", "Ctrl+U", "Ctrl+P", "Ctrl+K", 2],
+            [613, "Shortcut key useful to print a file", "ఫైల్ ను ప్రింట్ తీయుటకు ఉపయోగించే షార్ట్ కట్ కీ", "Ctrl+S", "Ctrl+U", "Ctrl + P", "Ctrl+K", 3],
+            [614, "Shortcut key useful to save a file", "ఫైల్ ను సేవ్ చేయుటకు ఉపయోగించే షార్ట్ కట్ కీ", "Ctrl + S", "Ctrl+U", "Ctrl+P", "Ctrl+K", 1],
+            [615, "Shortcut key useful for right alignment of a text", "టెక్స్ట్ ను కుడివైపు అమరిక కొరకు ఉపయోగించే షార్ట్ కట్ కి", "Ctrl+C", "Ctrl+D", "Ctrl+R", "Ctrl+L", 3],
+            [616, "Shortcut key useful for 'Select all'", "'మొత్తాన్ని సెలెక్ట్ చేయుట' కొరకు", "Ctrl+B", "Ctrl+A", "Ctrl+C", "Ctrl+E", 2],
+            [617, "Shortcut key used to copy a file", "ఫైల్ కాపీ చేయుట కొరకు ఉపయోగించే షార్ట్ కట్ కి", "Ctrl+A", "Ctrl+B", "Ctrl+C", "Ctrl+D", 3],
+            [618, "Shortcut key useful to open a new blank document", "కొత్త డాక్యుమెంట్ను తెరుచుటకు", "Ctrl+A", "Ctrl+B", "Ctrl+C", "Ctrl+N", 4],
+            [619, "Shortcut key useful for central alignment", "సెంట్రల్ అమరిక కొరకు ఉపయోగించే షార్ట్ కట్ కీ", "Ctrl+A", "Ctrl+B", "Ctrl+C", "Ctrl+E", 4],
+            [620, "Shortcut key useful for Help", "Help కొరకు ఉపయోగించే షార్ట్ కట్ కీ", "F1", "F4", "F5", "F7", 1],
+            [621, "Full form of CPU", "CPU పూర్తి రూపం", "Computer Parts Unity", "Central Processing Unit", "Code Processing Unit", "Compact Parts Units", 2],
+            [622, "Full form of CD", "CD పూర్తి రూపం", "Compact Disc", "Computer Disk", "Compact Device", "Computer Device", 1],
+            [623, "Full form of WWW", "WWW పూర్తి రూపం", "Word Wide Web", "Wide Web World", "World Wide Web", "World Web Wide", 3],
+            [624, "Full form of DOS", "DOS పూర్తి రూపం", "Desk Operating Sound", "Disk Operating Sound", "Desk Operating System", "Disk Operating System", 4],
+            [625, "Full form of LAN", "LAN పూర్తి రూపం", "Local Area Network", "Local Aided Network", "Local Advanced Network", "List Automated Network", 1],
+            [626, "Full form of IC", "IC పూర్తి రూపం", "Internet Circuit", "Integrated Circuit", "Internal Circuit", "International Circuit", 2],
+            [627, "Full form of RAM", "RAM పూర్తి రూపం", "Read All Memory", "Random Access Manufacturing", "Read Access Memory", "Random Access Memory", 4],
+            [628, "Full form of HTTP", "HTTP పూర్తి రూపం", "Hyper Text Transfer Protocol", "Hyper Test Transfer Protocol", "Hyper Text Transfer Publishing", "Higher Test Transfer Protocol", 1],
+            [629, "Full form of ICT", "ICT పూర్తి రూపం", "Information and Communication Technology", "International Computer Training", "International Computer Technology", "Information and Communication Training", 1],
+            [630, "E-mail means", "E-mail", "Energetic Mail", "Electronic Mail", "Emerging Mail", "Entertainment Mail", 2]
         ];
 
         let currentPaperNum = 1;
         let currentStartIndex = 0;
         let currentEndIndex = 0;
         let isSubmitted = false;
+
+        window.onload = function() {
+            const menuContainer = document.getElementById('dynamic-menu');
+            const totalQuestions = questionBank.length;
+            document.getElementById('total-q-count').innerText = totalQuestions;
+            
+            const totalPapers = Math.ceil(totalQuestions / 50);
+            let html = '';
+
+            for (let i = 1; i <= totalPapers; i++) {
+                const startQ = (i - 1) * 50 + 1;
+                const endQ = Math.min(i * 50, totalQuestions);
+                
+                html += `
+                <button onclick="openPaper(${i})" class="w-full bg-white hover:bg-blue-50 border-2 border-slate-200 hover:border-blue-400 text-slate-700 font-bold text-base sm:text-lg py-3 sm:py-4 px-4 sm:px-5 rounded-2xl shadow-sm transition-all flex justify-between items-center group">
+                    <span class="flex items-center gap-3"><i class="fa-solid fa-file-lines text-blue-400 text-xl"></i> Paper ${i}</span>
+                    <span class="text-[10px] sm:text-xs font-semibold text-slate-400 group-hover:text-blue-500 bg-slate-100 group-hover:bg-blue-100 px-2 sm:px-3 py-1 rounded-full">Q ${startQ} - ${endQ} <i class="fa-solid fa-chevron-right ml-1"></i></span>
+                </button>
+                `;
+            }
+            menuContainer.innerHTML = html;
+        };
 
         function openPaper(paperNum) {
             currentPaperNum = paperNum;
@@ -452,7 +821,7 @@
             isSubmitted = false;
 
             currentStartIndex = (paperNum - 1) * 50;
-            currentEndIndex = currentStartIndex + 50;
+            currentEndIndex = Math.min(currentStartIndex + 50, questionBank.length); // Adjusted for the last paper
             const paperQuestions = questionBank.slice(currentStartIndex, currentEndIndex);
 
             const container = document.getElementById('questions-container');
@@ -460,14 +829,12 @@
 
             paperQuestions.forEach((q, index) => {
                 const qNum = currentStartIndex + index + 1; 
-                
-                // Retrieve saved answer if they started and refreshed
                 const savedAns = sessionStorage.getItem(`te_paper${paperNum}_q${qNum}`);
 
                 html += `
                 <div class="question-block bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden" id="q${qNum}">
                     <div class="bg-slate-50 border-b border-slate-100 px-5 sm:px-6 py-3 flex justify-between items-center text-sm font-bold text-slate-500 tracking-wide uppercase">
-                        <span>Question ${index + 1}</span>
+                        <span>Question ${qNum}</span>
                     </div>
                     <div class="p-5 sm:p-7">
                         <div class="text-base sm:text-lg font-bold text-slate-800 mb-2">${q[1]}</div>
@@ -509,28 +876,36 @@
         function handleAnswerChange() {
             let answeredCount = 0;
             const paperQuestions = questionBank.slice(currentStartIndex, currentEndIndex);
+            const totalInPaper = paperQuestions.length;
             
             paperQuestions.forEach((q, index) => {
                 const qNum = currentStartIndex + index + 1;
                 const checked = document.querySelector(`input[name="q${qNum}"]:checked`);
                 if(checked) {
                     answeredCount++;
-                    // Save to session so they don't lose work on reload
                     sessionStorage.setItem(`te_paper${currentPaperNum}_q${qNum}`, checked.value);
                 }
             });
             
-            document.getElementById('progress-text').innerText = `Answered: ${answeredCount} / 50`;
-            const pct = (answeredCount / 50) * 100;
+            document.getElementById('progress-text').innerText = `Answered: ${answeredCount} / ${totalInPaper}`;
+            const pct = (answeredCount / totalInPaper) * 100;
             document.getElementById('progress-bar').style.width = `${pct}%`;
         }
 
         function confirmSubmit() {
-            const answeredCount = document.querySelectorAll('input[type="radio"]:checked').length;
+            const paperQuestions = questionBank.slice(currentStartIndex, currentEndIndex);
+            const totalInPaper = paperQuestions.length;
+            
+            let answeredCount = 0;
+            paperQuestions.forEach((q, index) => {
+                const qNum = currentStartIndex + index + 1;
+                if(document.querySelector(`input[name="q${qNum}"]:checked`)) answeredCount++;
+            });
+
             const msg = document.getElementById('confirm-message');
             
-            if(answeredCount < 50) {
-                msg.innerHTML = `You have <strong>${50 - answeredCount} unanswered</strong> questions. Are you sure you want to grade the exam?`;
+            if(answeredCount < totalInPaper) {
+                msg.innerHTML = `You have <strong>${totalInPaper - answeredCount} unanswered</strong> questions. Are you sure you want to grade the exam?`;
             } else {
                 msg.innerHTML = "You have answered all questions. Ready to submit?";
             }
@@ -553,14 +928,14 @@
             let skippedCount = 0;
 
             const paperQuestions = questionBank.slice(currentStartIndex, currentEndIndex);
+            const totalInPaper = paperQuestions.length;
             
             paperQuestions.forEach((q, index) => {
                 const qNum = currentStartIndex + index + 1;
-                const correctAns = q[7]; // 1-based index
+                const correctAns = q[7]; 
                 const selectedRadio = document.querySelector(`input[name="q${qNum}"]:checked`);
                 const questionBlock = document.getElementById(`q${qNum}`);
                 
-                // 1. Highlight correct answer in green
                 const correctLabel = document.getElementById(`lbl-q${qNum}-${correctAns}`);
                 if(correctLabel) {
                     correctLabel.classList.remove('border-slate-100', 'hover:border-blue-200', 'hover:bg-blue-50');
@@ -568,7 +943,6 @@
                     correctLabel.innerHTML += ' <span class="ml-auto flex-shrink-0 text-[10px] sm:text-xs font-bold bg-emerald-500 text-white px-2 py-1 rounded">CORRECT</span>';
                 }
                 
-                // 2. Calculate scores & mark wrong selections
                 if (selectedRadio) {
                     const selectedVal = parseInt(selectedRadio.value);
                     if (selectedVal === correctAns) {
@@ -578,7 +952,6 @@
                     } else {
                         wrongCount++;
                         questionBlock.classList.add('is-wrong');
-                        // Highlight user's wrong answer in red
                         const wrongLabel = document.getElementById(`lbl-q${qNum}-${selectedVal}`);
                         if(wrongLabel) {
                             wrongLabel.classList.remove('border-slate-100', 'hover:border-blue-200', 'hover:bg-blue-50');
@@ -591,12 +964,10 @@
                     questionBlock.classList.add('is-skipped');
                 }
                 
-                // 3. Disable all radio buttons so they can't change answers after grading
                 document.querySelectorAll(`input[name="q${qNum}"]`).forEach(r => r.disabled = true);
             });
             
-            // Populate and show dashboard
-            document.getElementById('res-score').innerText = `${score}/50`;
+            document.getElementById('res-score').innerText = `${score}/${totalInPaper}`;
             document.getElementById('res-correct').innerText = correctCount;
             document.getElementById('res-wrong').innerText = wrongCount;
             document.getElementById('res-skipped').innerText = skippedCount;
@@ -604,7 +975,6 @@
             document.getElementById('results-dashboard').classList.remove('hidden');
             window.scrollTo(0, 0);
             
-            // Clear session storage so they can retake it fresh next time
             paperQuestions.forEach((q, index) => {
                 sessionStorage.removeItem(`te_paper${currentPaperNum}_q${currentStartIndex + index + 1}`);
             });
